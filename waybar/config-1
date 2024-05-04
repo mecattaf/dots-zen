@@ -22,6 +22,6 @@
     "ipc": true,                                        // Control waybar with `swaymsg bar` commands
     // Choose the order of the modules
     //"modules-left": ["sway/workspaces"],
-    "modules-center": ["sway/workspaces"],
+    "modules-center": ["hyprland/workspaces"],
     //"modules-right": ["custom/pomo#3"],
 }
