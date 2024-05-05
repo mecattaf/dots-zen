@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Check for valid usage
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 {top|bottom} {up|down|up-single|down-single}"
+    exit 1
+fi
+
+# Define display devices
+declare -A devices=(["top"]="sysfs/backlight/intel_backlight" ["bottom"]="sysfs/backlight/card1-eDP-2-backlight")
+
+# Assign variables based on input
+device=${devices[$1]}
+action=$2
+amount=5  # default amount for up/down
+notify_text="Brightness"
+
+# Adjust the amount for single increments
+if [[ "$action" == "up-single" || "$action" == "down-single" ]]; then
+    amount=1
+    action=${action%-single}  # removes "-single" suffix
+fi
+
+# Execute light command based on action
+if [[ "$action" == "up" ]]; then
+    light -A "$amount" -s $device
+    notify_text+=" up ($1)"
+elif [[ "$action" == "down" ]]; then
+    light -U "$amount" -s $device
+    notify_text+=" down ($1)"
+fi
+
+# Fetch the current brightness and send notification
+current_brightness=$(light -G -s $device)
+notify-send "$notify_text" "${current_brightness}%"
+
