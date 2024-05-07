@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Launch emoji selection with preview and pass the selected emoji to the clipboard
+selected_emoji=$(emoji-fzf preview | fzf -m --preview '~/.config/hypr/scripts/emoji-fzf get --name {1}' | cut -d ' ' -f 1)
+if [ -n "$selected_emoji" ]; then
+    # Retrieve the full emoji character from the selection
+    full_emoji=$(~/.config/hypr/scripts/emoji-fzf get "$selected_emoji")
+    # Store the emoji to clipboard
+    echo "$full_emoji" | clipman store
+    # Optionally, display a notification
+    notify-send "Emoji Copied" "$full_emoji"
+fi
