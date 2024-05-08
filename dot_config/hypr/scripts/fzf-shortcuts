@@ -1,6 +1,6 @@
 #!/bin/bash
 
-markdown_dir="/var/home/dev/.local/share/bin/shortcuts"
+markdown_dir="/var/home/dev/.config/hypr/scripts/shortcuts"
 
 # Create an associative array to map display names to file names
 declare -A file_map=(
