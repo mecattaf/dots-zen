@@ -1,12 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
-case "$@" in
-    forward )
-        swaymsg seat seat0 cursor press BTN_EXTRA
-        swaymsg seat seat0 cursor release BTN_EXTRA
+case "$1" in
+    forward)
+        # Simulate pressing Alt + Right arrow key
+        wtype -M alt -P right -m alt -p right
         ;;
-    backward )
-        swaymsg seat seat0 cursor press BTN_SIDE
-        swaymsg seat seat0 cursor release BTN_SIDE
+    backward)
+        # Simulate pressing Alt + Left arrow key
+        wtype -M alt -P left -m alt -p left
         ;;
 esac
