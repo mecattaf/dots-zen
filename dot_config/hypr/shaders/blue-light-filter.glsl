@@ -21,7 +21,7 @@ vec3 colorTemperatureToRGB(const in float temperature){
                                             vec3(-2666.3474220535695, -2173.1012343082230, 2575.2827530017594),
                                             vec3(0.55995389139931482, 0.70381203140554553, 1.8993753891711275));
     return mix(
-        clamp(vec3(m[0] / (vec3(clamp(temperature, 1000.0, 40000.0)) + m[1]) + m[2]), vec3(0.0), vec3(1.0)),
+        clamp(vec3(m[0] / (vec3(clamp(temperature, 1000.0, 30000.0)) + m[1]) + m[2]), vec3(0.0), vec3(1.0)),
         vec3(1.0),
         smoothstep(1000.0, 0.0, temperature)
     );
