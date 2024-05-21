@@ -2,11 +2,11 @@
 
 case "$1" in
     forward)
-        # Simulate pressing Alt + Right arrow key
-        wtype -M alt -P right -m alt
+        # Simulate pressing and releasing Mouse Button 9 (forward)
+        ydotool click 0x05
         ;;
     backward)
-        # Simulate pressing Alt + Left arrow key
-        wtype -M alt -P left -m alt
+        # Simulate pressing and releasing Mouse Button 8 (backward)
+        ydotool click 0x06
         ;;
 esac
