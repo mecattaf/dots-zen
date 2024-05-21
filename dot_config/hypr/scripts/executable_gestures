@@ -3,10 +3,10 @@
 case "$1" in
     forward)
         # Simulate pressing Alt + Right arrow key
-        wtype -M alt -P right -m alt -p right
+        wtype -M alt -P right -m alt
         ;;
     backward)
         # Simulate pressing Alt + Left arrow key
-        wtype -M alt -P left -m alt -p left
+        wtype -M alt -P left -m alt
         ;;
 esac
