@@ -1,6 +1,6 @@
 * {
     background-image: none;
-    font-size: 14px;
+    font-size: 20px;
     font-family: 'JetBrainsMono Nerd Font';
 }
 
@@ -33,7 +33,7 @@ button:focus {
 }
 
 button:hover {
-    background-color: #f5c2e7;
+    background-color: #89b4fa;
     background-size: 25%;
     border-radius: 8px; /* Adjust as needed for active_rad */
     animation: gradient_f 20s ease-in infinite;
@@ -69,37 +69,44 @@ button#reboot:focus {
     background-image: image(url("./restart-hover.png"));
 }
 
-/* Margin and Border-Radius Adjustments for Hover State */
 button:hover#logout {
-    border-radius: 8px 0px 8px 8px; /* Adjust as needed for active_rad */
-    margin: 0px 0px 10px 5px; /* Adjust as needed for y_hvr and x_hvr */
+    border-radius: 8px 0px 8px 8px;
+    margin: 0px 0px 10px 5px;
 }
 
+button:hover#suspend{
+    border-radius: 8px 8px 8px 0px;
+    margin: 10px 0px 5px 0px;
+}
 button:hover#shutdown {
-    border-radius: 8px 8px 8px 0px; /* Adjust as needed for active_rad */
-    margin: 10px 5px 0px 0px; /* Adjust as needed for y_hvr and x_hvr */
+    border-radius: 8px 8px 8px 0px; 
+    margin: 10px 5px 0px 0px;
 }
 
 button:hover#reboot {
-    border-radius: 0px 8px 8px 8px; /* Adjust as needed for active_rad */
-    margin: 0px 5px 10px 0px; /* Adjust as needed for y_hvr and x_hvr */
+    border-radius: 0px 8px 8px 8px; 
+    margin: 0px 5px 10px 0px; 
 }
 
-/* Button Specific Margin and Border-Radius Adjustments */
 #logout {
     background-image: image(url("./logout.png"));
-    border-radius: 0px 0px 0px 8px; /* Adjust as needed for button_rad */
-    margin: 0px 0px 10px 5px; /* Adjust as needed for y_mgn and x_mgn */
+    border-radius: 0px 0px 0px 8px; 
+    margin: 0px 0px 10px 5px; 
 }
 
 #shutdown {
     background-image: image(url("./power.png"));
-    border-radius: 0px 8px 0px 0px; /* Adjust as needed for button_rad */
-    margin: 10px 5px 0px 0px; /* Adjust as needed for y_mgn and x_mgn */
+    border-radius: 0px 8px 0px 0px;
+    margin: 10px 5px 0px 0px; 
 }
 
+#suspend {
+    background-image: image(url("./sleep.png"));
+    border-radius: 0px 8px 0px 0px; 
+    margin: 10px 0px 5px 0px; 
+}
 #reboot {
     background-image: image(url("./restart.png"));
-    border-radius: 0px 0px 8px 0px; /* Adjust as needed for button_rad */
-    margin: 0px 5px 10px 0px; /* Adjust as needed for y_mgn and x_mgn */
+    border-radius: 0px 0px 8px 0px;
+    margin: 0px 5px 10px 0px; 
 }
