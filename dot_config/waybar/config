@@ -1,0 +1,26 @@
+// vim: set filetype=json:
+
+{
+    "include": "~/.config/waybar/modules",
+    "name": "bar-1",                    
+    "bar_id": "bar-1",                          
+    "layer": "top",                             
+    "mode": "dock",                             
+    "output": "eDP-2",
+    "exclusive": false,                          
+    "passthrough": false,                       
+    "position": "bottom",                        
+    "height": "",                                   
+    "width": "",                                    
+    "spacing": 0,                                   
+    "margin": 0,                                    
+    "margin-top": 0,                            
+    "margin-bottom": 2,                         
+    "margin-left": 0,                           
+    "margin-right": 0,                          
+    "fixed-center": true,                       
+    "ipc": true,                                    
+    "modules-left": ["custom/pomo"],
+    "modules-center": ["hyprland/workspaces", "pulseaudio", "backlight", "battery", "clock#3"],
+    "modules-right": ["pulseaudio#2", "backlight#2", "clock"]
+}
