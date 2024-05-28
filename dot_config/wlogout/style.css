@@ -1,53 +1,105 @@
+* {
+    background-image: none;
+    font-size: 14px;
+    font-family: 'JetBrainsMono Nerd Font';
+}
+
 window {
-    font-family: monospace;
-    font-size: 14pt;
-    color: #cdd6f4; /* text */
-    background-color: rgba(30, 30, 46, 0.5);
+    background-color: #11111b;
+    color: #cdd6f4;
 }
 
 button {
+    color: #cdd6f4;
+    background-color: #11111b;
+    outline-style: none;
+    border: none;
+    border-width: 0px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 25%;
-    border: none;
-    background-color: rgba(30, 30, 46, 0);
+    background-size: 10%;
+    border-radius: 0px;
+    box-shadow: none;
+    text-shadow: none;
+    animation: gradient_f 20s ease-in infinite;
     margin: 5px;
     transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
-button:hover {
-    background-color: rgba(49, 50, 68, 0.1);
-}
-
 button:focus {
-    background-color: #cba6f7;
-    color: #1e1e2e;
+    background-color: #a6adc8;
+    background-size: 20%;
+    color: #313244;
 }
 
-#logout {
+button:hover {
+    background-color: #f5c2e7;
+    background-size: 25%;
+    border-radius: 8px; /* Adjust as needed for active_rad */
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682);
+}
+
+/* Button Specific Styles */
+button#logout {
     background-image: image(url("./logout.png"));
 }
-#logout:focus {
+button#logout:focus {
     background-image: image(url("./logout-hover.png"));
 }
 
-#suspend {
+button#suspend {
     background-image: image(url("./sleep.png"));
 }
-#suspend:focus {
+button#suspend:focus {
     background-image: image(url("./sleep-hover.png"));
+}
+
+button#shutdown {
+    background-image: image(url("./power.png"));
+}
+button#shutdown:focus {
+    background-image: image(url("./power-hover.png"));
+}
+
+button#reboot {
+    background-image: image(url("./restart.png"));
+}
+button#reboot:focus {
+    background-image: image(url("./restart-hover.png"));
+}
+
+/* Margin and Border-Radius Adjustments for Hover State */
+button:hover#logout {
+    border-radius: 8px 0px 8px 8px; /* Adjust as needed for active_rad */
+    margin: 0px 0px 10px 5px; /* Adjust as needed for y_hvr and x_hvr */
+}
+
+button:hover#shutdown {
+    border-radius: 8px 8px 8px 0px; /* Adjust as needed for active_rad */
+    margin: 10px 5px 0px 0px; /* Adjust as needed for y_hvr and x_hvr */
+}
+
+button:hover#reboot {
+    border-radius: 0px 8px 8px 8px; /* Adjust as needed for active_rad */
+    margin: 0px 5px 10px 0px; /* Adjust as needed for y_hvr and x_hvr */
+}
+
+/* Button Specific Margin and Border-Radius Adjustments */
+#logout {
+    background-image: image(url("./logout.png"));
+    border-radius: 0px 0px 0px 8px; /* Adjust as needed for button_rad */
+    margin: 0px 0px 10px 5px; /* Adjust as needed for y_mgn and x_mgn */
 }
 
 #shutdown {
     background-image: image(url("./power.png"));
-}
-#shutdown:focus {
-    background-image: image(url("./power-hover.png"));
+    border-radius: 0px 8px 0px 0px; /* Adjust as needed for button_rad */
+    margin: 10px 5px 0px 0px; /* Adjust as needed for y_mgn and x_mgn */
 }
 
 #reboot {
     background-image: image(url("./restart.png"));
-}
-#reboot:focus {
-    background-image: image(url("./restart-hover.png"));
+    border-radius: 0px 0px 8px 0px; /* Adjust as needed for button_rad */
+    margin: 0px 5px 10px 0px; /* Adjust as needed for y_mgn and x_mgn */
 }
