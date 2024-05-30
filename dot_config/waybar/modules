@@ -77,8 +77,8 @@
       "smooth-scrolling-threshold": 1,
       "disable-scroll-wraparound": false,
       "enable-bar-scroll": false,
-      "disable-markup": false,
-      "current-only": false
+      "current-only": false,
+      "disable-markup": false
     },
     "custom/pomo": {
          "format": "{}",
