@@ -20,10 +20,15 @@
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
         "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
+        "format-full": "󰁹",
+        "format-icons": ["󰁺", "󰁻", "", "", "", "", "󰂀", "󰂁", "󰂂"]
     }, 
     "clock": {
-        "format": " {:%R   %d/%m}",
+        "format": " {:%R ",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "date": {
+        "format": " {:%d/%m ",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "network": {

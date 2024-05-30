@@ -110,6 +110,13 @@ tooltip {
     margin-left: 10px;
 }
 
+#date{
+    color: @sapphire;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+
 #network {
     color: @peach;
     border-left: 0px;

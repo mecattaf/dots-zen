@@ -12,10 +12,9 @@
     "position": "bottom",                        
     "fixed-center": true,                       
     "ipc": true,                                    
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
+    "modules-left": ["date","hyprland/workspaces"],
+    "modules-center": ["network"],
     "modules-right": [
-        "network",
         "pulseaudio",
         "backlight",
         "battery",
