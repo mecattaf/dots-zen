@@ -63,6 +63,22 @@ tooltip {
     border-radius: 10px;
 }
 
+#workspaces button.visible {
+    background-color: @mantle;
+}
+
+#workspaces button.focus {
+    background-color: @subtext0;
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
 #window,
 #clock,
 #battery,
