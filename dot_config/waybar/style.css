@@ -41,9 +41,9 @@ tooltip {
     margin-right: 5px;
 }
 
-#workspaces button.active {
+/*#workspaces button.active {
     color: @subtext0;
-}
+} */
 
 #workspaces button.focused {
     color: @subtext0;
