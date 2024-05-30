@@ -27,6 +27,14 @@ tooltip {
     border-color: @crust;
 }
 
+#workspaces {
+    background: @base;
+    border-radius: 10px;
+    margin-left: 10px;
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
 #workspaces button {
     padding: 5px;
     color: @surface0;
@@ -60,7 +68,6 @@ tooltip {
 #battery,
 #pulseaudio,
 #network,
-#workspaces,
 #tray,
 #backlight {
     background: @base;
@@ -73,14 +80,6 @@ tooltip {
 #tray {
     border-radius: 10px;
     margin-right: 10px;
-}
-
-#workspaces {
-    background: @base;
-    border-radius: 10px;
-    margin-left: 10px;
-    padding-right: 0px;
-    padding-left: 5px;
 }
 
 #window {

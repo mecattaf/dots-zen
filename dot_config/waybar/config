@@ -12,7 +12,7 @@
     "position": "top",                        
     "fixed-center": true,                       
     "ipc": true,                                    
-    "modules-left": ["clock", "hyprland/workspaces"],
+    "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
     "modules-right": [
         "tray",
