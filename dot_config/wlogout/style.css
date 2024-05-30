@@ -10,22 +10,6 @@ window {
     background-color: rgba(30, 30, 46, 0.75);
 }
 
-/*button {
-    color: #cdd6f4;
-    outline-style: none;
-    border: none;
-    border-width: 0px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 10%;
-    border-radius: 0px;
-    box-shadow: none;
-    text-shadow: none;
-    animation: gradient_f 20s ease-in infinite;
-    margin: 5px;
-    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
-}
-*/
 button {
     border-radius: 32px;
     color: #cdd6f4;
@@ -82,44 +66,3 @@ button#reboot:focus {
     background-image: image(url("./restart-hover.png"));
 }
 
-button:hover#logout {
-    border-radius: 8px 0px 8px 8px;
-    margin: 0px 0px 10px 5px;
-}
-
-button:hover#suspend{
-    border-radius: 8px 8px 8px 0px;
-    margin: 10px 0px 5px 0px;
-}
-button:hover#shutdown {
-    border-radius: 8px 8px 8px 0px; 
-    margin: 10px 5px 0px 0px;
-}
-
-button:hover#reboot {
-    border-radius: 0px 8px 8px 8px; 
-    margin: 0px 5px 10px 0px; 
-}
-
-#logout {
-    background-image: image(url("./logout.png"));
-    border-radius: 0px 0px 0px 8px; 
-    margin: 0px 0px 10px 5px; 
-}
-
-#shutdown {
-    background-image: image(url("./power.png"));
-    border-radius: 0px 8px 0px 0px;
-    margin: 10px 5px 0px 0px; 
-}
-
-#suspend {
-    background-image: image(url("./sleep.png"));
-    border-radius: 0px 8px 0px 0px; 
-    margin: 10px 0px 5px 0px; 
-}
-#reboot {
-    background-image: image(url("./restart.png"));
-    border-radius: 0px 0px 8px 0px;
-    margin: 0px 5px 10px 0px; 
-}
