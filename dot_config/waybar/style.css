@@ -111,7 +111,7 @@ tooltip {
     border-radius: 0 10px 10px 0;
 }
 
-#date{
+#custom-date{
     color: @sapphire;
     border-radius: 10px;
     margin-left: 10px;
