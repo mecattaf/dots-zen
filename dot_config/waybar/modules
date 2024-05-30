@@ -23,7 +23,7 @@
         "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
     }, 
     "clock": {
-        "format": "{: %R   %d/%m}",
+        "format": " {:%R   %d/%m}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "network": {
