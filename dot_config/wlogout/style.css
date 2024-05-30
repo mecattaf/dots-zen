@@ -10,9 +10,8 @@ window {
     background-color: rgba(30, 30, 46, 0.75);
 }
 
-button {
+/*button {
     color: #cdd6f4;
-    background-color: #11111b;
     outline-style: none;
     border: none;
     border-width: 0px;
@@ -25,6 +24,19 @@ button {
     animation: gradient_f 20s ease-in infinite;
     margin: 5px;
     transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+*/
+button {
+    border-radius: 32px;
+    color: #cdd6f4;
+    background-color: #11111b;
+  	border-style: solid;
+  	border-width: 4px;
+  	background-repeat: no-repeat;
+  	background-position: center;
+  	background-size: 20%;
+    margin: 0px;
+    animation: gradient_f 20s ease-in infinite;
 }
 
 button:focus {
