@@ -13,7 +13,7 @@
     "fixed-center": true,                       
     "ipc": true,                                    
     "modules-left": ["date","hyprland/workspaces"],
-    "modules-center": ["network"],
+    "modules-center": [],
     "modules-right": [
         "pulseaudio",
         "backlight",
