@@ -24,11 +24,11 @@
         "format-icons": ["󰁺", "󰁻", "", "", "", "", "󰂀", "󰂁", "󰂂"]
     }, 
     "clock": {
-        "format": " {:%R ",
+        "format": " {:%R}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "date": {
-        "format": " {:%d/%m ",
+        "format": " {:%d/%m}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "network": {
