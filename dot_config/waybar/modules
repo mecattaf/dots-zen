@@ -21,7 +21,8 @@
         "format-plugged": " {capacity}%",
         "format-alt": "{time} {icon}",
         "format-full": "󰁹",
-        "format-icons": ["󰁺", "󰁻", "", "", "", "", "󰂀", "󰂁", "󰂂"]
+        "format-icons": ["󰁺", "󰁻", "", "", "", "", "󰂀", "󰂁", "󰂂"],
+        "interval": 3
     }, 
     "clock": {
         "format": " {:%R}",
