@@ -25,7 +25,7 @@ smart_gaps off
 gaps inner 10
 # outer gaps managed by kanshi
 
-default_border pixel 5
+default_border pixel 2
 default_floating_border normal
 hide_edge_borders smart
 
@@ -53,8 +53,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 exec wl-gammarelay-rs run
 
-#exec_always {
-exec {
+exec_always {
         pkill kanshi 
         kanshi &
 }
@@ -119,47 +118,47 @@ set $color-picker exec $scripts/colorpicker
 set $fzf-shortcuts exec kitty --class 'shortcutwidget' -e $scripts/fzf-shortcuts
 
 # Workspace
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 10
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
-workspace number 1 output eDP-1
-workspace number 2 output eDP-1
-workspace number 3 output eDP-1
-workspace number 4 output eDP-1
-workspace number 5 output eDP-1
-workspace number 6 output eDP-1
-workspace number 7 output eDP-1
-workspace number 8 output eDP-1
-workspace number 9 output eDP-1
-workspace number 10 output eDP-2
-workspace number 11 output eDP-2 #gpt
-workspace number 12 output eDP-2 #music
-workspace number 13 output eDP-2 #email
-workspace number 14 output eDP-2 #linear
-workspace number 15 output eDP-2 #notion
-workspace number 16 output eDP-2 #loom
-workspace number 17 output eDP-2 #calendar
+workspace 1 output 'eDP-1'
+workspace 2 output 'eDP-1'
+workspace 3 output 'eDP-1'
+workspace 4 output 'eDP-1'
+workspace 5 output 'eDP-1'
+workspace 6 output 'eDP-1'
+workspace 7 output 'eDP-1'
+workspace 8 output 'eDP-1'
+workspace 9 output 'eDP-1'
+workspace 10 output 'eDP-2'
+workspace 11 output 'eDP-2' #gpt
+workspace 12 output 'eDP-2' #music
+workspace 13 output 'eDP-2' #email
+workspace 14 output 'eDP-2' #linear
+workspace 15 output 'eDP-2' #notion
+workspace 16 output 'eDP-2' #loom
+workspace 17 output 'eDP-2' #calendar
 # Communication Tools? workspace name: comms, whatsapp web, slack, kumospace
 #    bindsym $mod+Slash exec flatpak 'run' 'net.mkiol.SpeechNote'
 
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 10
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
 
 # Key bindings
 bindsym --to-code Caps_Lock exec swaymsg input type:touchpad events toggle && notify-send "🚀 Trackpad Toggled" -t 150
@@ -195,25 +194,25 @@ bindsym $mod+C exec $color-picker
 bindsym $mod+apostrophe exec $start-wshowkeys
 bindsym $mod+Shift+apostrophe exec $stop-wshowkeys
 
-bindsym $mod+N workspace number 11
+bindsym $mod+N workspace 11
 bindsym $mod+Shift+N exec $chrome --app=https://chat.openai.com/
 
-bindsym $mod+M workspace number 12 
+bindsym $mod+M workspace 12 
 bindsym $mod+Shift+M exec $chrome --app=https://soundcloud.com
 
-bindsym $mod+W workspace number 13
+bindsym $mod+W workspace 13
 bindsym $mod+Shift+W exec $chrome --app=https://mail.superhuman.com/
 
-bindsym $mod+grave workspace number 14
+bindsym $mod+grave workspace 14
 bindsym $mod+Shift+grave exec $chrome --app=https://linear.app/
 
-bindsym $mod+comma workspace number 15
+bindsym $mod+comma workspace 15
 bindsym $mod+Shift+comma exec $chrome --app=https://notion.so/
 
-bindsym $mod+semicolon workspace number 16 
+bindsym $mod+semicolon workspace 16 
 bindsym $mod+Shift+semicolon exec $chrome --app=https://www.loom.com/home
 
-bindsym $mod+period workspace number 17
+bindsym $mod+period workspace 17
 bindsym $mod+Shift+period exec $chrome --app=https://calendar.notion.so/
 
 bindsym $mod+Shift+E exec $chrome --app=https://drive.google.com/drive/u/0/
@@ -332,8 +331,8 @@ shadows disable
 bindgesture {
 swipe:3:right  exec $scripts/gestures backward
 swipe:3:left exec $scripts/gestures forward
-swipe:3:up   exec swaymsg 'exec_always rofi -show dmenu'
-swipe:3:down  exec swaymsg 'pointer_button 1'
+swipe:3:up   exec rofi -show drun
+swipe:3:down  exec killall rofi
 
 pinch:4:outward   exec swaymsg gaps inner current plus 25
 pinch:4:inward  exec swaymsg gaps inner current minus 25
