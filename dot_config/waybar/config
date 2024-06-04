@@ -12,7 +12,7 @@
     "position": "bottom",                        
     "fixed-center": true,                       
     "ipc": true,                                    
-    "modules-left": ["workspaces"],
+    "modules-left": ["sway/workspaces"],
     "modules-center": [],
     "modules-right": [
         "pulseaudio",

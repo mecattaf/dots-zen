@@ -61,7 +61,7 @@
             "default": ["", "", "墳", ""]
         }
     },
-    "workspaces": {
+    "sway/workspaces": {
       "disable-scroll": false,
       "disable-click": false,
       "all-outputs": true,
@@ -89,26 +89,26 @@
     },
     "custom/pomo": {
          "format": "{}",
-         "exec": "~/.config/sway/scripts/pomo emoji",
+         "exec": "~/.config/hypr/scripts/pomo emoji",
          "tooltip": false,
          "interval" : 1,
-         "on-click": "~/.config/sway/scripts/pomo pause"
+         "on-click": "~/.config/hypr/scripts/pomo pause"
     },
 
     "custom/minutes": {
          "format": "{}",
-         "exec": "~/.config/sway/scripts/pomo minutes",
+         "exec": "~/.config/hypr/scripts/pomo minutes",
          "tooltip": false,
          "interval" : 1,
-         "on-click": "~/.config/sway/scripts/pomo pause"
+         "on-click": "~/.config/hypr/scripts/pomo pause"
     },
 
     "custom/seconds": {
          "format": "{}",
-         "exec": "~/.config/sway/scripts/pomo seconds",
+         "exec": "~/.config/hypr/scripts/pomo seconds",
          "tooltip": false,
          "interval" : 1,
-         "on-click": "~/.config/sway/scripts/pomo pause"
+         "on-click": "~/.config/hypr/scripts/pomo pause"
     }
   }
 }
