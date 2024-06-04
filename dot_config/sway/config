@@ -339,13 +339,13 @@ pinch:4:inward  exec swaymsg gaps inner current minus 25
 pinch:5:outward   exec swaymsg gaps inner current plus 50
 pinch:5:inward  exec swaymsg gaps inner current minus 50
 
-swipe:4:up   exec swaymsg gaps vertical current plus 50
-swipe:4:down  exec swaymsg gaps vertical current minus 50
+swipe:4:up   exec $waybar-toggle
+swipe:4:down  exec $waybar-toggle
 swipe:4:right  exec swaymsg 'workspace next_on_output'
 swipe:4:left  exec swaymsg 'workspace prev_on_output'
 
-swipe:5:up   exec $waybar
-swipe:5:down  exec $waybar
+swipe:5:up   exec swaymsg gaps vertical current plus 50
+swipe:5:down  exec swaymsg gaps vertical current minus 50
 }
 
 # Always start from workspace 1
