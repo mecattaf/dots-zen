@@ -181,8 +181,8 @@ bindsym $mod+Z exec $record-start
 bindsym $mod+Shift+Z exec $record-select-area
 bindsym $mod+X exec $record-stop
 
-bindsym $mod+I exec $waybar-toggle
-bindsym $mod+Shift+I exec $waybar-toggle
+bindsym $mod+I exec $waybar
+bindsym $mod+Shift+I exec $waybar
 
 bindsym $mod+O exec makoctl dismiss 
 bindsym $mod+Shift+O exec makoctl dismiss -a
@@ -339,8 +339,8 @@ pinch:4:inward  exec swaymsg gaps inner current minus 25
 pinch:5:outward   exec swaymsg gaps inner current plus 50
 pinch:5:inward  exec swaymsg gaps inner current minus 50
 
-swipe:4:up   exec $waybar-toggle
-swipe:4:down  exec $waybar-toggle
+swipe:4:up   exec $waybar
+swipe:4:down  exec $waybar
 swipe:4:right  exec swaymsg 'workspace next_on_output'
 swipe:4:left  exec swaymsg 'workspace prev_on_output'
 
