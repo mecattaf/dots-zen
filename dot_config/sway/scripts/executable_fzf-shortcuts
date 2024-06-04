@@ -1,11 +1,11 @@
 #!/bin/bash
 
-markdown_dir="/var/home/dev/.config/hypr/scripts/shortcuts"
+markdown_dir="/var/home/dev/.config/sway/scripts/shortcuts"
 
 # Create an associative array to map display names to file names
 declare -A file_map=(
     ["nvim"]="nvim.md"
-    ["hypr"]="hypr.md"
+    ["sway"]="sway.md"
     ["terminal"]="terminal.md"
     ["vim"]="vim.md"
     ["fish"]="fish.md"
