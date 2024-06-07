@@ -52,12 +52,6 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
         dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
 
 exec wl-gammarelay-rs run
-
-exec_always {
-        pkill kanshi 
-        kanshi &
-}
-
 exec mako
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
@@ -346,6 +340,11 @@ swipe:4:left  exec swaymsg 'workspace prev_on_output'
 
 swipe:5:up   exec swaymsg gaps vertical current plus 50
 swipe:5:down  exec swaymsg gaps vertical current minus 50
+}
+
+exec_always {
+        pkill kanshi 
+        kanshi &
 }
 
 # Always start from workspace 1
