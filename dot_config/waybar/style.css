@@ -8,7 +8,8 @@
 
 /** ********** Waybar Window ********** **/
 window#waybar {
-    background-color: transparent;
+    background-color: @base;
+    /*background-color: transparent;*/
     color: @text;
     border-right: 0px solid @sapphire;
     padding: 0;
