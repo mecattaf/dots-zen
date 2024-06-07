@@ -8,7 +8,7 @@
 
 /** ********** Waybar Window ********** **/
 window#waybar {
-    background-color: @base;
+    background-color: @crust;
     /*background-color: transparent;*/
     color: @text;
     border-right: 0px solid @sapphire;
@@ -28,7 +28,7 @@ tooltip {
     border-radius: 10px;
     border-width: 2px;
     border-style: solid;
-    border-color: @crust;
+    border-color: @mantle;
 }
 
 #workspaces {
@@ -57,13 +57,13 @@ tooltip {
 }
 
 #workspaces button.urgent {
-    color: @crust;
+    color: @mantle;
     background: @green;
     border-radius: 10px;
 }
 
 #workspaces button:hover {
-    background: @crust;
+    background: @mantle;
     color: @text;
     border-radius: 10px;
 }
