@@ -15,7 +15,7 @@ window#waybar {
     padding: 0;
     margin: 0;
     border-radius: 10px;
-    max-height: 48
+    max-height: 48;
     transition-property: background-color;
     transition-duration: .5s;
 }
