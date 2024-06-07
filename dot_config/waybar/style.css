@@ -11,6 +11,8 @@ window#waybar {
     background-color: transparent;
     color: @text;
     border-right: 0px solid @sapphire;
+    padding: 0;
+    margin: 0;
     transition-property: background-color;
     transition-duration: .5s;
 }
