@@ -76,7 +76,8 @@
           "14":       "<span font='16' color=\"#89b4fa\"></span>",
           "15":       "<span font='16' color=\"#74c7ec\"></span>", 
           "16":       "<span font='16' color=\"#b4befe\"></span>",
-          "17":       "<span font='16' color=\"#cba6f7\"></span>",
+          "17":       "<span font='16' color=\"#94e2d5\"></span>",
+          "19":       "<span font='16' color=\"#cba6f7\"></span>",
           "urgent":   "<span font='16' color=\"#f38ba8\"></span>",
           //"focused":    "",
           "default":  "<span font='16'></span>"

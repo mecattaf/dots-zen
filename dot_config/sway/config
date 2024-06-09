@@ -121,7 +121,7 @@ bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
+bindsym $mod+9 workspace 19
 bindsym $mod+0 workspace 10
 
 workspace 1 output 'eDP-1'
@@ -141,6 +141,8 @@ workspace 14 output 'eDP-2' #linear
 workspace 15 output 'eDP-2' #notion
 workspace 16 output 'eDP-2' #obs
 workspace 17 output 'eDP-2' #calendar
+
+workspace 19 output 'eDP-2' #slack
 # Communication Tools? workspace name: comms, whatsapp web, slack, kumospace
 #    bindsym $mod+Slash exec flatpak 'run' 'net.mkiol.SpeechNote'
 
@@ -209,6 +211,8 @@ bindsym $mod+Shift+semicolon exec flatpak run com.obsproject.Studio
 
 bindsym $mod+period workspace 17
 bindsym $mod+Shift+period exec $chrome --app=https://calendar.notion.so/
+
+bindsym $mod+Shift+9 exec $chrome --app=https://app.slack.com/client/T045A37HTU2
 
 bindsym $mod+Shift+E exec $chrome --app=https://drive.google.com/drive/u/0/
 
@@ -279,6 +283,7 @@ for_window [title="^chrome-linear.app.*$"] workspace 14
 for_window [title="^chrome-notion.so.*$"] workspace 15
 for_window [app_id="com.obsproject.Studio"] workspace 16
 for_window [title="^chrome-calendar.notion.so.*$"] workspace 17
+for_window [title="^chrome-app.slack.com.*$"] workspace 19
 
 # Utilities rules
 for_window [title="rofimoji"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
