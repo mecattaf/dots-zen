@@ -5,5 +5,5 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=Ollama Web UI
-Exec=flatpak run --command=/app/bin/chrome com.google.Chrome --profile-directory=Default --app=https://localhost:8080
+Exec=flatpak run --command=/app/bin/chrome com.google.Chrome --profile-directory=Default --app=https://localhost:8081
 Icon=ollama
