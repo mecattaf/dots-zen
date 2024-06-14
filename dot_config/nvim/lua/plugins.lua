@@ -16,7 +16,7 @@ g.mapleader = " "
 
 require("lazy").setup({
  {
-    "robitx/gp.nvim",
+    "mecattaf/gp.nvim",
     config = function()
       require("gp").setup({
         openai_api_key = { "cat", vim.fn.expand("~/openai_key") },
