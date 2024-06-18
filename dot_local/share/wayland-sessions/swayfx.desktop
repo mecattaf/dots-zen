@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Custom Sway
-Comment=An i3-compatible Wayland compositor with custom environment
-Exec=~/.config/sway/scripts/swayrun.sh
-Type=Application
-DesktopNames=sway
