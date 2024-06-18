@@ -49,7 +49,7 @@ exec_always  {
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP QT_QPA_PLATFORMTHEME
 
 exec hash dbus-update-activation-environment 2>/dev/null && \
-        dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway QT_QPA_PLATFORMTHEME=qt5ct
+        dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway QT_QPA_PLATFORMTHEME=qt6ct
 
 exec wl-gammarelay-rs run
 exec mako
