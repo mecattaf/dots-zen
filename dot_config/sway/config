@@ -347,6 +347,9 @@ swipe:4:left  exec swaymsg 'workspace prev_on_output'
 
 swipe:5:up   exec swaymsg gaps vertical current plus 50
 swipe:5:down  exec swaymsg gaps vertical current minus 50
+swipe:5:right  exec $scripts/gestures pgup
+swipe:5:left exec $scripts/gestures pgdn
+
 }
 
 #exec_always {
