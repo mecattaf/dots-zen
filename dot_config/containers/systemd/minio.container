@@ -10,7 +10,7 @@ Environment=MINIO_ROOT_USER=admin
 Environment=MINIO_ROOT_PASSWORD=admin
 Command=server --console-address ":9001"
 Volume=minio.volume:/data:Z
-Network=vpcbr.network
+Network=eternal.network
 
 [Service]
 TimeoutStartSec=900
