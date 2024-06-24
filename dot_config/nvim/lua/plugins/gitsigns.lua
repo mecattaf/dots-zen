@@ -6,11 +6,11 @@ end
 
 gitsigns.setup {
   signs = {
-    add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
-    change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
-    delete = { hl = "DiffDelete", text = "│", numhl = "GitSignsDeleteNr" },
-    topdelete = { hl = "DiffDelete", text = "│", numhl = "GitSignsDeleteNr" },
-    changedelete = { hl = "DiffChangeDelete", text = "│", numhl = "GitSignsChangeNr" },
-    untracked = { hl = "Comment", text = "│", numhl = "GitSignsChangeNr" },
+    add = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr" },
+    change = { hl = "GitSignsChange", text = "│", numhl = "GitSignsChangeNr" },
+    delete = { hl = "GitSignsDelete", text = "│", numhl = "GitSignsDeleteNr" },
+    topdelete = { hl = "GitSignsTopdelete", text = "│", numhl = "GitSignsTopdeleteNr" },
+    changedelete = { hl = "GitSignsChangedelete", text = "│", numhl = "GitSignsChangedeleteNr" },
+    untracked = { hl = "GitSignsUntracked", text = "│", numhl = "GitSignsUntrackedNr" },
   },
 }

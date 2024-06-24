@@ -117,7 +117,7 @@ require("lazy").setup({
        require("glow").setup({
           width_ratio = 1,
           height_ratio = 1,
-          style = "~/.config/glow/colors.json"  -- Path to your custom style file
+          style = "~/.config/glow/colors.json" 
         })
     end
   }
