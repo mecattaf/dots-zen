@@ -16,6 +16,28 @@ g.mapleader = " "
 
 require("lazy").setup({
   {
+    'tpope/vim-repeat', -- Required for leap.nvim dot-repeats
+  },
+  {
+    'ggandor/leap.nvim',
+    config = function()
+      require('leap').create_default_mappings()
+    end
+  },
+  {
+    'ggandor/flit.nvim',
+    dependencies = { 'ggandor/leap.nvim' },
+    config = function()
+      require('flit').setup {
+        keys = { f = 'f', F = 'F', t = 't', T = 'T' },
+        labeled_modes = "v",
+        clever_repeat = true,
+        multiline = true,
+        opts = {}
+      }
+    end
+  },
+  {
     'norcalli/nvim-colorizer.lua',
     config = function()
       require('colorizer').setup()
