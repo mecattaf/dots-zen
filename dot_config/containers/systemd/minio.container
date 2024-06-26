@@ -6,9 +6,9 @@ After=network-online.target
 Image=minio/minio:latest
 AutoUpdate=registry
 ContainerName=minio
+Exec=server --console-address ":9001"
 Environment=MINIO_ROOT_USER=admin
 Environment=MINIO_ROOT_PASSWORD=admin
-Command=server --console-address ":9001"
 Volume=minio.volume:/data:Z
 Network=eternal.network
 
