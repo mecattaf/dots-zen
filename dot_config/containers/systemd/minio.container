@@ -3,7 +3,7 @@ Description=A minio server container for local S3 compatible storage
 After=network-online.target
 
 [Container]
-Image=minio/minio:latest
+Image=docker.io/minio/minio:latest
 AutoUpdate=registry
 ContainerName=minio
 Exec=server --console-address ":9001"
