@@ -11,6 +11,8 @@ Environment=MINIO_ROOT_USER=admin
 Environment=MINIO_ROOT_PASSWORD=admin
 Volume=minio.volume:/data:Z
 Network=eternal.network
+PublishPort=9000:9000
+PublishPort=9001:9001
 
 [Service]
 TimeoutStartSec=900
