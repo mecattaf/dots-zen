@@ -278,6 +278,7 @@ for_window [app_id="^chrome-.*"] shortcuts_inhibitor disable
 for_window [title="^google-chrome$"] workspace 1
 for_window [title="^chrome-chat.openai.com.*$"] workspace 11
 for_window [title="^chrome-soundcloud.com.*$"] workspace 12
+for_window [title="^chrome-music.youtube.com.*$"] workspace 12
 for_window [title="^chrome-mail.superhuman.com.*$"] workspace 13
 for_window [title="^chrome-linear.app.*$"] workspace 14
 for_window [title="^chrome-notion.so.*$"] workspace 15
