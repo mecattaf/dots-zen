@@ -16,6 +16,12 @@ g.mapleader = " "
 
 require("lazy").setup({
   {
+  	"robitx/gp.nvim",
+  	config = function()
+  		require("gp").setup(config)
+  	end,
+  },
+  {
     'tpope/vim-repeat', -- Required for leap.nvim dot-repeats
   },
   {
