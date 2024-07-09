@@ -18,7 +18,7 @@ require("lazy").setup({
   {
   	"robitx/gp.nvim",
   	config = function()
-  		require("gp").setup(config)
+  		require("gp").setup()
   	end,
   },
   {
