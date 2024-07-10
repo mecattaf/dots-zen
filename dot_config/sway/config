@@ -275,28 +275,28 @@ bindsym Mod1+ctrl+Delete exec $power-menu
 
 # Chrome webapps rules
 for_window [app_id="^chrome-.*"] shortcuts_inhibitor disable
-for_window [title="^google-chrome$"] workspace 1
-for_window [title="^chrome-chat.openai.com.*$"] workspace 11
-for_window [title="^chrome-soundcloud.com.*$"] workspace 12
-for_window [title="^chrome-music.youtube.com.*$"] workspace 12
-for_window [title="^chrome-mail.superhuman.com.*$"] workspace 13
-for_window [title="^chrome-linear.app.*$"] workspace 14
-for_window [title="^chrome-notion.so.*$"] workspace 15
+for_window [app_id="^google-chrome$"] workspace 1
+for_window [app_id="^chrome-chat.openai.com.*$"] workspace 11
+for_window [app_id="^chrome-soundcloud.com.*$"] workspace 12
+for_window [app_id="^chrome-music.youtube.com.*$"] workspace 12
+for_window [app_id="^chrome-mail.superhuman.com.*$"] workspace 13
+for_window [app_id="^chrome-linear.app.*$"] workspace 14
+for_window [app_id="^chrome-notion.so.*$"] workspace 15
 for_window [app_id="com.obsproject.Studio"] workspace 16
-for_window [title="^chrome-calendar.notion.so.*$"] workspace 17
-for_window [title="^chrome-app.slack.com.*$"] workspace 19
+for_window [app_id="^chrome-calendar.notion.so.*$"] workspace 17
+for_window [app_id="^chrome-app.slack.com.*$"] workspace 19
 for_window [app_id="^net.mkiol.SpeechNote$"] floating  enable
 
 # Utilities rules
-for_window [title="rofimoji"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [title="shortcutwidget"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [title="music-cli"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [title="music-download"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [title="rofi"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [title="thunar"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [title="nmtui"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [title="blueman-manager"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [title="pavucontrol"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="rofimoji"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="shortcutwidget"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="music-cli"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="music-download"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="rofi"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="thunar"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="nmtui"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="blueman-manager"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="pavucontrol"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
 
 # Input Devices
 # general
