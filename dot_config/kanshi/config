@@ -1,13 +1,11 @@
 profile Thinkpad {
     output eDP-1 scale 1.5 position 0,0
-    exec swaymsg gaps outer 5
     exec busctl --user set-property rs.wl-gammarelay /outputs/eDP_1 rs.wl.gammarelay Temperature q 3500
 }
 
 profile Duo {
     output eDP-1 scale 2 position 0,0   adaptive_sync on
     output eDP-2 scale 2 position 0,900 adaptive_sync on
-    exec swaymsg gaps outer 0
     exec busctl --user set-property rs.wl-gammarelay /outputs/eDP_1 rs.wl.gammarelay Temperature q 3850
     exec busctl --user set-property rs.wl-gammarelay /outputs/eDP_2 rs.wl.gammarelay Temperature q 3350
 }

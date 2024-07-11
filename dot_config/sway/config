@@ -22,10 +22,10 @@ font pango:JetBrainsMono Nerd Font 12
 
 # Gaps
 smart_gaps off
-gaps inner 10
+gaps inner 4 #10
 # outer gaps managed by kanshi
 
-default_border pixel 2
+default_border pixel 1 #2
 default_floating_border normal
 hide_edge_borders smart
 
@@ -166,7 +166,7 @@ bindsym $mod+Shift+Return exec $host -e fish
 bindsym $mod+Shift+Q kill
 bindsym $mod+D exec rofi -show drun 
 
-bindsym $mod+V exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
+bindsym $mod+V exec cliphist list | rofi -dmenu -columns 1 | cliphist decode | wl-copy
 bindsym $mod+Shift+V exec rofimoji -a clipboard
 
 bindsym $mod+A exec $screenshot-full
