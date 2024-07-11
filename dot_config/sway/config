@@ -22,10 +22,11 @@ font pango:JetBrainsMono Nerd Font 12
 
 # Gaps
 smart_gaps off
-gaps inner 4 #10
-# outer gaps managed by kanshi
+gaps inner 4
+gaps outer 1
+#gaps inner 10
 
-default_border pixel 1 #2
+default_border pixel 1
 default_floating_border normal
 hide_edge_borders smart
 
@@ -291,7 +292,7 @@ for_window [app_id="^net.mkiol.SpeechNote$"] floating  enable
 for_window [app_id="rofimoji"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
 for_window [app_id="shortcutwidget"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
 for_window [app_id="music-cli"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [app_id="music-download"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [title="music-download"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
 for_window [app_id="rofi"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
 for_window [app_id="thunar"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
 for_window [app_id="nmtui"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
