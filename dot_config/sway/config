@@ -24,7 +24,6 @@ font pango:JetBrainsMono Nerd Font 12
 smart_gaps off
 gaps inner 4
 gaps outer 2
-#gaps inner 10
 
 default_border pixel 1
 default_floating_border normal
@@ -161,7 +160,10 @@ bindsym $mod+Shift+0 move container to workspace 10
 # Key bindings
 bindsym --to-code Caps_Lock exec swaymsg input type:touchpad events toggle && notify-send "🚀 Trackpad Toggled" -t 150
 
-bindsym $mod+Return exec flatpak run com.google.Chrome
+bindsym Ctrl+N exec flatpak run com.google.Chrome
+bindsym Ctrl+Shift+N exec flatpak run com.google.Chrome --incognito
+
+bindsym $mod+Return exec $host --class 'floating-term' -e fish 
 bindsym $mod+Shift+Return exec $host -e fish
 
 bindsym $mod+Shift+Q kill
@@ -290,6 +292,7 @@ for_window [app_id="^net.mkiol.SpeechNote$"] floating  enable
 
 # Utilities rules
 for_window [app_id="rofimoji"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="floating-term"] floating enable, resize 55% 35%, move 63% 60%
 for_window [app_id="shortcutwidget"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
 for_window [app_id="music-cli"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
 for_window [title="music-download"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
