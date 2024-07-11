@@ -58,6 +58,20 @@ require("lazy").setup({
     end
   },
   {
+    'nathom/filetype.nvim',
+    config = function()
+      require('filetype').setup({
+        overrides = {
+          extensions = {
+            sh = "sh",
+          },
+          literal = {
+          },
+        },
+      })
+    end
+  },
+  {
     'nvim-treesitter/nvim-treesitter',
     dependencies = { 'nathom/filetype.nvim' },
     config = function()
