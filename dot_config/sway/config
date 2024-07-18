@@ -364,3 +364,7 @@ swipe:5:left exec $scripts/gestures pgdn
 
 # Always start from workspace 1
 workspace 1
+
+#eww on screen kbd
+bindsyn $mod+ exec eww -c ~/.config/eww/shell/kbd/open.sh open
+#same with open.sh close

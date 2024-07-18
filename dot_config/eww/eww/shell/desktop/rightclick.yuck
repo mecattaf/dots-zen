@@ -1,0 +1,86 @@
+(defvar rc_win_area 0)
+(defvar rc_desktop_area 0)
+(defvar rc_show_more false)
+(defvar rc_show_session false)
+(defvar rc_start_desktop true)
+
+
+(defwidget rightclick_menu []
+    (eventbox 
+    :ondropped "desktop/drop/on_dropped.sh '{}'&"
+    :onrightclick "desktop/bin/open_rc_menu.sh desktop&" 
+    :onclick "sleep 0.1; ${EWW_CMD} close rc_popup icon_popup dock_window_popup&"   
+    :timeout "128s"
+    ;; :onscroll "desktop/mods/ws_scroll.sh {}"
+    (box :class "desktop_area" :hexpand true :vexpand true))
+)
+
+
+
+
+(defwindow rc_popup 
+        :stacking "fg"
+        :namespace "eww_noblur"
+        :geometry (geometry :x 0
+                            :y 0
+                            :width 0
+                            :height 0
+                    )
+        :stacking "overlay"
+    (rc_popup_menu)
+)
+
+(defwidget rc_section_desktop []
+(box :orientation "v" :visible {window.title == "null" || rc_start_desktop} :space-evenly false 
+    (box :space-evenly false :orientation "v" :visible {rc_desktop_area == 0}
+        (button :class "lbutton" :onclick "sleep 0.1&&desktop/mods/term.sh" :timeout "128s" "New Terminal")
+        (button :class "lbutton" :onclick "sleep 0.1&&desktop/mods/nautilus.sh" :timeout "128s" "Files")
+        (revealer :reveal rc_show_more :transition "slideup" :duration "0.2s" (box :orientation "v" :space-evenly false
+            (button :class "lbutton" :onclick "sleep 0.1&&desktop/mods/edit.sh" :timeout "128s" "Edit File")
+            (llbutton :onclick "eww_settings.sh & ${EWW_CMD} close rc_popup" :label "Open Settings")
+            ;; (llbutton :onclick "../settings/bin/look/color.sh noeww" :label "Switch Color")
+        ))
+        ;; (llbutton :onclick "bin/open_window_list.sh upd& ${EWW_CMD} update rc_desktop_area=1" :label "Windows")
+        (button :class "lbutton" :onclick "${EWW_CMD} update rc_show_more=${!rc_show_more}" "${rc_show_more ? "Less" : "More"}")
+    )
+))
+
+(defwidget rc_section_window []
+(box :orientation "v" :visible {window.title != "null" && !rc_start_desktop} :space-evenly false
+    (box :space-evenly false :orientation "v" :visible {rc_win_area == 0}
+        ;; (label :class "lbutton" :text "Window")
+        (llbutton :onclick "hyprctl dispatch killactive& ${EWW_CMD} close rc_popup" :label "Close")
+        (llbutton :onclick "hyprctl dispatch togglefloating& ${EWW_CMD} close rc_popup" :label "${window.floating ? "Tile" : "Float"}")
+        (llbutton :onclick "hyprctl dispatch fullscreen 0& ${EWW_CMD} close rc_popup" :visible {!window.floating} :label "${window.fullscreen ? "Unfullscreen" : "Fullscreen"}")
+        (llbutton :onclick "hyprctl dispatch pin& ${EWW_CMD} close rc_popup" :visible {window.floating} :label "${window.pinned ? "Unpin" : "Pin"}")
+        (llbutton :onclick "sleep 0.2&&desktop/mods/resize.sh ${window.address}& ${EWW_CMD} close rc_popup" :visible {window.floating} :label "Resize")
+        (llbutton :onclick "${EWW_CMD} update rc_win_area=1" :label "Move to")
+        (llbutton :onclick "${EWW_CMD} close rc_popup" :label "Cancel")
+    )
+    (box :orientation "v" :space-evenly false :visible {rc_win_area == 1}
+        (box :space-evenly false :halign "center"
+            (llbutton :tooltip "Previous" :onclick "hyprctl dispatch movetoworkspace -1& ${EWW_CMD} close rc_popup; ${EWW_CMD} update rc_show_ws=false" :label "󰁍")
+            (llbutton :tooltip "Main" :onclick "hyprctl dispatch movetoworkspace name:main& ${EWW_CMD} close rc_popup; ${EWW_CMD} update rc_show_ws=false"  :label "Main")
+            (llbutton :tooltip "Next" :onclick "hyprctl dispatch movetoworkspace +1& ${EWW_CMD} close rc_popup; ${EWW_CMD} update rc_show_ws=false" :label "󰁔")
+        )
+        (separator)
+        (box :orientation "v" (for ws in workspaces 
+            (llbutton :onclick "hyprctl dispatch movetoworkspacesilent ${ws.name}& ${EWW_CMD} close rc_popup; ${EWW_CMD} update rc_show_ws=false" :visible {ws.id != window.workspace.id} :label "${ws.name}" :tooltip "${ws.count} ${ws.count != 1 ? "windows" : "window"} in workspace")
+        ))
+        (separator)
+        ;; (button :class "lbutton" :onclick "${EWW_CMD} update rc_win_area=0" "Back")
+        (llbutton :onclick "${EWW_CMD} close rc_popup" :label "Cancel")
+    )
+
+)
+)
+
+
+(defwidget rc_popup_menu []
+    (box :class "rightclick_popup"
+        (box :orientation "v" :space-evenly false
+            (rc_section_desktop)
+            (rc_section_window)
+        )
+    )
+)

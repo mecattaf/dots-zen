@@ -1,0 +1,9 @@
+(defvar hypr_submap_icons '{
+"window":"󱂬",
+"workspace":"󰮸",
+"media":"󱜏",
+"overview": "󰺕",
+"default":"󰌌"
+}')
+
+
