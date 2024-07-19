@@ -54,7 +54,7 @@ map("n", "<leader>u", ":Twilight<CR>")
 map("n", "<leader>f", ":Telescope grep_string<CR>")
 
 -- NvimTree
-map("n", "<C-N>", ":NvimTreeToggle<CR>")
+map("n", "<C-S-B>", ":NvimTreeToggle<CR>")
 map("n", "<C-B>", ":NvimTreeFocus<CR>")
 
 -- Insert Map

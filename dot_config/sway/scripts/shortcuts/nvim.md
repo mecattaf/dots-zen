@@ -46,7 +46,7 @@
 |---------------|-----------------------------------------------------------|
 | Ctrl + S      | Write file (in both insert and normal mode)               |
 |               |                                                           |
-| Ctrl + N      | Toggle Nvim Tree                                          |
+| Ctrl + Shift + B | Toggle Nvim Tree                                       |
 |               |                                                           |
 | Ctrl + B      | Focus Nvim Tree                                           |
 |               |                                                           |
