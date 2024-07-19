@@ -366,5 +366,5 @@ swipe:5:left exec $scripts/gestures pgdn
 workspace 1
 
 #eww on screen kbd
-bindsyn $mod+ exec eww -c ~/.config/eww/shell/kbd/open.sh open
+#bindsyn $mod+ exec eww -c ~/.config/eww/shell/kbd/open.sh open
 #same with open.sh close
