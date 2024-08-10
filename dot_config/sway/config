@@ -75,6 +75,7 @@ exec /usr/lib/lxpolkit
 
 # Variables
 set $mod Mod4
+set $menu Mod5
 set $scripts ~/.config/sway/scripts
 floating_modifier $mod normal
 
@@ -125,6 +126,19 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 19
 bindsym $mod+0 workspace 10
 
+bindsym $menu+1 workspace 21
+bindsym $menu+2 workspace 22
+bindsym $menu+3 workspace 23
+bindsym $menu+4 workspace 24
+bindsym $menu+5 workspace 25
+bindsym $menu+6 workspace 26
+bindsym $menu+7 workspace 27
+bindsym $menu+8 workspace 28
+bindsym $menu+9 workspace 29
+bindsym $menu+0 workspace 30
+
+
+
 workspace 1 output 'eDP-1'
 workspace 2 output 'eDP-1'
 workspace 3 output 'eDP-1'
@@ -147,6 +161,17 @@ workspace 19 output 'eDP-2' #slack
 # Communication Tools? workspace name: comms, whatsapp web, slack, kumospace
 #    bindsym $mod+Slash exec flatpak 'run' 'net.mkiol.SpeechNote'
 
+workspace 21 output 'HDMI-A-1'
+workspace 22 output 'HDMI-A-1'
+workspace 23 output 'HDMI-A-1'
+workspace 24 output 'HDMI-A-1'
+workspace 25 output 'HDMI-A-1'
+workspace 26 output 'HDMI-A-1'
+workspace 27 output 'HDMI-A-1'
+workspace 28 output 'HDMI-A-1'
+workspace 29 output 'HDMI-A-1'
+workspace 30 output 'HDMI-A-1'
+
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -156,6 +181,16 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $menu+Shift+1 move container to workspace 21
+bindsym $menu+Shift+2 move container to workspace 22
+bindsym $menu+Shift+3 move container to workspace 23
+bindsym $menu+Shift+4 move container to workspace 24
+bindsym $menu+Shift+5 move container to workspace 25
+bindsym $menu+Shift+6 move container to workspace 26
+bindsym $menu+Shift+7 move container to workspace 27
+bindsym $menu+Shift+8 move container to workspace 28
+bindsym $menu+Shift+0 move container to workspace 30
 
 # Key bindings
 bindsym --to-code Caps_Lock exec swaymsg input type:touchpad events toggle && notify-send "🚀 Trackpad Toggled" -t 150
@@ -321,6 +356,11 @@ input "1267:12624:ELAN0670:00_04F3:3150_Touchpad" {
     middle_emulation enabled
 }
 
+# tex keyboard
+input "1241:1031:USB-HID_Keyboard" {
+    xkb_options "altwin:menu_win"
+}
+
 input type:keyboard {
   xkb_options caps:none
 }
@@ -364,7 +404,3 @@ swipe:5:left exec $scripts/gestures pgdn
 
 # Always start from workspace 1
 workspace 1
-
-#eww on screen kbd
-#bindsyn $mod+ exec eww -c ~/.config/eww/shell/kbd/open.sh open
-#same with open.sh close
