@@ -262,6 +262,8 @@ bindsym $mod+Shift+slash exec $fzf-shortcuts
 bindsym XF86AudioRaiseVolume exec $volume-up
 bindsym XF86AudioLowerVolume exec $volume-down
 bindsym XF86AudioMute exec $volume-mute
+bindsym button276 exec $volume-up
+bindsym button275 exec $volume-down
 
 bindsym XF86AudioMicMute exec kitty --class "nmtui" -e nmtui
 bindsym XF86LaunchA exec blueman-manager
@@ -360,6 +362,8 @@ input "1267:12624:ELAN0670:00_04F3:3150_Touchpad" {
 input "1241:1031:USB-HID_Keyboard" {
     xkb_options "altwin:menu_win"
 }
+
+
 
 input type:keyboard {
   xkb_options caps:none
