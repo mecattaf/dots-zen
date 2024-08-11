@@ -75,7 +75,6 @@ exec /usr/lib/lxpolkit
 
 # Variables
 set $mod Mod4
-set $menu Mod5
 set $scripts ~/.config/sway/scripts
 floating_modifier $mod normal
 
@@ -126,18 +125,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 19
 bindsym $mod+0 workspace 10
 
-bindsym $menu+1 workspace 21
-bindsym $menu+2 workspace 22
-bindsym $menu+3 workspace 23
-bindsym $menu+4 workspace 24
-bindsym $menu+5 workspace 25
-bindsym $menu+6 workspace 26
-bindsym $menu+7 workspace 27
-bindsym $menu+8 workspace 28
-bindsym $menu+9 workspace 29
-bindsym $menu+0 workspace 30
-
-
+bindsym $mod+backslash workspace 20
 
 workspace 1 output 'eDP-1'
 workspace 2 output 'eDP-1'
@@ -161,16 +149,7 @@ workspace 19 output 'eDP-2' #slack
 # Communication Tools? workspace name: comms, whatsapp web, slack, kumospace
 #    bindsym $mod+Slash exec flatpak 'run' 'net.mkiol.SpeechNote'
 
-workspace 21 output 'HDMI-A-1'
-workspace 22 output 'HDMI-A-1'
-workspace 23 output 'HDMI-A-1'
-workspace 24 output 'HDMI-A-1'
-workspace 25 output 'HDMI-A-1'
-workspace 26 output 'HDMI-A-1'
-workspace 27 output 'HDMI-A-1'
-workspace 28 output 'HDMI-A-1'
-workspace 29 output 'HDMI-A-1'
-workspace 30 output 'HDMI-A-1'
+workspace 20 output 'HDMI-A-1'
 
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -182,15 +161,7 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+0 move container to workspace 10
 
-bindsym $menu+Shift+1 move container to workspace 21
-bindsym $menu+Shift+2 move container to workspace 22
-bindsym $menu+Shift+3 move container to workspace 23
-bindsym $menu+Shift+4 move container to workspace 24
-bindsym $menu+Shift+5 move container to workspace 25
-bindsym $menu+Shift+6 move container to workspace 26
-bindsym $menu+Shift+7 move container to workspace 27
-bindsym $menu+Shift+8 move container to workspace 28
-bindsym $menu+Shift+0 move container to workspace 30
+bindsym $mod+Shift+backslash move container to workspace 10
 
 # Key bindings
 bindsym --to-code Caps_Lock exec swaymsg input type:touchpad events toggle && notify-send "🚀 Trackpad Toggled" -t 150
@@ -262,8 +233,6 @@ bindsym $mod+Shift+slash exec $fzf-shortcuts
 bindsym XF86AudioRaiseVolume exec $volume-up
 bindsym XF86AudioLowerVolume exec $volume-down
 bindsym XF86AudioMute exec $volume-mute
-bindsym button276 exec $volume-up
-bindsym button275 exec $volume-down
 
 bindsym XF86AudioMicMute exec kitty --class "nmtui" -e nmtui
 bindsym XF86LaunchA exec blueman-manager
