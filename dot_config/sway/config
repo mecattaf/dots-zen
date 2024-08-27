@@ -60,6 +60,7 @@ exec autotiling
 exec $scripts/pomo start
 exec $scripts/pomo notify
 exec kanshi
+exec ollama serve
 
 exec swaybg -c '#000000'
 #exec ~/.azotebg 
