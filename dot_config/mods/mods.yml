@@ -27,3 +27,17 @@ apis:
       "llama3.1:latest":
         aliases: ["llama3.1"]
         max-input-chars: 650000
+      "llava:latest":
+        aliases: ["llava"]
+        max-input-chars: 650000
+      "phi3.5:latest":
+        aliases: ["phi3.5"]
+        max-input-chars: 650000
+      "gemma2:2b":
+        aliases: ["gemma2"]
+        max-input-chars: 650000
+
+
+
+
+   
