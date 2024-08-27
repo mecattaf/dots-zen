@@ -1,4 +1,4 @@
-default-model: llama3:8b
+default-model: llama3.1:latest
 format-text:
   markdown: '{{ index .Config.FormatText "markdown" }}'
   json: '{{ index .Config.FormatText "json" }}'
@@ -24,6 +24,6 @@ apis:
   ollama:
     base-url: http://localhost:11434/api
     models:
-      "llama3:8b":
-        aliases: ["llama3"]
+      "llama3.1:latest":
+        aliases: ["llama3.1"]
         max-input-chars: 650000
