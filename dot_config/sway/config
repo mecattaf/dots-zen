@@ -220,7 +220,7 @@ bindsym $mod+semicolon workspace 16
 bindsym $mod+Shift+semicolon exec flatpak run com.obsproject.Studio
 
 bindsym $mod+period workspace 17
-bindsym $mod+Shift+period exec $chrome --app=https://web.akiflow.com/
+bindsym $mod+Shift+period exec $chrome --app=https://calendar.notion.so/
 
 bindsym $mod+Shift+9 exec $chrome --app=https://app.slack.com/client/T045A37HTU2
 
