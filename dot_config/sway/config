@@ -57,8 +57,8 @@ exec mako
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
 exec autotiling 
-exec $scripts/pomo start
-exec $scripts/pomo notify
+#exec $scripts/pomo start
+#exec $scripts/pomo notify
 exec kanshi
 exec ollama serve
 
