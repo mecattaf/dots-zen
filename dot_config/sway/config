@@ -379,6 +379,3 @@ swipe:5:left exec $scripts/gestures pgdn
 #        pkill kanshi 
 #        kanshi &
 #}
-
-# Always start from workspace 1
-workspace 1
