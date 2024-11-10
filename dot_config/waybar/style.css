@@ -1,5 +1,7 @@
 @import "mocha.css";
 
+/** NOTE: for rounded borders, adjust `border-radius` to `10px`
+
 /** ********** Fonts ********** **/
 * {
     font-family: "JetBrainsMono Nerd Font", "Iosevka Nerd Font";
@@ -14,7 +16,7 @@ window#waybar {
     border-right: 0px solid @sapphire;
     padding: 0;
     margin: 0;
-    border-radius: 10px;
+    border-radius: 0;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -25,7 +27,7 @@ window#waybar.hidden {
 
 tooltip {
     background: @base;
-    border-radius: 10px;
+    border-radius: 0;
     border-width: 2px;
     border-style: solid;
     border-color: @mantle;
@@ -33,7 +35,7 @@ tooltip {
 
 #workspaces {
     background: @base;
-    border-radius: 10px;
+    border-radius: 0;
     /* margin-left: 10px; */
     margin: 3px 0px;
     /*margin-top: 10px;*/
@@ -53,19 +55,19 @@ tooltip {
 #workspaces button.focused {
     color: @subtext0;
     background: @maroon;
-    border-radius: 10px;
+    border-radius: 0;
 }
 
 #workspaces button.urgent {
     color: @mantle;
     background: @green;
-    border-radius: 10px;
+    border-radius: 0;
 }
 
 #workspaces button:hover {
     background: @mantle;
     color: @text;
-    border-radius: 10px;
+    border-radius: 0;
 }
 
 #workspaces button.visible {
@@ -98,12 +100,12 @@ tooltip {
 }
 
 #tray {
-    border-radius: 10px;
+    border-radius: 0;
     margin-right: 10px;
 }
 
 #window {
-    border-radius: 10px;
+    border-radius: 0;
     margin-left: 60px;
     margin-right: 60px;
 }
@@ -111,13 +113,14 @@ tooltip {
 #clock {
     color: @yellow;
     border-left: 10px;
-    border-radius: 0 10px 10px 0;
+    /* border-radius: 0 10px 10px 0; */
+    border-radius: 0 0 0 0;
     padding-right: 5px;
 }
 
 #custom-date{
     color: @sapphire;
-    border-radius: 10px;
+    border-radius: 0;
     margin-left: 10px;
 }
 
@@ -131,7 +134,8 @@ tooltip {
 #pulseaudio {
     color: @blue;
     border-left: 10px;
-    border-radius: 10px 0 0 10px;
+    /* border-radius: 10px 0 0 10px; */
+    border-radius: 0 0 0 0;
 }
 
 #battery {
@@ -164,7 +168,8 @@ tooltip {
 
 #custom-pomo {
     background: @base;
-    border-radius: 10px 0px 0px 10px;
+    /* border-radius: 10px 0px 0px 10px; */
+    border-radius: 0 0 0 0;
     border-right: 0px;
     margin-left: 10px;
     color: @mauve; 
