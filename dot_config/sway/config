@@ -109,7 +109,6 @@ set $playerctl-playing notify-send "$(playerctl metadata artist)" "$(playerctl m
 set $start-wshowkeys wshowkeys -F "JetBrainsMono Nerd Font 16" -a bottom
 set $stop-wshowkeys pkill wshowkeys
 
-set $music-cli exec kitty --class 'music-cli' -e ncmpcpp
 set $music-dl exec $scripts/music-download
 set $color-picker exec $scripts/colorpicker
 set $fzf-shortcuts exec kitty --class 'shortcutwidget' -e $scripts/fzf-shortcuts
@@ -226,7 +225,7 @@ bindsym $mod+Shift+9 exec $chrome --app=https://app.slack.com/client/T045A37HTU2
 
 bindsym $mod+Shift+E exec $chrome --app=https://drive.google.com/drive/u/0/
 
-bindsym $mod+B exec $music-cli
+bindsym $mod+B exec flatpak run io.bassi.Amberol
 bindsym $mod+Shift+B exec $music-dl
 
 bindsym $mod+Shift+slash exec $fzf-shortcuts
@@ -301,7 +300,7 @@ for_window [app_id="^net.mkiol.SpeechNote$"] floating  enable
 for_window [app_id="rofimoji"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
 for_window [app_id="floating-term"] floating enable, resize 55% 35%, move 63% 60%
 for_window [app_id="shortcutwidget"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [app_id="music-cli"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="io.bassi.Amberol"] border pixel 0, floating enable
 for_window [title="music-download"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
 for_window [app_id="rofi"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
 for_window [app_id="thunar"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
@@ -343,14 +342,6 @@ input type:keyboard {
   xkb_options caps:none
 }
 
-# SwayFX changes
-#corner_radius 10
-#blur_radius 7
-#blur_passes 4
-#shadows disable
-#layer_effects "waybar" blur enable; shadows disable; opacity 0.8
-#layer_effects "notifications" blur enable; shadows disable; opacity 0.8
-
 # Gestures
 bindgesture {
 swipe:3:right  exec $scripts/gestures backward
@@ -379,3 +370,13 @@ swipe:5:left exec $scripts/gestures pgdn
 #        pkill kanshi 
 #        kanshi &
 #}
+
+# SwayFX
+#corner_radius 10
+#blur_radius 7
+#blur_passes 4
+#shadows disable
+#layer_effects "waybar" blur enable; shadows disable; opacity 0.8
+#layer_effects "notifications" blur enable; shadows disable; opacity 0.8
+
+
