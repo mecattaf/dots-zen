@@ -11,7 +11,7 @@
 /** ********** Waybar Window ********** **/
 window#waybar {
     background-color: @crust;
-    /*background-color: transparent;*/
+    /*background-color: transparent; */
     color: @text;
     border-right: 0px solid @sapphire;
     padding: 0;
@@ -38,7 +38,7 @@ tooltip {
     border-radius: 0;
     /* margin-left: 10px; */
     margin: 3px 0px;
-    /*margin-top: 10px;*/
+    /* margin-top: 10px; */
     padding-right: 0px;
     padding-left: 5px;
 }
