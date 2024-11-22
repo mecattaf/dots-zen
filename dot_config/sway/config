@@ -202,6 +202,7 @@ bindsym $mod+Shift+apostrophe exec $stop-wshowkeys
 
 bindsym $mod+N workspace 11
 bindsym $mod+Shift+N exec $chrome --app=https://chat.openai.com/
+bindsym $mod+Shift+C exec $chrome --app=https://claude.ai/
 
 bindsym $mod+M workspace 12 
 bindsym $mod+Shift+M exec $chrome --app=https://soundcloud.com
@@ -286,6 +287,7 @@ bindsym Mod1+ctrl+Delete exec $power-menu
 for_window [app_id="^chrome-.*"] shortcuts_inhibitor disable
 for_window [app_id="^google-chrome$"] workspace 1
 for_window [title="^chrome-chat.openai.com.*$"] workspace 11
+for_window [title="^chrome-claude.ai.*$"] workspace 11
 for_window [title="^chrome-soundcloud.com.*$"] workspace 12
 for_window [title="^chrome-music.youtube.com.*$"] workspace 12
 for_window [title="^chrome-mail.superhuman.com.*$"] workspace 13
