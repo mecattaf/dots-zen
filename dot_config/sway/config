@@ -71,7 +71,8 @@ exec --no-startup-id waybar
 exec --no-startup-id mpd
 exec --no-startup-id mpDris2
 
-exec /usr/libexec/polkit-gnome-authentication-agent-1
+exec /usr/libexec/polkit-gnome-authentication-agent-1 #might delete this one since the move to f41
+exec = /usr/libexec/polkit-mate-authentication-agent-1
 exec /usr/lib/lxpolkit
 
 # Variables
