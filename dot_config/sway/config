@@ -57,19 +57,13 @@ exec mako
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
 exec autotiling 
+exec kanshi
+exec swaybg -c '#000000'
+
 #exec $scripts/pomo start
 #exec $scripts/pomo notify
-exec kanshi
-exec ollama serve
-
-exec swaybg -c '#000000'
 #exec ~/.azotebg 
-
-exec --no-startup-id waybar 
-
-# Music player backend
-exec --no-startup-id mpd
-exec --no-startup-id mpDris2
+#exec --no-startup-id waybar 
 
 exec /usr/libexec/polkit-gnome-authentication-agent-1 #might delete this one since the move to f41
 exec = /usr/libexec/polkit-mate-authentication-agent-1
@@ -274,8 +268,8 @@ bindsym $mod+Shift+Right move right 50
 bindsym $mod+BackSpace sticky toggle
 bindsym $mod+f fullscreen
 
-bindsym $mod+p exec notify-send "Pomodoro" "$($scripts/pomo clock)" -t 250
-bindsym $mod+Shift+p exec $scripts/pomo pause && notify-send "⏸️ Paused Pomodoro" -t 250
+#bindsym $mod+p exec notify-send "Pomodoro" "$($scripts/pomo clock)" -t 250
+#bindsym $mod+Shift+p exec $scripts/pomo pause && notify-send "⏸️ Paused Pomodoro" -t 250
 
 
 bindsym $mod+Shift+f    resize set 1920 1080
@@ -334,12 +328,6 @@ input "1241:1031:USB-HID_Keyboard" {
     xkb_options "altwin:menu_win"
 }
 
-# zenbook duo touch screens
-input "1267:16986:ELAN9009:00_04F3:425B" map_to_output "eDP-1"
-input "1267:16987:ELAN9008:00_04F3:425A" map_to_output "eDP-2"
-input "1267:16986:ELAN9009:00_04F3:425B_Stylus" map_to_output "eDP-1"
-input "1267:16987:ELAN9008:00_04F3:425A_Stylus" map_to_output "eDP-2"
-
 input type:keyboard {
   xkb_options caps:none
 }
@@ -380,5 +368,4 @@ swipe:5:left exec $scripts/gestures pgdn
 #shadows disable
 #layer_effects "waybar" blur enable; shadows disable; opacity 0.8
 #layer_effects "notifications" blur enable; shadows disable; opacity 0.8
-
 
