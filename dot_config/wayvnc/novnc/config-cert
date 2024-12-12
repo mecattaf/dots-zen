@@ -2,5 +2,5 @@ address=100.82.27.52
 enable_auth=false
 username=abc
 password=abc
-private_key_file=/var/home/dev/.config/wayvnc/novnc/key.pem
-certificate_file=/var/home/dev/.config/wayvnc/novnc/cert.pem
+private_key_file=~/.config/wayvnc/novnc/key.pem
+certificate_file=~/.config/wayvnc/novnc/cert.pem
