@@ -59,6 +59,7 @@ exec wl-paste --type image --watch cliphist store
 exec autotiling 
 exec kanshi
 exec swaybg -c '#000000'
+exec ollama serve
 
 #exec $scripts/pomo start
 #exec $scripts/pomo notify
