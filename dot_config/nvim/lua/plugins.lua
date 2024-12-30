@@ -152,6 +152,156 @@ require("lazy").setup({
           style = "~/.config/glow/colors.json" 
         })
     end
-  }
+  },
+  -- Git integration stack (ordered by dependency)
+  {
+    "sindrets/diffview.nvim",
+    dependencies = { 
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+    config = function()
+      require("diffview").setup()
+      vim.opt.fillchars:append { diff = "╱" }
+    end
+  },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    cmd = "Neogit",
+    config = true
+  },
+  {
+    "pwntester/octo.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    cmd = "Octo",
+    config = function()
+      require("octo").setup()
+      vim.treesitter.language.register('markdown', 'octo')
+    end
+  },
+  -- Markdown and documentation tools
+  {
+    "williamboman/mason.nvim",
+    cmd = "Mason",
+    opts = {}
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    build = "make install_jsregexp",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+    },
+    config = function()
+      require("luasnip").setup()
+    end
+  },
+  {
+    "HakonHarnes/img-clip.nvim",
+    event = "BufEnter",
+    opts = {
+      default = {
+        -- Save images relative to the current markdown file
+        relative_to_current_file = true,
+        -- Create an 'images' directory next to the markdown file
+        dir_path = function()
+          -- Gets the directory of the current file
+          local file_dir = vim.fn.expand('%:p:h')
+          local images_dir = file_dir .. '/images'
+          -- Create the images directory if it doesn't exist
+          vim.fn.mkdir(images_dir, 'p')
+          return 'images'  -- Return relative path
+        end,
+        extension = "png",
+        prompt_for_file_name = true,
+      },
+      filetypes = {
+        markdown = {
+          url_encode_path = true,
+          template = "![$CURSOR]($FILE_PATH)",
+          download_images = true,  -- Enable downloading images from URLs
+        },
+      },
+    }
+  },
+  {
+    "3rd/image.nvim",
+    opts = {
+      backend = "kitty",
+      integrations = {
+        markdown = { enabled = true },
+        neorg = { enabled = true },
+      },
+    },
+  },
+  {
+    "marromlam/kitty-repl.nvim",
+    event = "BufEnter",
+    config = function()
+      require('kitty-repl').setup()
+    end
+  },
+
+  -- Improved UI elements
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = {
+      "kevinhwang91/promise-async",
+      {
+        "luukvbaal/statuscol.nvim",
+        config = function()
+          local builtin = require("statuscol.builtin")
+          require("statuscol").setup({
+            segments = {
+              {text = {builtin.foldfunc}, click = "v:lua.ScFa"},
+              {text = {"%s"}, click = "v:lua.ScSa"},
+              {text = {builtin.lnumfunc, " "}, click = "v:lua.ScLa"}
+            }
+          })
+        end
+      }
+    },
+    event = "BufReadPost",
+    init = function()
+      vim.o.foldcolumn = "1"
+      vim.o.foldlevel = 99
+      vim.o.foldlevelstart = 99
+      vim.o.foldenable = true
+    end,
+  },
+  {
+    "karb94/neoscroll.nvim",
+    event = "BufRead",
+    config = true
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })
 

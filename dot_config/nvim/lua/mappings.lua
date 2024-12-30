@@ -67,3 +67,31 @@ map("i", "<S-TAB>", "<ESC><<<Ins>")
 -- Glow.nvim mapping
 map("n", "<leader>g", ":Glow<CR>")
 
+-- Image handling
+map("n", "<leader>p", "<cmd>PasteImage<cr>")
+
+-- Kitty REPL
+map("n", "<leader>;r", "<cmd>KittyREPLRun<cr>")
+map("x", "<leader>;s", "<cmd>KittyREPLSend<cr>")
+map("n", "<leader>;s", "<cmd>KittyREPLSend<cr>")
+map("n", "<leader>;c", "<cmd>KittyREPLClear<cr>")
+map("n", "<leader>;k", "<cmd>KittyREPLKill<cr>")
+map("n", "<leader>;l", "<cmd>KittyREPLRunAgain<cr>")
+map("n", "<leader>;w", "<cmd>KittyREPLStart<cr>")
+
+-- Folding (nvim-ufo)
+map("n", "zR", "<cmd>lua require('ufo').openAllFolds()<cr>")
+map("n", "zM", "<cmd>lua require('ufo').closeAllFolds()<cr>")
+map("n", "zr", "<cmd>lua require('ufo').openFoldsExceptKinds()<cr>")
+map("n", "zm", "<cmd>lua require('ufo').closeFoldsWith()<cr>")
+map("n", "K", "<cmd>lua local winid = require('ufo').peekFoldedLinesUnderCursor() if not winid then vim.lsp.buf.hover() end<cr>")
+
+-- Git integration
+map("n", "<leader>dv", "<cmd>DiffviewOpen<cr>")
+map("n", "<leader>dc", "<cmd>DiffviewClose<cr>")
+map("n", "<leader>ng", "<cmd>Neogit<cr>")
+
+-- GitHub integration
+map("n", "<leader>oi", "<cmd>Octo issue list<cr>")
+map("n", "<leader>op", "<cmd>Octo pr list<cr>")
+
