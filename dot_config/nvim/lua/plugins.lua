@@ -117,13 +117,21 @@ require("lazy").setup({
     end
   },
   {
-    'catppuccin/nvim',
-    as = 'catppuccin',
-    config = function()
-      vim.g.catppuccin_flavour = "mocha"
-      require('catppuccin').setup()
-      vim.cmd.colorscheme "catppuccin"
-    end
+   'catppuccin/nvim',
+   as = 'catppuccin',
+   config = function()
+     vim.g.catppuccin_flavour = "mocha"
+     require('catppuccin').setup({
+       color_overrides = {
+         mocha = {
+           base = "#000000",
+           mantle = "#000000",
+           crust = "#000000",
+         },
+       },
+     })
+     vim.cmd.colorscheme "catppuccin"
+   end
   },
   {
     'windwp/nvim-autopairs',

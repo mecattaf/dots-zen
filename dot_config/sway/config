@@ -3,7 +3,7 @@
 # appearance
 set $cl_high #b4befe
 set $cl_indi #9399b2
-set $cl_back #1e1e2e
+set $cl_back #000000
 set $cl_fore #cdd6f4
 set $cl_urge #f38ba8
 

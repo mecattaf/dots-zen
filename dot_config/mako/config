@@ -12,7 +12,7 @@ layer=overlay
 
 # Colors
 
-background-color=#1e1e2e
+background-color=#000000
 text-color=#cdd6f4
 border-color=#89b4fa
 progress-color=over #313244
