@@ -113,7 +113,24 @@ require("lazy").setup({
   {
     'akinsho/bufferline.nvim',
     config = function()
-      require('plugins.bufferline')
+      require('bufferline').setup({
+        options = {
+          style_preset = require('bufferline').style_preset.minimal,
+          hover = {
+            enabled = true,
+            delay = 200,
+            reveal = {'close'}
+          }
+        },
+        highlights = {
+          fill = {
+            bg = "#000000"
+          },
+          background = {
+            bg = "#000000"
+          }
+        }
+      })
     end
   },
   {
