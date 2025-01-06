@@ -91,6 +91,7 @@ require("lazy").setup({
         ensure_installed = { "markdown", "markdown_inline" },
         highlight = {
           enable = true,
+          disable = { "markdown" }, -- This will disable Treesitter highlighting for markdown
         },
       })
       vim.treesitter.language.register('markdown', 'markdown')
