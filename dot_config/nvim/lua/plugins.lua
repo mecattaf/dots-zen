@@ -87,7 +87,13 @@ require("lazy").setup({
     'nvim-treesitter/nvim-treesitter',
     dependencies = { 'nathom/filetype.nvim' },
     config = function()
-      require('plugins.treesitter')
+      require('nvim-treesitter.configs').setup({
+        ensure_installed = { "markdown", "markdown_inline" },
+        highlight = {
+          enable = true,
+        },
+      })
+      vim.treesitter.language.register('markdown', 'markdown')
     end
   },
   {
