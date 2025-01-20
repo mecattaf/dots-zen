@@ -12,6 +12,9 @@ $character"""
 
 [directory]
 style = "blue"
+truncation_length = 0
+truncate_to_repo = false
+home_symbol = "~"
 
 [character]
 success_symbol = "[❯](purple)"
