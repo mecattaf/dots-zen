@@ -16,8 +16,8 @@ truncation_length = 0
 truncate_to_repo = false
 home_symbol = "~"
 use_os_path_sep = true
-substitute_home = true
 fish_style_pwd_dir_length = 1 
+substitutions = { "/var/home/tom" = "~" }
 
 [character]
 success_symbol = "[❯](purple)"
