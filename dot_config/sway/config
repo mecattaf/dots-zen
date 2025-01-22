@@ -357,6 +357,31 @@ swipe:5:left exec $scripts/gestures pgdn
 
 }
 
+
+# Touchscreen Gestures
+bindgesture --input-device="type:touch" {
+swipe:3:right  exec $scripts/gestures backward
+swipe:3:left exec $scripts/gestures forward
+swipe:3:up   exec rofi -show drun
+swipe:3:down  exec killall rofi
+
+pinch:4:outward   exec swaymsg gaps inner current plus 25
+pinch:4:inward  exec swaymsg gaps inner current minus 25
+pinch:5:outward   exec swaymsg gaps inner current plus 50
+pinch:5:inward  exec swaymsg gaps inner current minus 50
+
+swipe:4:up   exec $waybar
+swipe:4:down  exec $waybar
+swipe:4:right  exec swaymsg 'workspace next_on_output'
+swipe:4:left  exec swaymsg 'workspace prev_on_output'
+
+swipe:5:up   exec swaymsg gaps vertical current plus 50
+swipe:5:down  exec swaymsg gaps vertical current minus 50
+swipe:5:right  exec $scripts/gestures pgup
+swipe:5:left exec $scripts/gestures pgdn
+
+}
+
 #exec_always {
 #        pkill kanshi 
 #        kanshi &
@@ -369,4 +394,3 @@ swipe:5:left exec $scripts/gestures pgdn
 #shadows disable
 #layer_effects "waybar" blur enable; shadows disable; opacity 0.8
 #layer_effects "notifications" blur enable; shadows disable; opacity 0.8
-
