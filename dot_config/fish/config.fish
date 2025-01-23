@@ -30,3 +30,18 @@ alias l.="eza -a | grep -E \"^\.\""
 
 # Complete replacement of cd with zoxide
 alias cd='z'
+# remember zi command also
+
+# Atuin settings, brought over from https://gist.github.com/nikvdp/f72ff1776815861c5da78ceab2847be2
+# Use atuin to power ctrl-r history search but with fzf. Also disable atuin's up arrow bindings and use ctrl-e to bring up atuin's own tui
+## Atuin improved history search
+type -q atuin || exit
+
+set -gx ATUIN_NOBIND true
+atuin init fish | source
+
+# Ctrl-R: FZF history search
+bind \cr 'set cmd (atuin search --cmd-only --limit 5000 | tac | fzf --height 40% -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort,ctrl-z:ignore); and commandline -i $cmd'
+
+# Ctrl-E: Default atuin search
+bind \ce _atuin_search_widget
