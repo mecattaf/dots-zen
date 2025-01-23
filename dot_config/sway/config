@@ -52,6 +52,12 @@ exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CU
 exec hash dbus-update-activation-environment 2>/dev/null && \
         dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway 
 
+# Start GNOME Keyring for secure credential storage
+exec gnome-keyring-daemon --start --components=secrets,ssh,keyring --daemonize
+
+# Start just one authentication agent (MATE's in your case)
+exec /usr/libexec/polkit-mate-authentication-agent-1
+
 exec wl-gammarelay-rs run
 exec mako
 exec wl-paste --type text --watch cliphist store
@@ -66,9 +72,8 @@ exec ollama serve
 #exec ~/.azotebg 
 #exec --no-startup-id waybar 
 
-exec /usr/libexec/polkit-gnome-authentication-agent-1 #might delete this one since the move to f41
-exec = /usr/libexec/polkit-mate-authentication-agent-1
-exec /usr/lib/lxpolkit
+#exec /usr/libexec/polkit-gnome-authentication-agent-1 #might delete this one since the move to f41
+#exec /usr/lib/lxpolkit
 
 # Variables
 set $mod Mod4
