@@ -112,7 +112,7 @@ set $stop-wshowkeys pkill wshowkeys
 
 set $music-dl exec $scripts/music-download
 set $color-picker exec $scripts/colorpicker
-set $fzf-shortcuts exec kitty --class 'shortcutwidget' -e $scripts/fzf-shortcuts
+#set $fzf-shortcuts exec kitty --class 'shortcutwidget' -e $scripts/fzf-shortcuts
 
 # Workspace
 bindsym $mod+1 workspace 1
@@ -230,7 +230,11 @@ bindsym $mod+Shift+E exec $chrome --app=https://drive.google.com/drive/u/0/
 bindsym $mod+B exec flatpak run io.bassi.Amberol
 bindsym $mod+Shift+B exec $music-dl
 
-bindsym $mod+Shift+slash exec $fzf-shortcuts
+#UNMAPPED
+#bindsym $mod+Shift+slash exec $fzf-shortcuts
+# also unmapped is the mod space and mod shift space probably to record sst
+# also remap mod \ instead of hdmi workspace to [ai related action]
+# possibly mod space for ollama mods? or "mod /"
 
 bindsym XF86AudioRaiseVolume exec $volume-up
 bindsym XF86AudioLowerVolume exec $volume-down
