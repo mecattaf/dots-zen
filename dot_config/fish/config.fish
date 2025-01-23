@@ -12,6 +12,8 @@ set -gx EDITOR 'nvim'
 
 set -x STARSHIP_CONFIG ~/.config/starship/starship.toml
 starship init fish | source
+zoxide init fish | source
+atuin init fish | source
 
 # Using eza instead of ls
 alias ls='eza --color=always --group-directories-first --icons'
@@ -25,3 +27,6 @@ alias lx='eza -lbhHigUmuSa@ --time-style=long-iso --git --color-scale --color=al
 alias lS='eza -1 --color=always --group-directories-first --icons'
 alias lt='eza --tree --level=2 --color=always --group-directories-first --icons'
 alias l.="eza -a | grep -E \"^\.\""
+
+# Complete replacement of cd with zoxide
+alias cd='z'
