@@ -7,7 +7,7 @@ This repository contains my personal configuration files (dotfiles) organized fo
 <details>
 <summary>View Fish Shell Configuration</summary>
 
-{% include_relative shortcuts/fish.md %}
+[View Fish Configuration File](shortcuts/fish.md)
 
 </details>
 
@@ -16,7 +16,7 @@ This repository contains my personal configuration files (dotfiles) organized fo
 <details>
 <summary>View Neovim Configuration</summary>
 
-{% include_relative shortcuts/nvim.md %}
+[View Neovim Configuration File](shortcuts/nvim.md)
 
 </details>
 
@@ -25,7 +25,7 @@ This repository contains my personal configuration files (dotfiles) organized fo
 <details>
 <summary>View Sway Configuration</summary>
 
-{% include_relative shortcuts/sway.md %}
+[View Sway Configuration File](shortcuts/sway.md)
 
 </details>
 
@@ -34,7 +34,7 @@ This repository contains my personal configuration files (dotfiles) organized fo
 <details>
 <summary>View Terminal Configuration</summary>
 
-{% include_relative shortcuts/terminal.md %}
+[View Terminal Configuration File](shortcuts/terminal.md)
 
 </details>
 
@@ -43,6 +43,6 @@ This repository contains my personal configuration files (dotfiles) organized fo
 <details>
 <summary>View Vim Configuration</summary>
 
-{% include_relative shortcuts/vim.md %}
+[View Vim Configuration File](shortcuts/vim.md)
 
 </details>
