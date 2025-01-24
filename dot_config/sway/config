@@ -235,6 +235,9 @@ bindsym $mod+Shift+B exec $music-dl
 # also unmapped is the mod space and mod shift space probably to record sst
 # also remap mod \ instead of hdmi workspace to [ai related action]
 # possibly mod space for ollama mods? or "mod /"
+# WHISPER TRANSCRIPTION 
+#bindsym --no-repeat Control_R exec "whisper-transcription"
+#bindsym --release Control_R exec killall -2 whisper-transcription
 
 bindsym XF86AudioRaiseVolume exec $volume-up
 bindsym XF86AudioLowerVolume exec $volume-down
