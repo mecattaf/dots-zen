@@ -57,6 +57,10 @@ exec gnome-keyring-daemon --start --components=secrets,ssh,keyring --daemonize
 
 # Start just one authentication agent (MATE's in your case)
 exec /usr/libexec/polkit-mate-authentication-agent-1
+exec /usr/libexec/polkit-gnome-authentication-agent-1 #might delete this one since the move to f41
+exec /usr/lib/lxpolkit
+
+
 
 exec wl-gammarelay-rs run
 exec mako
@@ -71,9 +75,6 @@ exec ollama serve
 #exec $scripts/pomo notify
 #exec ~/.azotebg 
 #exec --no-startup-id waybar 
-
-#exec /usr/libexec/polkit-gnome-authentication-agent-1 #might delete this one since the move to f41
-#exec /usr/lib/lxpolkit
 
 # Variables
 set $mod Mod4
