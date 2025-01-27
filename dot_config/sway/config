@@ -240,20 +240,32 @@ bindsym $mod+Shift+B exec $music-dl
 #bindsym --no-repeat Control_R exec "whisper-transcription"
 #bindsym --release Control_R exec killall -2 whisper-transcription
 
+# Media Controls
+bindsym XF86MonBrightnessUp exec $brightness-up
+bindsym XF86MonBrightnessDown exec $brightness-down
+bindsym XF86AudioMicMute exec kitty --class "nmtui" -e nmtui
+bindsym XF86LaunchA exec blueman-manager
+bindsym XF86Search exec pavucontrol
+bindsym XF86AudioPrev exec playerctl previous && $playerctl-playing 
+bindsym XF86AudioPlay exec playerctl play-pause && $playerctl-playing 
+bindsym XF86AudioNext exec playerctl next && $playerctl-playing 
 bindsym XF86AudioRaiseVolume exec $volume-up
 bindsym XF86AudioLowerVolume exec $volume-down
 bindsym XF86AudioMute exec $volume-mute
 
-bindsym XF86AudioMicMute exec kitty --class "nmtui" -e nmtui
-bindsym XF86LaunchA exec blueman-manager
-bindsym XF86Search exec pavucontrol
-
-bindsym XF86MonBrightnessUp exec $brightness-up
-bindsym XF86MonBrightnessDown exec $brightness-down
-
-bindsym XF86AudioPrev exec playerctl previous && $playerctl-playing 
-bindsym XF86AudioPlay exec playerctl play-pause && $playerctl-playing 
-bindsym XF86AudioNext exec playerctl next && $playerctl-playing 
+# For keyboards with no media controls:
+bindsym $mod+F1 exec $brightness-down  
+bindsym $mod+F2 exec $brightness-up   
+bindsym $mod+F3 exec kitty --class "nmtui" -e nmtui
+bindsym $mod+F4 exec blueman-manager
+bindsym $mod+F5 exec pavucontrol    
+# Skip F6 as it matches the original gap in magic kb function row
+bindsym $mod+F7 exec playerctl previous && $playerctl-playing 
+bindsym $mod+F8 exec playerctl play-pause && $playerctl-playing
+bindsym $mod+F9 exec playerctl next && $playerctl-playing 
+bindsym $mod+F10 exec $volume-mute
+bindsym $mod+F11 exec $volume-down
+bindsym $mod+F12 exec $volume-up
 
 bindsym $mod+Shift+Tab focus mode_toggle
 bindsym $mod+Tab floating toggle
@@ -284,7 +296,6 @@ bindsym $mod+f fullscreen
 
 #bindsym $mod+p exec notify-send "Pomodoro" "$($scripts/pomo clock)" -t 250
 #bindsym $mod+Shift+p exec $scripts/pomo pause && notify-send "⏸️ Paused Pomodoro" -t 250
-
 
 bindsym $mod+Shift+f    resize set 1920 1080
 bindsym $mod+g          resize set 900 500
@@ -348,31 +359,6 @@ input type:keyboard {
 
 # Gestures
 bindgesture {
-swipe:3:right  exec $scripts/gestures backward
-swipe:3:left exec $scripts/gestures forward
-swipe:3:up   exec rofi -show drun
-swipe:3:down  exec killall rofi
-
-pinch:4:outward   exec swaymsg gaps inner current plus 25
-pinch:4:inward  exec swaymsg gaps inner current minus 25
-pinch:5:outward   exec swaymsg gaps inner current plus 50
-pinch:5:inward  exec swaymsg gaps inner current minus 50
-
-swipe:4:up   exec $waybar
-swipe:4:down  exec $waybar
-swipe:4:right  exec swaymsg 'workspace next_on_output'
-swipe:4:left  exec swaymsg 'workspace prev_on_output'
-
-swipe:5:up   exec swaymsg gaps vertical current plus 50
-swipe:5:down  exec swaymsg gaps vertical current minus 50
-swipe:5:right  exec $scripts/gestures pgup
-swipe:5:left exec $scripts/gestures pgdn
-
-}
-
-
-# Touchscreen Gestures
-bindgesture --input-device="type:touch" {
 swipe:3:right  exec $scripts/gestures backward
 swipe:3:left exec $scripts/gestures forward
 swipe:3:up   exec rofi -show drun
