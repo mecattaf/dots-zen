@@ -1,6 +1,7 @@
-https://github.com/DMontgomery40/intel-npu-top
-
 #!/usr/bin/env python3
+
+# Credits to https://github.com/DMontgomery40/intel-npu-top
+
 import time
 import os
 import curses
