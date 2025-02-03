@@ -130,7 +130,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 19
 bindsym $mod+0 workspace 10
 
-bindsym $mod+backslash workspace 20
+#bindsym $mod+backslash workspace 20
 
 workspace 1 output "eDP-1"
 workspace 2 output "eDP-1"
@@ -166,7 +166,7 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+0 move container to workspace 10
 
-bindsym $mod+Shift+backslash move container to workspace 20
+#bindsym $mod+Shift+backslash move container to workspace 20
 
 # Key bindings
 bindsym --to-code Caps_Lock exec swaymsg input type:touchpad events toggle && notify-send "🚀 Trackpad Toggled" -t 150
@@ -236,12 +236,13 @@ bindsym $mod+Shift+B exec $music-dl
 
 #UNMAPPED
 #bindsym $mod+Shift+slash exec $fzf-shortcuts
-# also unmapped is the mod space and mod shift space probably to record sst
-# also remap mod \ instead of hdmi workspace to [ai related action]
-# possibly mod space for ollama mods? or "mod /"
-# WHISPER TRANSCRIPTION 
-#bindsym --no-repeat Control_R exec "whisper-transcription"
-#bindsym --release Control_R exec killall -2 whisper-transcription
+# also unmapped is the mod space and mod shift space probably to record sst for `mods` to ollama
+
+bindsym $mod+backslash exec "whisper-transcription"
+bindsym $mod+Shift+backslash exec killall -2 whisper-transcription
+# Future implementation: Press once to start, press again to stop and transcribe
+#bindsym $mod+backslash exec "whisper-transcription"
+#bindsym $mod+Shift+backslash exec killall -2 whisper-transcription; exec whisper-transcription --stop-and-transcribe#
 
 # Media Controls
 bindsym XF86MonBrightnessUp exec $brightness-up
