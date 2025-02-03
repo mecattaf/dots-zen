@@ -41,4 +41,4 @@ bind \ce "atuin search -i"
 bind --preset \e\[A history-search-backward
 
 # NPU simple visualizer
-alias nputop="~/.config/sway/scripts/npu_monitor.py"
+alias nputop="~/.config/sway/scripts/nputop.py"
