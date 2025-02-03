@@ -72,7 +72,7 @@ exec swaybg -c '#000000'
 
 exec ollama serve
 # Start whisper-npu-server
-exec systemctl --user start container-whisper-npu
+exec systemctl --user start whisper-npu
 
 #exec $scripts/pomo start
 #exec $scripts/pomo notify
