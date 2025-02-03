@@ -1,0 +1,21 @@
+[Unit]
+Description=Whisper NPU Server
+After=network-online.target
+
+[Container]
+Image=ghcr.io/mecattaf/whisper-npu-server:latest
+AutoUpdate=registry
+ContainerName=whisper-server
+Network=eternal.network
+Volume=%h/.whisper/models:/root/.whisper/models:Z
+PublishPort=8009:5000
+AddDevice=/dev/dri
+AddDevice=/dev/accel/accel0
+SecurityLabelDisable=true
+Environment=PYTHONUNBUFFERED=1
+
+[Service]
+TimeoutStartSec=1800
+
+[Install]
+WantedBy=multi-user.target

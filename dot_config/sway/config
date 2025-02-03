@@ -69,7 +69,10 @@ exec wl-paste --type image --watch cliphist store
 exec autotiling 
 exec kanshi
 exec swaybg -c '#000000'
+
 exec ollama serve
+# Start whisper-npu-server
+exec systemctl --user start container-whisper-npu
 
 #exec $scripts/pomo start
 #exec $scripts/pomo notify
