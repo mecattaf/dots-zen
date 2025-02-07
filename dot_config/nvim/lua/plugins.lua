@@ -28,10 +28,25 @@ require("lazy").setup({
     end,
   },
   {
-  	"robitx/gp.nvim",
-  	config = function()
-  		require("gp").setup()
-  	end,
+    "mecattaf/murmur.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",  -- Required for helper functions
+    },
+    config = function()
+      require("murmur").setup({
+        server = {
+          host = "127.0.0.1",
+          port = 8009,
+          model = "whisper-small"
+        },
+        recording = {
+          command = "sox",  -- Using sox for audio recording
+          format = "wav",
+          channels = 1,
+          sample_rate = 16000
+        }
+      })
+    end,
   },
   {
     'tpope/vim-repeat', -- Required for leap.nvim dot-repeats
