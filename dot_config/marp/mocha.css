@@ -32,7 +32,7 @@
   background: var(--mocha-background);
 }
 
-/* Dracula Foreground */
+/* Mocha Foreground */
 .hljs,
 .hljs-subst,
 .hljs-typing,
@@ -41,14 +41,14 @@
     color: var(--mocha-foreground);
 }
 
-/* Dracula Comment */
+/* Mocha Comment */
 .hljs-comment,
 .hljs-quote,
 .hljs-deletion {
     color: var(--mocha-comment);
 }
 
-/* Dracula Cyan */
+/* Mocha Cyan */
 .hljs-meta .hljs-doctag,
 .hljs-built_in,
 .hljs-selector-tag,
@@ -59,33 +59,33 @@
 }
 
 
-/* Dracula Green */
+/* Mocha Green */
 .hljs-title {
     color: var(--mocha-green);
 }
 
-/* Dracula Orange */
+/* Mocha Orange */
 .hljs-params {
     color: var(--mocha-orange);
 }
 
-/* Dracula Pink */
+/* Mocha Pink */
 .hljs-keyword {
     color: var(--mocha-pink);
 }
 
-/* Dracula Purple */
+/* Mocha Purple */
 .hljs-literal,
 .hljs-number {
     color: var(--mocha-purple);
 }
 
-/* Dracula Red */
+/* Mocha Red */
 .hljs-regexp {
     color: var(--mocha-red);
 }
 
-/* Dracula Yellow */
+/* Mocha Yellow */
 .hljs-string,
 .hljs-name,
 .hljs-type,

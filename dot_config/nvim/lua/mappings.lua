@@ -95,3 +95,5 @@ map("n", "<leader>ng", "<cmd>Neogit<cr>")
 map("n", "<leader>oi", "<cmd>Octo issue list<cr>")
 map("n", "<leader>op", "<cmd>Octo pr list<cr>")
 
+-- Murmur (Speech-to-text)
+map("n", "<C-\\>", ":Murmur<CR>")

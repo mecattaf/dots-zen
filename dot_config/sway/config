@@ -234,15 +234,12 @@ bindsym $mod+Shift+E exec $chrome --app=https://drive.google.com/drive/u/0/
 bindsym $mod+B exec flatpak run io.bassi.Amberol
 bindsym $mod+Shift+B exec $music-dl
 
-#UNMAPPED
-#bindsym $mod+Shift+slash exec $fzf-shortcuts
-# also unmapped is the mod space and mod shift space probably to record sst for `mods` to ollama
+bindsym $mod+backslash exec kitty --class floating-term -e nvim -c "Murmur" /tmp/murmur/sway.md
 
-bindsym $mod+backslash exec "whisper-transcription"
-bindsym $mod+Shift+backslash exec killall -2 whisper-transcription
-# Future implementation: Press once to start, press again to stop and transcribe
-#bindsym $mod+backslash exec "whisper-transcription"
-#bindsym $mod+Shift+backslash exec killall -2 whisper-transcription; exec whisper-transcription --stop-and-transcribe#
+#UNMAPPED
+# bindsym $mod+Shift+slash exec $fzf-shortcuts
+# also unmapped is the mod space and mod shift space probably to record sst for `mods` to ollama
+# bindsym $mod+Shift+backslash exec killall -2 whisper-transcription
 
 # Media Controls
 bindsym XF86MonBrightnessUp exec $brightness-up
