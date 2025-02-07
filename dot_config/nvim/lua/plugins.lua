@@ -33,6 +33,8 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",  -- Required for helper functions
     },
     config = function()
+      local log_path = vim.fn.stdpath("cache") .. "/murmur.log"
+      require("murmur.logger").setup(log_path)
       require("murmur").setup({
         server = {
           host = "127.0.0.1",
