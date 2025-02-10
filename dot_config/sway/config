@@ -306,7 +306,7 @@ bindsym Mod1+ctrl+Delete exec $power-menu
 
 # Chrome webapps rules
 for_window [app_id="^chrome-.*"] shortcuts_inhibitor disable
-for_window [app_id="^google-chrome$"] workspace 1
+#for_window [app_id="^google-chrome$"] workspace 1
 for_window [title="^chrome-chat.openai.com.*$"] workspace 11
 for_window [title="^chrome-claude.ai.*$"] workspace 11
 for_window [title="^chrome-soundcloud.com.*$"] workspace 12
