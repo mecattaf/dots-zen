@@ -6,34 +6,20 @@ set $cl_indi #9399b2
 set $cl_back #000000
 set $cl_fore #cdd6f4
 set $cl_urge #f38ba8
-
-# Colors                border   bg       text     indi     childborder
 client.focused          $cl_high $cl_high $cl_fore $cl_indi $cl_high
 client.focused_inactive $cl_back $cl_back $cl_fore $cl_back $cl_back
 client.unfocused        $cl_back $cl_back $cl_fore $cl_back $cl_back
 client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
-
-
-# Mouse behavior
 focus_follows_mouse no
-
-# Font
-font pango:JetBrainsMono Nerd Font 12
-
-# Gaps
 smart_gaps off
 gaps inner 1
 gaps outer 1
-
 default_border pixel 1
 default_floating_border normal
 hide_edge_borders smart
-
 seat seat0 xcursor_theme Bibata-Modern-Classic 24
 seat seat0 fallback true
 seat seat0 hide_cursor 1000
-
-# Gnome Settings
 set $gnome-schema org.gnome.desktop.interface
 exec_always  {
         gsettings set $gnome-schema cursor-theme 'Bibata-Modern-Classic'
@@ -48,19 +34,14 @@ exec_always  {
 
 # Import variables into system-user environment
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP 
-
 exec hash dbus-update-activation-environment 2>/dev/null && \
         dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway 
 
-# Start GNOME Keyring for secure credential storage
+# Credential mgmt
 exec gnome-keyring-daemon --start --components=secrets,ssh,keyring --daemonize
-
-# Start just one authentication agent (MATE's in your case)
 exec /usr/libexec/polkit-mate-authentication-agent-1
-exec /usr/libexec/polkit-gnome-authentication-agent-1 #might delete this one since the move to f41
+exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec /usr/lib/lxpolkit
-
-
 
 exec wl-gammarelay-rs run
 exec mako
@@ -70,22 +51,16 @@ exec autotiling
 exec kanshi
 exec swaybg -c '#000000'
 
-exec ollama serve
+#exec ollama serve
+#exec open-webui serve
 # Start whisper-npu-server
 exec systemctl --user start whisper-npu
 
-#exec $scripts/pomo start
-#exec $scripts/pomo notify
-#exec ~/.azotebg 
-#exec --no-startup-id waybar 
-
 # Variables
+floating_modifier $mod normal
 set $mod Mod4
 set $scripts ~/.config/sway/scripts
-floating_modifier $mod normal
-
 set $host kitty
-
 set $chrome flatpak run com.google.Chrome
 
 set $screenshot-full $scripts/screenshot full
@@ -142,11 +117,11 @@ workspace 7 output "eDP-1"
 workspace 8 output "eDP-1"
 workspace 9 output "eDP-1"
 workspace 10 output "eDP-2"
-workspace 11 output "eDP-2" #gpt
+workspace 11 output "eDP-2" #gpt TO BE CHANGED TO LLM?
 workspace 12 output "eDP-2" #music
 workspace 13 output "eDP-2" #email
-workspace 14 output "eDP-2" #linear
-workspace 15 output "eDP-2" #notion
+workspace 14 output "eDP-2" #linear TO BE CHANGED TO OCTO?
+workspace 15 output "eDP-2" #notion TO BE CHANGED TO NOTES
 workspace 16 output "eDP-2" #obs
 workspace 17 output "eDP-2" #calendar
 
@@ -216,7 +191,7 @@ bindsym $mod+W workspace 13
 bindsym $mod+Shift+W exec $chrome --app=https://mail.superhuman.com/
 
 bindsym $mod+grave workspace 14
-bindsym $mod+Shift+grave exec $chrome --app=https://linear.app/
+bindsym $mod+Shift+grave exec $chrome --app=https://linear.app/ # to be changed to octo?
 
 bindsym $mod+comma workspace 15
 bindsym $mod+Shift+comma exec $chrome --app=https://notion.so/
@@ -307,8 +282,8 @@ bindsym Mod1+ctrl+Delete exec $power-menu
 # Chrome webapps rules
 for_window [app_id="^chrome-.*"] shortcuts_inhibitor disable
 #for_window [app_id="^google-chrome$"] workspace 1
-for_window [title="^chrome-chat.openai.com.*$"] workspace 11
-for_window [title="^chrome-claude.ai.*$"] workspace 11
+for_window [title="^chrome-chat.openai.com.*$"] workspace 11 #owui?
+for_window [title="^chrome-claude.ai.*$"] workspace 11 #owui?
 for_window [title="^chrome-soundcloud.com.*$"] workspace 12
 for_window [title="^chrome-music.youtube.com.*$"] workspace 12
 for_window [title="^chrome-mail.superhuman.com.*$"] workspace 13
