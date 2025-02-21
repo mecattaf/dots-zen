@@ -14,7 +14,7 @@ opt.rtp:prepend(lazypath)
 
 g.mapleader = " "
 
-require("lazy").setup({
+requirep("lazy").setup({
   {
     'mikesmithgh/kitty-scrollback.nvim',
     enabled = true,
@@ -190,14 +190,18 @@ require("lazy").setup({
     end
   },
   {
-    "ellisonleao/glow.nvim",
-      config = function()
-       require("glow").setup({
-          width_ratio = 1,
-          height_ratio = 1,
-          style = "~/.config/glow/colors.json" 
-        })
-    end
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons'
+    },
+    ft = {'markdown'},
+    config = function()
+      require('render-markdown').setup({
+        -- You can customize options here
+        file_types = { 'markdown' },
+      })
+      end
   },
   -- Git integration stack (ordered by dependency)
   {
@@ -340,24 +344,18 @@ require("lazy").setup({
     event = "BufRead",
     config = true
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  {
+    "GeorgesAlkhouri/nvim-aider",
+    cmd = { "AiderTerminalToggle", "AiderHealth" },
+    dependencies = {
+      "folke/snacks.nvim",
+    },
+    config = function()
+      require("nvim_aider").setup({
+        args = { "--no-auto-commits", "--pretty", "--stream" },
+      })
+    end,
+  },
 
 })
 

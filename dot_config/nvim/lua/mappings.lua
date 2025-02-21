@@ -64,9 +64,6 @@ map("i", "<C-A>", "<Home>")
 -- Shift tab
 map("i", "<S-TAB>", "<ESC><<<Ins>")
 
--- Glow.nvim mapping
-map("n", "<leader>g", ":Glow<CR>")
-
 -- Image handling
 map("n", "<leader>p", "<cmd>PasteImage<cr>")
 
