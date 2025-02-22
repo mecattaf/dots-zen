@@ -14,7 +14,7 @@ opt.rtp:prepend(lazypath)
 
 g.mapleader = " "
 
-requirep("lazy").setup({
+require("lazy").setup({
   {
     'mikesmithgh/kitty-scrollback.nvim',
     enabled = true,
