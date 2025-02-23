@@ -53,12 +53,11 @@ exec swaybg -c '#000000'
 
 #exec ollama serve
 #exec open-webui serve
-# Start whisper-npu-server
-exec systemctl --user start whisper-npu
+exec systemctl --user start whisper-npu.container
 
 # Variables
-floating_modifier $mod normal
 set $mod Mod4
+floating_modifier $mod normal
 set $scripts ~/.config/sway/scripts
 set $host kitty
 set $chrome flatpak run com.google.Chrome
