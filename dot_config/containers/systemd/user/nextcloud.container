@@ -5,8 +5,8 @@ After=network.target
 [Container]
 Image=nextcloud:latest
 ContainerName=nextcloud
-Volume=/run/media/tom/LaCie/nextcloud/config:/var/www/html/config:Z
-Volume=/run/media/tom/LaCie/nextcloud/data:/var/www/html/data:Z
+Volume=/run/media/tom/LaCie/nextcloud:/var/www/html:Z
+AddDevice=/run/media/tom/LaCie
 Environment=TZ=Etc/UTC
 Environment=NEXTCLOUD_ADMIN_USER=admin
 Environment=NEXTCLOUD_ADMIN_PASSWORD=password
