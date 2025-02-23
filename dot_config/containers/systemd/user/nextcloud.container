@@ -5,9 +5,10 @@ After=network.target
 [Container]
 Image=nextcloud:latest
 ContainerName=nextcloud
-Volume=/run/media:/run/media:rslave
-Volume=/run/media/tom/LaCie/nextcloud/html:/var/www/html
-Volume=/run/media/tom/LaCie/nextcloud/data:/var/www/html/data
+SecurityLabelDisable=true
+Volume=/run/media:/run/media:ro,rslave
+BindMount=/run/media/tom/LaCie/nextcloud/html:/var/www/html
+BindMount=/run/media/tom/LaCie/nextcloud/data:/var/www/html/data
 Environment=TZ=Etc/UTC
 Environment=NEXTCLOUD_ADMIN_USER=admin
 Environment=NEXTCLOUD_ADMIN_PASSWORD=password
