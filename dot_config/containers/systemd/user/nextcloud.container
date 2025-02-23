@@ -12,7 +12,8 @@ Volume=/run/media/tom/LaCie/nextcloud/data:/var/www/html/data:Z
 Environment=TZ=Etc/UTC
 Environment=NEXTCLOUD_ADMIN_USER=admin
 Environment=NEXTCLOUD_ADMIN_PASSWORD=password
-PublishPort=8443:443
+Environment=APACHE_LISTEN=0.0.0.0:80
+PublishPort=8443:80
 
 [Service]
 Type=notify
