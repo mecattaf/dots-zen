@@ -1,7 +1,6 @@
 [Unit]
 Description=Nextcloud Personal Cloud Server
-Requires=network-online.target
-After=network-online.target
+After=network.target
 
 [Container]
 Image=lscr.io/linuxserver/nextcloud:latest
