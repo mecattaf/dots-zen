@@ -7,10 +7,9 @@ Image=lscr.io/linuxserver/nextcloud:latest
 ContainerName=nextcloud
 Volume=/run/media/tom/LaCie/nextcloud/config:/config:Z
 Volume=/run/media/tom/LaCie/nextcloud/data:/data:Z
-Environment=PUID=1000
-Environment=PGID=1000
 Environment=TZ=Etc/UTC
 PublishPort=8443:443
+User=0
 
 [Service]
 TimeoutStartSec=900
