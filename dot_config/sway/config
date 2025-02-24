@@ -11,6 +11,7 @@ client.focused_inactive $cl_back $cl_back $cl_fore $cl_back $cl_back
 client.unfocused        $cl_back $cl_back $cl_fore $cl_back $cl_back
 client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
 focus_follows_mouse no
+font pango:JetBrainsMono Nerd Font 12
 smart_gaps off
 gaps inner 1
 gaps outer 1
@@ -57,10 +58,11 @@ exec systemctl --user start whisper-npu.container
 
 # Variables
 set $mod Mod4
-floating_modifier $mod normal
 set $scripts ~/.config/sway/scripts
 set $host kitty
 set $chrome flatpak run com.google.Chrome
+
+floating_modifier $mod
 
 set $screenshot-full $scripts/screenshot full
 set $screenshot-area $scripts/screenshot area
