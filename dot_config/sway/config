@@ -62,7 +62,7 @@ set $scripts ~/.config/sway/scripts
 set $host kitty
 set $chrome flatpak run com.google.Chrome
 
-floating_modifier $mod
+floating_modifier $mod normal
 
 set $screenshot-full $scripts/screenshot full
 set $screenshot-area $scripts/screenshot area
