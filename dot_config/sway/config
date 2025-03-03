@@ -164,9 +164,9 @@ bindsym $mod+Shift+A exec $screenshot-area
 bindsym $mod+S exec $swappy-full
 bindsym $mod+Shift+S exec $swappy-area
 
-bindsym $mod+Z exec $record-start
-bindsym $mod+Shift+Z exec $record-select-area
-bindsym $mod+X exec $record-stop
+#bindsym $mod+Z exec $record-start
+#bindsym $mod+Shift+Z exec $record-select-area
+#bindsym $mod+X exec $record-stop
 
 bindsym $mod+I exec $waybar
 bindsym $mod+Shift+I exec $waybar
@@ -207,8 +207,8 @@ bindsym $mod+Shift+9 exec $chrome --app=https://app.slack.com/client/T045A37HTU2
 
 bindsym $mod+Shift+E exec $chrome --app=https://drive.google.com/drive/u/0/
 
-bindsym $mod+B exec flatpak run io.bassi.Amberol
-bindsym $mod+Shift+B exec $music-dl
+#bindsym $mod+B exec $music-dl
+bindsym $mod+Shift+B exec  flatpak run io.bassi.Amberol
 
 bindsym $mod+backslash exec kitty --class floating-term -e nvim -c "Murmur" /tmp/murmur/sway.md
 
