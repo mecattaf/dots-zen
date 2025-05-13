@@ -1,0 +1,110 @@
+/**
+ * Confirmation Dialog Theme for Rofi Power Menu
+ * Catppuccin Mocha theme with Mauve accent color
+ */
+
+* {
+    /* Catppuccin Mocha Colors */
+    bg:             #1e1e2e;  /* Base */
+    bg-alt:         #313244;  /* Surface0 */
+    fg:             #cdd6f4;  /* Text */
+    accent:         #cba6f7;  /* Mauve */
+    red:            #f38ba8;  /* Red */
+    green:          #a6e3a1;  /* Green */
+    
+    font:                     "JetBrainsMono Nerd Font 12";
+    background-color:         transparent;
+}
+
+window {
+    transparency:            "real";
+    location:                center;
+    anchor:                  center;
+    fullscreen:              false;
+    width:                   350px;
+    x-offset:                0px;
+    y-offset:                0px;
+    margin:                  0px;
+    padding:                 0px;
+    border:                  2px solid;
+    border-radius:           8px;
+    border-color:            @accent;
+    cursor:                  "default";
+    background-color:        @bg;
+}
+
+mainbox {
+    enabled:                 true;
+    spacing:                 15px;
+    margin:                  0px;
+    padding:                 30px;
+    background-color:        transparent;
+    children:                [ "message", "listview" ];
+}
+
+message {
+    enabled:                 true;
+    margin:                  0px 0px 15px 0px;
+    padding:                 15px;
+    border:                  0px;
+    border-radius:           8px;
+    border-color:            @accent;
+    background-color:        @bg-alt;
+    text-color:              @fg;
+}
+
+textbox {
+    background-color:        inherit;
+    text-color:              inherit;
+    vertical-align:          0.5;
+    horizontal-align:        0.5;
+    placeholder-color:       @fg;
+    blink:                   true;
+    markup:                  true;
+}
+
+listview {
+    enabled:                 true;
+    columns:                 2;
+    lines:                   1;
+    cycle:                   true;
+    scrollbar:               false;
+    layout:                  horizontal;
+    
+    spacing:                 20px;
+    background-color:        transparent;
+    cursor:                  "default";
+}
+
+element {
+    enabled:                 true;
+    padding:                 15px 20px;
+    border:                  0px;
+    border-radius:           8px;
+    background-color:        @bg-alt;
+    text-color:              @fg;
+    cursor:                  pointer;
+}
+
+element-text {
+    background-color:        transparent;
+    text-color:              inherit;
+    cursor:                  inherit;
+    vertical-align:          0.5;
+    horizontal-align:        0.5;
+}
+
+element selected.normal {
+    background-color:        @accent;
+    text-color:              @bg;
+}
+
+element.selected.urgent {
+    background-color:        @red;
+    text-color:              @bg;
+}
+
+element.selected.active {
+    background-color:        @green;
+    text-color:              @bg;
+}

@@ -1,13 +1,12 @@
 * {
     bg-col:  #000000;
     bg-col-light: #000000;
-    border-col: #89b4fa;
+    border-col: #cba6f7;  /* Changed to Mauve */
     selected-col: #000000;
-    blue: #89b4fa;
+    blue: #cba6f7;  /* Also changed to Mauve for consistency */
     fg-col: #cdd6f4;
     fg-col2: #f38ba8;
     grey: #6c7086;
-
     width: 600;
     font: "JetBrainsMono Nerd Font 14";
 }

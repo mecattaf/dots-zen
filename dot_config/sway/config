@@ -81,9 +81,11 @@ set $volume-mute $scripts/volume mute
 set $brightness-up $scripts/brightness-control up
 set $brightness-down $scripts/brightness-control down
 
+set $battery $scripts/battery
 set $waybar pkill -SIGUSR1 -f 'waybar'
 
-set $power-menu pkill wlogout || wlogout --primary-monitor 2 --buttons-per-row 4 --no-span --protocol layer-shell 
+set $power-menu $scripts/powermenu
+# set $power-menu pkill wlogout || wlogout --primary-monitor 2 --buttons-per-row 4 --no-span --protocol layer-shell 
 
 set $playerctl-playing notify-send "$(playerctl metadata artist)" "$(playerctl metadata title)" -t 200
 
@@ -105,9 +107,7 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 19
 bindsym $mod+0 workspace 10
-
 #bindsym $mod+backslash workspace 20
-
 workspace 1 output "eDP-1"
 workspace 2 output "eDP-1"
 workspace 3 output "eDP-1"
@@ -125,13 +125,10 @@ workspace 14 output "eDP-2" #linear TO BE CHANGED TO OCTO?
 workspace 15 output "eDP-2" #notion TO BE CHANGED TO NOTES
 workspace 16 output "eDP-2" #obs
 workspace 17 output "eDP-2" #calendar
-
 workspace 19 output "eDP-2" #slack
 # Communication Tools? workspace name: comms, whatsapp web, slack, kumospace
 #    bindsym $mod+Slash exec flatpak 'run' 'net.mkiol.SpeechNote'
-
 workspace 20 output "HDMI-A-1"
-
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -141,8 +138,9 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+0 move container to workspace 10
-
 #bindsym $mod+Shift+backslash move container to workspace 20
+
+# TO be remplaced with mod j mod k for switching monitors
 
 # Key bindings
 bindsym --to-code Caps_Lock exec swaymsg input type:touchpad events toggle && notify-send "🚀 Trackpad Toggled" -t 150
@@ -169,7 +167,7 @@ bindsym $mod+Shift+S exec $swappy-area
 #bindsym $mod+X exec $record-stop
 
 bindsym $mod+I exec $waybar
-bindsym $mod+Shift+I exec $waybar
+bindsym $mod+Shift+I exec $battery
 
 bindsym $mod+O exec makoctl dismiss 
 bindsym $mod+Shift+O exec makoctl dismiss -a

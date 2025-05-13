@@ -1,0 +1,166 @@
+/**
+ * Battery Applet Theme for Rofi
+ * Customized with Catppuccin Mocha colors and Mauve accent
+ */
+
+configuration {
+    show-icons:                 false;
+}
+
+* {
+    /* Colors */
+    bg:             #000000;  /* Black background */
+    bg-alt:         #000000;  /* Light background */
+    fg:             #cdd6f4;  /* Text color */
+    accent:         #cba6f7;  /* Mauve accent color */
+    red:            #f38ba8;  /* Red for urgent notifications */
+    green:          #a6e3a1;  /* Green for active status */
+    
+    /* Dimensions */
+    window-width:               400px;
+    window-height:              360px;
+    
+    /* Fonts */
+    font:                       "JetBrainsMono Nerd Font 14";
+    
+    /* Global settings */
+    background-color:           transparent;
+    text-color:                 @fg;
+}
+
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    fullscreen:                 false;
+    width:                      @window-width;
+    height:                     @window-height;
+    x-offset:                   0px;
+    y-offset:                   0px;
+    margin:                     0px;
+    padding:                    0px;
+    border:                     3px solid;
+    border-radius:              0px;
+    border-color:               @accent;
+    cursor:                     "default";
+    background-color:           @bg;
+}
+
+mainbox {
+    enabled:                    true;
+    spacing:                    10px;
+    margin:                     0px;
+    padding:                    20px;
+    background-color:           @bg;
+    children:                   [ "inputbar", "message", "listview" ];
+}
+
+inputbar {
+    enabled:                    true;
+    spacing:                    10px;
+    padding:                    0px;
+    border:                     0px;
+    border-radius:              5px;
+    border-color:               @accent;
+    background-color:           @bg;
+    text-color:                 @fg;
+    children:                   [ "textbox-prompt-colon", "prompt" ];
+}
+
+textbox-prompt-colon {
+    enabled:                    true;
+    expand:                     false;
+    str:                        "";
+    padding:                    10px 13px;
+    border-radius:              3px;
+    background-color:           @accent;
+    text-color:                 @bg;
+}
+
+prompt {
+    enabled:                    true;
+    padding:                    6px;
+    border-radius:              3px;
+    background-color:           @accent;
+    text-color:                 @bg;
+    margin:                     20px 0px 0px 20px;
+}
+
+message {
+    enabled:                    true;
+    margin:                     0px;
+    padding:                    10px;
+    border:                     0px solid;
+    border-radius:              5px;
+    border-color:               @accent;
+    background-color:           @bg-alt;
+    text-color:                 @fg;
+}
+
+textbox {
+    background-color:           inherit;
+    text-color:                 inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.0;
+    padding:                    6px;
+    margin:                     20px 0px 0px 20px;
+}
+
+listview {
+    enabled:                    true;
+    columns:                    1;
+    lines:                      4;
+    cycle:                      true;
+    scrollbar:                  false;
+    layout:                     vertical;
+    
+    spacing:                    5px;
+    background-color:           @bg;
+    cursor:                     "default";
+    padding:                    6px 0px 0px;
+    margin:                     10px 0px 0px 20px;
+}
+
+element {
+    enabled:                    true;
+    padding:                    5px;
+    border:                     0px solid;
+    border-radius:              0px;
+    border-color:               @accent;
+    background-color:           @bg;
+    text-color:                 @fg;
+    cursor:                     pointer;
+}
+
+element-text {
+    background-color:           transparent;
+    text-color:                 inherit;
+    cursor:                     inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.0;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color:           @bg;
+    text-color:                 @fg;
+}
+
+element normal.urgent,
+element alternate.urgent,
+element selected.active {
+    background-color:           @red;
+    text-color:                 @bg;
+}
+
+element normal.active,
+element alternate.active,
+element selected.urgent {
+    background-color:           @green;
+    text-color:                 @bg;
+}
+
+element selected.normal {
+    background-color:           @accent;
+    text-color:                 @bg;
+}
