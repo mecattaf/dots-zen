@@ -1,93 +1,39 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# powermenu.sh - A rofi-based power menu replacement for wlogout
-# Uses Catppuccin Mauve accent color
+# Simple Rofi Power Menu Script
+# Matches wlogout layout with modified Catppuccin theme (black base)
+# Executes actions immediately with no confirmations
 
-# Directory for the configuration
-CONFIG_DIR="$HOME/.config/rofi/powermenu"
-THEME_FILE="$CONFIG_DIR/style.rasi"
-CONFIRM_FILE="$CONFIG_DIR/confirm.rasi"
+# Directory and theme path
+dir="$HOME/.config/rofi/powermenu"
+theme="$dir/powermenu.rasi"
 
-# Commands
-uptime_text=$(uptime -p | sed -e 's/up //g')
-host=$(hostname)
+# Create theme directory if it doesn't exist
+mkdir -p "$dir"
 
-# Icons for menu options
-lock_icon=""
-suspend_icon=""
-logout_icon=""
-reboot_icon=""
-shutdown_icon=""
-yes_icon=""
-no_icon=""
+# Define options with their icons (matching wlogout)
+options=(
+    "󰤄 Suspend"     # systemctl suspend
+    "󰜉 Reboot"      # systemctl reboot
+    "⏻ Shutdown"    # systemctl poweroff
+    "󰗽 Logout"      # hyprctl dispatch exit 0
+)
 
-# Rofi command
-rofi_cmd() {
-    rofi -dmenu \
-        -p "$host" \
-        -mesg "Uptime: $uptime_text" \
-        -theme "$THEME_FILE"
-}
+# Show powermenu with rofi and get selection
+selected=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -theme "$theme")
 
-# Confirmation command
-confirm_cmd() {
-    rofi -dmenu \
-        -p "Confirmation" \
-        -mesg "Are you sure?" \
-        -theme "$CONFIRM_FILE"
-}
-
-# Ask for confirmation
-confirm_exit() {
-    echo -e "$yes_icon Yes\n$no_icon No" | confirm_cmd
-}
-
-# Pass variables to rofi dmenu
-run_rofi() {
-    echo -e "$lock_icon Lock\n$suspend_icon Suspend\n$logout_icon Logout\n$reboot_icon Reboot\n$shutdown_icon Shutdown" | rofi_cmd
-}
-
-# Execute Command
-run_cmd() {
-    selected="$(confirm_exit)"
-    if [[ "$selected" == "$yes_icon Yes" ]]; then
-        if [[ $1 == '--shutdown' ]]; then
-            systemctl poweroff
-        elif [[ $1 == '--reboot' ]]; then
-            systemctl reboot
-        elif [[ $1 == '--suspend' ]]; then
-            systemctl suspend
-        elif [[ $1 == '--logout' ]]; then
-            hyprctl dispatch exit 0
-        fi
-    else
-        exit 0
-    fi
-}
-
-# Create config directories if they don't exist
-mkdir -p "$CONFIG_DIR"
-
-# Actions
-chosen="$(run_rofi)"
-case ${chosen} in
-    "$lock_icon Lock")
-        if command -v swaylock &> /dev/null; then
-            swaylock
-        elif command -v hyprlock &> /dev/null; then
-            hyprlock
-        fi
+# Execute the selected action immediately
+case "$selected" in
+    "󰤄 Suspend")
+        systemctl suspend
         ;;
-    "$suspend_icon Suspend")
-        run_cmd --suspend
+    "󰜉 Reboot")
+        systemctl reboot
         ;;
-    "$logout_icon Logout")
-        run_cmd --logout
+    "⏻ Shutdown")
+        systemctl poweroff
         ;;
-    "$reboot_icon Reboot")
-        run_cmd --reboot
-        ;;
-    "$shutdown_icon Shutdown")
-        run_cmd --shutdown
+    "󰗽 Logout")
+        hyprctl dispatch exit 0
         ;;
 esac

@@ -1,0 +1,72 @@
+/**
+ * Powermenu Theme for Rofi
+ * Custom Catppuccin-inspired black variant
+ */
+
+* {
+    /* Black variant of Catppuccin Mocha */
+    bg:             #000000;  /* Base */
+    bg-alt:         #010101;  /* Mantle */
+    bg-darker:      #020202;  /* Crust */
+    fg:             #cdd6f4;  /* Text */
+    accent:         #cba6f7;  /* Mauve */
+    
+    font:           "JetBrainsMono Nerd Font 14";
+    background-color: transparent;
+}
+
+window {
+    transparency:            "real";
+    location:                center;
+    anchor:                  center;
+    fullscreen:              false;
+    width:                   400px;
+    x-offset:                0px;
+    y-offset:                0px;
+    margin:                  0px;
+    padding:                 0px;
+    border:                  4px solid;
+    border-radius:           0px;
+    border-color:            @accent;
+    background-color:        @bg;
+}
+
+mainbox {
+    spacing:                 0px;
+    margin:                  0px;
+    padding:                 20px;
+    background-color:        transparent;
+    children:                [ "listview" ];
+}
+
+listview {
+    columns:                 1;
+    lines:                   4;
+    cycle:                   true;
+    dynamic:                 true;
+    scrollbar:               false;
+    layout:                  vertical;
+    spacing:                 10px;
+    background-color:        transparent;
+}
+
+element {
+    padding:                 15px;
+    border:                  4px solid;
+    border-color:            @bg-darker;
+    background-color:        @bg-darker;
+    text-color:              @fg;
+}
+
+element-text {
+    background-color:        transparent;
+    text-color:              inherit;
+    vertical-align:          0.5;
+    horizontal-align:        0.0;
+    cursor:                  inherit;
+}
+
+element selected {
+    background-color:        @accent;
+    text-color:              @bg;
+}
