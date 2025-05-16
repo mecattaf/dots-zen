@@ -10,6 +10,7 @@
     bg-darker:      #020202;  /* Crust */
     fg:             #cdd6f4;  /* Text */
     accent:         #cba6f7;  /* Mauve */
+    fg-selected:    #f38ba8;  /* Red - for selected text (from catppuccin-mocha.rasi) */
     
     font:           "JetBrainsMono Nerd Font 14";
     background-color: transparent;
@@ -67,6 +68,6 @@ element-text {
 }
 
 element selected {
-    background-color:        @accent;
-    text-color:              @bg;
+    background-color:        @bg;  /* Keep background color the same */
+    text-color:              @fg-selected;  /* Change text color to red when selected */
 }
