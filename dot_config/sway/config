@@ -52,10 +52,6 @@ exec autotiling
 exec kanshi
 exec swaybg -c '#000000'
 
-#exec ollama serve
-#exec open-webui serve
-exec systemctl --user start whisper-npu.container
-
 # Variables
 set $mod Mod4
 set $scripts ~/.config/sway/scripts
@@ -85,7 +81,6 @@ set $battery $scripts/battery
 set $waybar pkill -SIGUSR1 -f 'waybar'
 
 set $power-menu $scripts/powermenu
-# set $power-menu pkill wlogout || wlogout --primary-monitor 2 --buttons-per-row 4 --no-span --protocol layer-shell 
 
 set $playerctl-playing notify-send "$(playerctl metadata artist)" "$(playerctl metadata title)" -t 200
 
@@ -94,7 +89,6 @@ set $stop-wshowkeys pkill wshowkeys
 
 set $music-dl exec $scripts/music-download
 set $color-picker exec $scripts/colorpicker
-#set $fzf-shortcuts exec kitty --class 'shortcutwidget' -e $scripts/fzf-shortcuts
 
 # Workspace
 bindsym $mod+1 workspace 1
@@ -162,10 +156,6 @@ bindsym $mod+Shift+A exec $screenshot-area
 bindsym $mod+S exec $swappy-full
 bindsym $mod+Shift+S exec $swappy-area
 
-#bindsym $mod+Z exec $record-start
-#bindsym $mod+Shift+Z exec $record-select-area
-#bindsym $mod+X exec $record-stop
-
 bindsym $mod+I exec $waybar
 bindsym $mod+Shift+I exec $battery
 
@@ -187,13 +177,13 @@ bindsym $mod+M workspace 12
 bindsym $mod+Shift+M exec $chrome --app=https://soundcloud.com
 
 bindsym $mod+W workspace 13
-bindsym $mod+Shift+W exec $chrome --app=https://mail.superhuman.com/
+bindsym $mod+Shift+W exec $chrome --app=https://mail.superhuman.com/ # change to gmail?
 
 bindsym $mod+grave workspace 14
 bindsym $mod+Shift+grave exec $chrome --app=https://linear.app/ # to be changed to octo?
 
 bindsym $mod+comma workspace 15
-bindsym $mod+Shift+comma exec $chrome --app=https://notion.so/
+bindsym $mod+Shift+comma exec $chrome --app=https://notion.so/ # to be changed to notes?
 
 bindsym $mod+semicolon workspace 16 
 bindsym $mod+Shift+semicolon exec flatpak run com.obsproject.Studio
@@ -208,12 +198,12 @@ bindsym $mod+Shift+E exec $chrome --app=https://drive.google.com/drive/u/0/
 #bindsym $mod+B exec $music-dl
 bindsym $mod+Shift+B exec  flatpak run io.bassi.Amberol
 
-bindsym $mod+backslash exec kitty --class floating-term -e nvim -c "Murmur" /tmp/murmur/sway.md
 
 #UNMAPPED
 # bindsym $mod+Shift+slash exec $fzf-shortcuts
 # also unmapped is the mod space and mod shift space probably to record sst for `mods` to ollama
 # bindsym $mod+Shift+backslash exec killall -2 whisper-transcription
+# bindsym $mod+backslash 
 
 # Media Controls
 bindsym XF86MonBrightnessUp exec $brightness-up
@@ -231,7 +221,7 @@ bindsym XF86AudioMute exec $volume-mute
 # For keyboards with no media controls:
 bindsym $mod+F1 exec $brightness-down  
 bindsym $mod+F2 exec $brightness-up   
-bindsym $mod+F3 exec kitty --class "nmtui" -e nmtui
+bindsym $mod+F3 exec kitty --class "nmtui" -e nmtui # change to iwmenu in rofi?
 bindsym $mod+F4 exec blueman-manager
 bindsym $mod+F5 exec pavucontrol    
 # Skip F6 as it matches the original gap in magic kb function row
