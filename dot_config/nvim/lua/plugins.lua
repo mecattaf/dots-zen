@@ -218,23 +218,6 @@ require("lazy").setup({
       vim.treesitter.language.register('markdown', 'octo')
     end
   },
-  -- Markdown and documentation tools
-  {
-    "williamboman/mason.nvim",
-    cmd = "Mason",
-    opts = {}
-  },
-  {
-    "L3MON4D3/LuaSnip",
-    version = "v2.*",
-    build = "make install_jsregexp",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-    },
-    config = function()
-      require("luasnip").setup()
-    end
-  },
   {
     "HakonHarnes/img-clip.nvim",
     event = "BufEnter",
@@ -284,57 +267,9 @@ require("lazy").setup({
     },
   },
   {
-    "marromlam/kitty-repl.nvim",
-    event = "BufEnter",
-    config = function()
-      require('kitty-repl').setup()
-    end
-  },
-
-  -- Improved UI elements
-  {
-    "kevinhwang91/nvim-ufo",
-    dependencies = {
-      "kevinhwang91/promise-async",
-      {
-        "luukvbaal/statuscol.nvim",
-        config = function()
-          local builtin = require("statuscol.builtin")
-          require("statuscol").setup({
-            segments = {
-              {text = {builtin.foldfunc}, click = "v:lua.ScFa"},
-              {text = {"%s"}, click = "v:lua.ScSa"},
-              {text = {builtin.lnumfunc, " "}, click = "v:lua.ScLa"}
-            }
-          })
-        end
-      }
-    },
-    event = "BufReadPost",
-    init = function()
-      vim.o.foldcolumn = "1"
-      vim.o.foldlevel = 99
-      vim.o.foldlevelstart = 99
-      vim.o.foldenable = true
-    end,
-  },
-  {
     "karb94/neoscroll.nvim",
     event = "BufRead",
     config = true
   },
-  {
-    "GeorgesAlkhouri/nvim-aider",
-    cmd = { "AiderTerminalToggle", "AiderHealth" },
-    dependencies = {
-      "folke/snacks.nvim",
-    },
-    config = function()
-      require("nvim_aider").setup({
-        args = { "--no-auto-commits", "--pretty", "--stream" },
-      })
-    end,
-  },
 
 })
-

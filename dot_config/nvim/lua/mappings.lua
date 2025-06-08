@@ -10,14 +10,12 @@ function Minimal()
     opt.showmode = false
     opt.showtabline = 2
     opt.laststatus = 2
-    opt.foldcolumn = '0'
   else
     opt.number = false
     opt.relativenumber = false
     opt.showmode = true
     opt.showtabline = 0
     opt.laststatus = 0
-    opt.foldcolumn = '2'
   end
   active = not active
 end
@@ -27,10 +25,6 @@ map("n", "<TAB>", ":bnext<CR>")
 map("n", "<S-TAB>", ":bprev<CR>")
 map("n", "hs", ":split<CR>")
 map("n", "vs", ":vs<CR>")
-
--- Terminal
-map("n", "<leader>v", ":vs +terminal | startinsert<CR>")
-map("n", "<leader>h", ":split +terminal | startinsert<CR>")
 
 -- Save
 map("i", "<C-S>", "<ESC>:w<CR><Insert>")
@@ -67,22 +61,6 @@ map("i", "<S-TAB>", "<ESC><<<Ins>")
 -- Image handling
 map("n", "<leader>p", "<cmd>PasteImage<cr>")
 
--- Kitty REPL
-map("n", "<leader>;r", "<cmd>KittyREPLRun<cr>")
-map("x", "<leader>;s", "<cmd>KittyREPLSend<cr>")
-map("n", "<leader>;s", "<cmd>KittyREPLSend<cr>")
-map("n", "<leader>;c", "<cmd>KittyREPLClear<cr>")
-map("n", "<leader>;k", "<cmd>KittyREPLKill<cr>")
-map("n", "<leader>;l", "<cmd>KittyREPLRunAgain<cr>")
-map("n", "<leader>;w", "<cmd>KittyREPLStart<cr>")
-
--- Folding (nvim-ufo)
-map("n", "zR", "<cmd>lua require('ufo').openAllFolds()<cr>")
-map("n", "zM", "<cmd>lua require('ufo').closeAllFolds()<cr>")
-map("n", "zr", "<cmd>lua require('ufo').openFoldsExceptKinds()<cr>")
-map("n", "zm", "<cmd>lua require('ufo').closeFoldsWith()<cr>")
-map("n", "K", "<cmd>lua local winid = require('ufo').peekFoldedLinesUnderCursor() if not winid then vim.lsp.buf.hover() end<cr>")
-
 -- Git integration
 map("n", "<leader>dv", "<cmd>DiffviewOpen<cr>")
 map("n", "<leader>dc", "<cmd>DiffviewClose<cr>")
@@ -91,6 +69,3 @@ map("n", "<leader>ng", "<cmd>Neogit<cr>")
 -- GitHub integration
 map("n", "<leader>oi", "<cmd>Octo issue list<cr>")
 map("n", "<leader>op", "<cmd>Octo pr list<cr>")
-
--- Murmur (Speech-to-text)
-map("n", "<C-\\>", ":Murmur<CR>")

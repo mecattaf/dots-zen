@@ -1,0 +1,460 @@
+# vim: ft=swayconfig
+
+# appearance
+set $cl_high #b4befe
+set $cl_indi #9399b2
+set $cl_back #000000
+set $cl_fore #cdd6f4
+set $cl_urge #f38ba8
+client.focused          $cl_high $cl_high $cl_fore $cl_indi $cl_high
+client.focused_inactive $cl_back $cl_back $cl_fore $cl_back $cl_back
+client.unfocused        $cl_back $cl_back $cl_fore $cl_back $cl_back
+client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
+focus_follows_mouse no
+font pango:JetBrainsMono Nerd Font 12
+smart_gaps off
+gaps inner 1
+gaps outer 1
+default_border pixel 1
+default_floating_border normal
+hide_edge_borders smart
+seat seat0 xcursor_theme Bibata-Modern-Classic 24
+seat seat0 fallback true
+seat seat0 hide_cursor 1000
+set $gnome-schema org.gnome.desktop.interface
+exec_always  {
+        gsettings set $gnome-schema cursor-theme 'Bibata-Modern-Classic'
+        gsettings set $gnome-schema color-scheme 'prefer-dark'
+        gsettings set $gnome-schema cursor-size '24'
+        gsettings set $gnome-schema gtk-theme 'Catppuccin-Mocha-Standard-Green-Dark'
+        gsettings set org.gnome.desktop.interface.wm.preferences theme 'Catppuccin-Mocha-Standard-Green-Dark'
+        gsettings set org.gnome.desktop.wm.preferences button-layout ""
+        #gsettings set $gnome-schema icon-theme 'Your icon theme'
+        #gsettings set $gnome-schema font-name 'Your font name'
+}
+
+# Import variables into system-user environment
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP 
+exec hash dbus-update-activation-environment 2>/dev/null && \
+        dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway 
+
+# Credential mgmt
+exec gnome-keyring-daemon --start --components=secrets,ssh,keyring --daemonize
+exec /usr/libexec/polkit-mate-authentication-agent-1
+exec /usr/libexec/polkit-gnome-authentication-agent-1
+exec /usr/lib/lxpolkit
+
+exec wl-gammarelay-rs run
+exec mako
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+exec kanshi
+exec swaybg -c '#000000'
+
+# Variables
+set $mod Mod4
+set $scripts ~/.config/sway/scripts
+set $host kitty
+set $chrome flatpak run com.google.Chrome
+
+floating_modifier $mod normal
+
+set $screenshot-full $scripts/screenshot full
+set $screenshot-area $scripts/screenshot area
+
+set $swappy-full $scripts/swappy full
+set $swappy-area $scripts/swappy area
+
+set $record-start $scripts/record start
+set $record-select-area $scripts/record select
+set $record-stop $scripts/record stop
+
+set $volume-up $scripts/volume up
+set $volume-down $scripts/volume down
+set $volume-mute $scripts/volume mute
+
+set $brightness-up $scripts/brightness-control up
+set $brightness-down $scripts/brightness-control down
+
+set $battery $scripts/battery
+set $waybar pkill -SIGUSR1 -f 'waybar'
+
+set $power-menu $scripts/powermenu
+
+set $start-wshowkeys wshowkeys -F "JetBrainsMono Nerd Font 16" -a bottom
+set $stop-wshowkeys pkill wshowkeys
+
+set $color-picker exec $scripts/colorpicker
+
+# Workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+0 workspace 2
+workspace 1 output "eDP-1"
+workspace 2 output "eDP-2"
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+0 move container to workspace 2
+
+bindsym Ctrl+N exec flatpak run com.google.Chrome
+bindsym Ctrl+Shift+N exec flatpak run com.google.Chrome --incognito
+bindsym $mod+Return exec $host -e fish
+bindsym $mod+Shift+Q kill
+bindsym $mod+D exec rofi -show drun 
+# opening terminal in same dir as focused nvim
+# bindsym $mod+t exec kitty --directory "$(readlink /proc/$(swaymsg -t get_tree | jq -r '.. | select(.focused? == true) | .pid')/cwd 2>/dev/null || pwd)" -e fish
+# possibly also make it in the same git tree or branch?
+
+bindsym $mod+V exec cliphist list | rofi -dmenu -theme-str '#listview { columns : 1 ; lines: 8 ; }' | cliphist decode | wl-copy
+bindsym $mod+Shift+V exec rofimoji -a clipboard
+
+bindsym $mod+A exec $screenshot-full
+bindsym $mod+Shift+A exec $screenshot-area
+bindsym $mod+S exec $swappy-full
+bindsym $mod+Shift+S exec $swappy-area
+
+#change
+bindsym $mod+I exec $waybar
+bindsym $mod+Shift+I exec $battery
+
+bindsym $mod+O exec makoctl dismiss 
+bindsym $mod+Shift+O exec makoctl dismiss -a
+
+bindsym $mod+E exec thunar
+
+bindsym $mod+C exec $color-picker
+
+bindsym $mod+apostrophe exec $start-wshowkeys
+bindsym $mod+Shift+apostrophe exec $stop-wshowkeys
+
+bindsym $mod+Shift+N exec $chrome --app=https://chat.openai.com/
+bindsym $mod+Shift+C exec $chrome --app=https://claude.ai/
+bindsym $mod+Shift+M exec $chrome --app=https://soundcloud.com
+bindsym $mod+Shift+W exec $chrome --app=https://mail.google.com/
+bindsym $mod+Shift+semicolon exec flatpak run com.obsproject.Studio
+bindsym $mod+Shift+period exec $chrome --app=https://calendar.notion.so/
+bindsym $mod+Shift+9 exec $chrome --app=https://app.slack.com/client/T045A37HTU2
+bindsym $mod+Shift+E exec $chrome --app=https://drive.google.com/drive/u/0/
+bindsym $mod+B exec  flatpak run io.bassi.Amberol
+
+bindsym F1 exec blueman-manager
+bindsym F2 exec pavucontrol    
+bindsym F3 exec kitty --class "nmtui" -e nmtui # change to iwmenu in rofi?
+bindsym F4 exec $brightness-down  
+bindsym F5 exec $brightness-up   
+bindsym F6 exec $volume-mute
+bindsym F7 exec $volume-down
+bindsym F8 exec $volume-up
+#battery menu
+###bindsym F9 exec 
+bindsym F10 exec $power-menu 
+
+bindsym $mod+Shift+Tab focus mode_toggle
+bindsym $mod+Tab floating toggle
+
+# Moving around:
+bindsym $mod+h     focus left 
+bindsym $mod+j     focus output down 
+bindsym $mod+k     focus output up 
+bindsym $mod+l     focus right
+bindsym $mod+home  focus beginning
+bindsym $mod+end   focus end
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+BackSpace sticky toggle
+bindsym $mod+f fullscreen
+
+#bring back
+#bindsym $mod+p exec notify-send "Pomodoro" "$($scripts/pomo clock)" -t 250
+#bindsym $mod+Shift+p exec $scripts/pomo pause && notify-send "⏸️ Paused Pomodoro" -t 250
+
+bindsym $mod+Shift+f    resize set 1920 1080
+bindsym $mod+g          resize set 900 500
+bindsym $mod+Shift+g    resize set 500 500
+
+# Chrome webapps rules
+for_window [app_id="^chrome-.*"] shortcuts_inhibitor disable
+
+# Utilities rules
+for_window [app_id="rofimoji"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="floating-term"] floating enable, resize 55% 35%, move 63% 60%
+for_window [app_id="shortcutwidget"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="io.bassi.Amberol"] border pixel 0, floating enable
+for_window [app_id="rofi"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="thunar"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="nmtui"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="blueman-manager"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="pavucontrol"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+
+# Input Devices
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    click_method clickfinger
+}
+
+input type:keyboard {
+  xkb_options caps:none
+}
+
+# Gestures
+bindgesture {
+swipe:3:right  exec $scripts/gestures backward
+swipe:3:left exec $scripts/gestures forward
+swipe:3:up   exec rofi -show drun
+swipe:3:down  exec killall rofi
+
+pinch:4:outward   exec swaymsg gaps inner current plus 25
+pinch:4:inward  exec swaymsg gaps inner current minus 25
+pinch:5:outward   exec swaymsg gaps inner current plus 50
+pinch:5:inward  exec swaymsg gaps inner current minus 50
+
+swipe:4:up   exec $waybar
+swipe:4:down  exec $waybar
+swipe:4:right  exec swaymsg 'workspace next_on_output'
+swipe:4:left  exec swaymsg 'workspace prev_on_output'
+
+swipe:5:up   exec swaymsg gaps vertical current plus 50
+swipe:5:down  exec swaymsg gaps vertical current minus 50
+swipe:5:right  exec $scripts/gestures pgup
+swipe:5:left exec $scripts/gestures pgdn
+
+}
+
+---
+# Layout settings
+layout_default_width 0.5
+layout_default_height 1.0
+layout_widths [0.33333333 0.5 0.666666667 1.0]
+layout_heights [0.33333333 0.5 0.666666667 1.0]
+
+
+# Animations
+animations {
+    enabled yes
+    default yes 300 var 3 [ 0.215 0.61 0.355 1 ]
+    window_open yes 300 var 3 [ 0 0 1 1 ]
+    window_move yes 300 var 3 [ 0.215 0.61 0.355 1 ] off 0.05 6 [0 0.6 0.4 0 1 0 0.4 -0.6 1 -0.6]
+    window_size yes 300 var 3 [ -0.35 0 0 0.5 ]
+}
+
+    # Layout mode
+    bindsym $mod+bracketleft set_mode h
+    bindsym $mod+bracketright set_mode v
+#
+#
+
+    # nomode what is nomode?
+    bindsym $mod+Alt+$left move left nomode
+    bindsym $mod+Alt+$down move down nomode
+    bindsym $mod+Alt+$up move up nomode
+    bindsym $mod+Alt+$right move right nomode
+    bindsym $mod+Alt+home move beginning nomode
+    bindsym $mod+Alt+end move end nomode
+
+# Scaling
+    # Workspace
+    bindsym $mod+Shift+comma scale_workspace incr -0.05
+    bindsym --whole-window $mod+Shift+button4 scale_workspace incr -0.05
+    bindsym $mod+Shift+period scale_workspace incr 0.05
+    bindsym --whole-window $mod+Shift+button5 scale_workspace incr 0.05
+    bindsym $mod+Shift+Ctrl+period scale_workspace reset
+
+    # Overview
+    bindsym --no-repeat $mod+tab scale_workspace overview
+    bindsym --whole-window button8 scale_workspace overview
+
+    # Jump
+    # jump_labels_color #9e1530FF
+    # jump_labels_background #15309eFF
+    # jump_labels_scale 0.9
+    # jump_labels_keys asdf
+    bindsym --no-repeat $mod+slash jump
+    bindsym --no-repeat $mod+Shift+slash jump container
+    bindsym --no-repeat $mod+Ctrl+slash jump workspaces
+    bindsym --no-repeat $mod+Alt+slash jump floating
+
+    # Content
+    bindsym $mod+comma scale_content incr -0.05
+    bindsym --whole-window $mod+button4 scale_content incr -0.05
+    bindsym $mod+period scale_content incr 0.05
+    bindsym --whole-window $mod+button5 scale_content incr 0.05
+    bindsym $mod+Ctrl+period scale_content reset
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+y focus mode_toggle
+    # Toggle layout type (h<->v)
+    bindsym $mod+Shift+y layout_transpose
+
+    # Float a window
+    bindsym $mod+Shift+f floating toggle
+
+    # Toggle sticky
+    bindsym $mod+Shift+Ctrl+a sticky toggle
+    # Toggle pin
+    bindsym --no-repeat $mod+a pin beginning
+    bindsym --no-repeat $mod+Shift+a pin end
+
+    # Selection
+    bindsym --no-repeat $mod+Insert selection toggle
+    bindsym --no-repeat $mod+Ctrl+Insert selection reset
+    bindsym --no-repeat $mod+Shift+Insert selection move
+    bindsym --no-repeat $mod+Ctrl+Shift+Insert selection workspace
+    bindsym --no-repeat $mod+Alt+Insert selection to_trail
+
+    # Marks
+    bindsym $mod+m exec scroll-mark-toggle.sh
+    bindsym $mod+Shift+m exec scroll-mark-remove.sh
+    bindsym $mod+apostrophe exec scroll-mark-switch.sh
+
+
+# Mode modifiers
+#
+mode "modifiers" {
+    bindsym $right set_mode after; mode default 
+    bindsym $left set_mode before; mode default 
+    bindsym home set_mode beginning; mode default 
+    bindsym end set_mode end; mode default 
+    bindsym $up set_mode focus; mode default 
+    bindsym $down set_mode nofocus; mode default 
+    bindsym h set_mode center_horiz; mode default 
+    bindsym Shift+h set_mode nocenter_horiz; mode default 
+    bindsym v set_mode center_vert; mode default 
+    bindsym Shift+v set_mode nocenter_vert; mode default 
+    bindsym r set_mode reorder_auto; mode default 
+    bindsym Shift+r set_mode noreorder_auto; mode default 
+
+    # Return to default mode
+    bindsym Escape mode "default"
+}
+bindsym $mod+backslash mode "modifiers"
+
+#
+# Resizing containers:
+#
+bindsym $mod+minus cycle_size h prev
+bindsym $mod+equal cycle_size h next
+bindsym $mod+Shift+minus cycle_size v prev
+bindsym $mod+Shift+equal cycle_size v next
+
+mode "setsizeh" {
+    bindsym 1 set_size h 0.125; mode default
+    bindsym 2 set_size h 0.1666666667; mode default
+    bindsym 3 set_size h 0.25; mode default
+    bindsym 4 set_size h 0.333333333; mode default
+    bindsym 5 set_size h 0.375; mode default
+    bindsym 6 set_size h 0.5; mode default
+    bindsym 7 set_size h 0.625; mode default
+    bindsym 8 set_size h 0.6666666667; mode default
+    bindsym 9 set_size h 0.75; mode default
+    bindsym 0 set_size h 0.833333333; mode default
+    bindsym minus set_size h 0.875; mode default
+    bindsym equal set_size h 1.0; mode default
+
+    # Return to default mode
+    bindsym Escape mode "default"
+}
+bindsym $mod+b mode "setsizeh"
+
+mode "setsizev" {
+    bindsym 1 set_size v 0.125; mode default
+    bindsym 2 set_size v 0.1666666667; mode default
+    bindsym 3 set_size v 0.25; mode default
+    bindsym 4 set_size v 0.333333333; mode default
+    bindsym 5 set_size v 0.375; mode default
+    bindsym 6 set_size v 0.5; mode default
+    bindsym 7 set_size v 0.625; mode default
+    bindsym 8 set_size v 0.6666666667; mode default
+    bindsym 9 set_size v 0.75; mode default
+    bindsym 0 set_size v 0.833333333; mode default
+    bindsym minus set_size v 0.875; mode default
+    bindsym equal set_size v 1.0; mode default
+
+    # Return to default mode
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+b mode "setsizev"
+
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 100px
+    bindsym $down resize grow height 100px
+    bindsym $up resize shrink height 100px
+    bindsym $right resize grow width 100px
+
+    # Return to default mode
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+r mode "resize"
+
+mode "align" {
+    bindsym c align center; mode default
+    bindsym m align middle; mode default
+    bindsym r align reset; mode default
+    bindsym $left align left; mode default
+    bindsym $right align right; mode default
+    bindsym $up align up; mode default
+    bindsym $down align down; mode default
+    bindsym Escape mode "default"
+}
+bindsym $mod+c mode "align"
+
+mode "fit_size" {
+    bindsym w fit_size h visible proportional; mode default
+    bindsym Shift+w fit_size v visible proportional; mode default
+    bindsym Ctrl+w fit_size h visible equal; mode default
+    bindsym Ctrl+Shift+w fit_size v visible equal; mode default
+
+    bindsym $right fit_size h toend proportional; mode default
+    bindsym Shift+$right fit_size v toend proportional; mode default
+    bindsym Ctrl+$right fit_size h toend equal; mode default
+    bindsym Ctrl+Shift+$right fit_size v toend equal; mode default
+
+    bindsym $left fit_size h tobeg proportional; mode default
+    bindsym Shift+$left fit_size v tobeg proportional; mode default
+    bindsym Ctrl+$left fit_size h tobeg equal; mode default
+    bindsym Ctrl+Shift+$left fit_size v tobeg equal; mode default
+
+    bindsym $up fit_size h active proportional; mode default
+    bindsym Shift+$up fit_size v active proportional; mode default
+    #bindsym Ctrl+$up fit_size h active equal; mode default
+    #bindsym Ctrl+Shift+$up fit_size v active equal; mode default
+
+    bindsym $down fit_size h all proportional; mode default
+    bindsym Shift+$down fit_size v all proportional; mode default
+    bindsym Ctrl+$down fit_size h all equal; mode default
+    bindsym Ctrl+Shift+$down fit_size v all equal; mode default
+}
+bindsym $mod+w mode "fit_size"
+
+mode "trailmark" {
+    bindsym bracketright trailmark next
+    bindsym bracketleft trailmark prev
+    bindsym semicolon trailmark toggle; mode default
+    bindsym Escape mode "default"
+}
+bindsym $mod+semicolon mode "trailmark"
+
+mode "trail" {
+    bindsym bracketright trail next
+    bindsym bracketleft trail prev
+    bindsym semicolon trail new; mode default
+    bindsym d trail delete; mode default
+    bindsym c trail clear; mode default
+    bindsym insert trail to_selection; mode default
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+semicolon mode "trail"
+
+focus_wrapping no
+
+bindgesture swipe:4:right workspace next
+bindgesture swipe:4:left workspace prev
+
+bindgesture swipe:4:up scale_workspace overview 
+
