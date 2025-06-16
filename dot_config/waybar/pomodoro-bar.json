@@ -11,8 +11,8 @@
     "margin": 0,
     "spacing": 0,
     "fixed-center": true,
-    "modules-left": [],
-    "modules-center": ["custom/pomodoro"],
+    "modules-left": ["custom/pomodoro"],
+    "modules-center": [],
     "modules-right": [],
     
     "custom/pomodoro": {
