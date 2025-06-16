@@ -31,7 +31,6 @@ window#waybar.pomodoro-bar > box {
     margin: 0;
     padding: 0;
     min-height: 5px;
-    max-height: 5px;
     font-size: 0;
     line-height: 0;
 }
@@ -40,25 +39,21 @@ window#waybar.pomodoro-bar > box {
 #custom-pomodoro.stopped {
     background: transparent;
     min-height: 0;
-    max-height: 0;
 }
 
 /* Work phase - white progress bar */
 #custom-pomodoro.work {
     min-height: 5px;
-    max-height: 5px;
 }
 
 /* Break phase - green progress bar */
 #custom-pomodoro.break {
     min-height: 5px;
-    max-height: 5px;
 }
 
 /* Paused state - orange */
 #custom-pomodoro.paused {
     min-height: 5px;
-    max-height: 5px;
 }
 
 /* progress bar gradients for work phase (white) */
