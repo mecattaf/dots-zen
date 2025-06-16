@@ -21,6 +21,7 @@ window#waybar.pomodoro-bar > box {
 
 /* Base module styling */
 #custom-pomodoro {
+    background-color: @red;
     border: none;
     border-radius: 0;
     margin: 0;
@@ -28,6 +29,10 @@ window#waybar.pomodoro-bar > box {
     min-height: 10px;
     font-size: 10px;
     min-width: 1440px;
+}
+
+#custom-pomodoro.work {
+    background-color: @blue;
 }
 
 /* Work phase progress (white/text color) */
