@@ -76,10 +76,8 @@ function pomo_waybar_output {
         
         # Output minimal JSON - just tooltip and classes
         echo "{\"text\":\" \",\"tooltip\":\"$tooltip_prefix: $time_str remaining\",\"class\":\"$css_class $perc_class\"}"
-    else
-        # Timer is stopped - output minimal JSON
-        echo "{\"text\":\" \",\"tooltip\":\"Timer stopped\",\"class\":\"stopped\"}"
     fi
+    # No else block - waybar shouldn't be running when stopped
 }
 
 #--- Core Pomodoro Functions ---
@@ -89,6 +87,7 @@ function pomo_start {
     :> "$POMO"
     touch "$POMO"
     pomo_waybar_signal
+    pomo_ensure_services  # Start waybar and notify daemon here
     notify-send -t 1500 "🍅" "Focus: ${WORK_TIME}m"
 }
 
@@ -209,6 +208,8 @@ function pomo_notify_daemon {
                     if [[ -e "$POMO" ]]; then
                         notify-send "🍅 Focus Time!" "$break_end_msg" -t 5000
                         pomo_waybar_signal
+                        # Timer cycle complete - stop services
+                        pomo_stop_services
                     fi
                     sleep 1
                 else
@@ -243,13 +244,11 @@ function pomo_stop_services {
     pkill -f "pomodoro notify"
 }
 
-
 function pomo_menu {
     rofi_dir="$HOME/.config/rofi/pomodoro"
     theme_file="$rofi_dir/pomodoro.rasi"
     
-    # Ensure services are running when menu is opened
-    pomo_ensure_services
+    # Don't start services here - only when timer actually starts
     
     # Static menu options - no dynamic generation
     options=("🍅 Start/Pause"

@@ -34,12 +34,6 @@ window#waybar.pomodoro-bar > box {
     font-size: 1px;
 }
 
-/* When timer is stopped - completely invisible */
-#custom-pomodoro.stopped {
-    background: transparent;
-    min-height: 0;
-}
-
 /* Work phase - white progress bar */
 #custom-pomodoro.work {
     min-height: 5px;
