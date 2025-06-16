@@ -7,7 +7,7 @@
     "exclusive": true,
     "passthrough": false,
     "position": "bottom",
-    "height": 5,
+    "height": 10,
     "margin": 0,
     "spacing": 0,
     "fixed-center": true,
