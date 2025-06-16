@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Enhanced Rofi Power Menu Script with Battery Information
+# Uses waybar-style battery detection and real-time updates
 # Maintains original aesthetic while adding battery status and details
-# Uses existing powermenu.rasi theme
 
 # Directory and theme path
 dir="$HOME/.config/rofi/powermenu"
@@ -11,76 +11,179 @@ theme="$dir/powermenu.rasi"
 # Create theme directory if it doesn't exist
 mkdir -p "$dir"
 
-# Battery Information Functions
+# Battery detection functions (based on waybar battery module)
+get_battery_path() {
+    local battery_path=""
+    local power_supply_dir="/sys/class/power_supply"
+    
+    # Look for the main battery (similar to waybar logic)
+    if [[ -d "$power_supply_dir" ]]; then
+        for bat_dir in "$power_supply_dir"/BAT*; do
+            if [[ -d "$bat_dir" && -f "$bat_dir/capacity" && -f "$bat_dir/status" ]]; then
+                # Check if it's actually a battery
+                if [[ -f "$bat_dir/type" ]]; then
+                    local type=$(cat "$bat_dir/type" 2>/dev/null)
+                    if [[ "$type" == "Battery" ]]; then
+                        battery_path="$bat_dir"
+                        break
+                    fi
+                fi
+            fi
+        done
+    fi
+    
+    echo "$battery_path"
+}
+
+get_adapter_path() {
+    local adapter_path=""
+    local power_supply_dir="/sys/class/power_supply"
+    
+    # Look for AC adapter
+    if [[ -d "$power_supply_dir" ]]; then
+        for adapter_dir in "$power_supply_dir"/{ADP*,AC*,ACAD*}; do
+            if [[ -d "$adapter_dir" && -f "$adapter_dir/online" ]]; then
+                adapter_path="$adapter_dir"
+                break
+            fi
+        done
+    fi
+    
+    echo "$adapter_path"
+}
+
 get_battery_info() {
-    # Check if acpi is installed
-    if ! command -v acpi &> /dev/null; then
-        echo "N/A|0|No battery info available"
+    local battery_path=$(get_battery_path)
+    local adapter_path=$(get_adapter_path)
+    
+    if [[ -z "$battery_path" ]]; then
+        echo "N/A|0|No battery detected|unknown"
         return
     fi
-
-    local battery_output=$(acpi -b 2>/dev/null)
-    if [[ -z "$battery_output" ]]; then
-        echo "N/A|0|No battery detected"
-        return
+    
+    # Get battery capacity
+    local capacity=0
+    if [[ -f "$battery_path/capacity" ]]; then
+        capacity=$(cat "$battery_path/capacity" 2>/dev/null || echo "0")
     fi
-
-    local status=$(echo "$battery_output" | cut -d',' -f1 | cut -d':' -f2 | tr -d ' ')
-    local percentage=$(echo "$battery_output" | cut -d',' -f2 | tr -d ' ',\%)
-    local time=$(echo "$battery_output" | cut -d',' -f3 | tr -d ' ')
-
-    # Handle cases where time is not available
-    if [[ -z "$time" || "$time" == *"rate"* ]]; then
-        if [[ "$status" == *"Full"* ]]; then
-            time="Fully Charged"
-        else
-            time="Calculating..."
+    
+    # Get battery status
+    local status="Unknown"
+    if [[ -f "$battery_path/status" ]]; then
+        status=$(cat "$battery_path/status" 2>/dev/null || echo "Unknown")
+    fi
+    
+    # Check adapter status for more accurate charging detection
+    local adapter_online=0
+    if [[ -n "$adapter_path" && -f "$adapter_path/online" ]]; then
+        adapter_online=$(cat "$adapter_path/online" 2>/dev/null || echo "0")
+    fi
+    
+    # Determine color based on status and capacity
+    local color="unknown"
+    if [[ "$status" == "Charging" || "$adapter_online" == "1" ]]; then
+        color="charging"
+    elif [[ "$capacity" -gt 40 ]]; then
+        color="good"
+    elif [[ "$capacity" -gt 20 ]]; then
+        color="warning"
+    else
+        color="critical"
+    fi
+    
+    # Get time remaining (estimate based on power_now if available)
+    local time_remaining=""
+    local power_now_file="$battery_path/power_now"
+    local energy_now_file="$battery_path/energy_now"
+    local energy_full_file="$battery_path/energy_full"
+    
+    if [[ -f "$power_now_file" && -f "$energy_now_file" ]]; then
+        local power_now=$(cat "$power_now_file" 2>/dev/null || echo "0")
+        local energy_now=$(cat "$energy_now_file" 2>/dev/null || echo "0")
+        local energy_full=$(cat "$energy_full_file" 2>/dev/null || echo "0")
+        
+        if [[ "$power_now" -gt 0 ]]; then
+            if [[ "$status" == "Discharging" ]]; then
+                # Time to empty
+                local hours=$((energy_now / power_now))
+                local minutes=$(((energy_now * 60 / power_now) % 60))
+                if [[ "$hours" -gt 0 || "$minutes" -gt 0 ]]; then
+                    time_remaining="${hours}h ${minutes}m remaining"
+                fi
+            elif [[ "$status" == "Charging" && "$energy_full" -gt 0 ]]; then
+                # Time to full
+                local energy_to_full=$((energy_full - energy_now))
+                local hours=$((energy_to_full / power_now))
+                local minutes=$(((energy_to_full * 60 / power_now) % 60))
+                if [[ "$hours" -gt 0 || "$minutes" -gt 0 ]]; then
+                    time_remaining="${hours}h ${minutes}m to full"
+                fi
+            fi
         fi
     fi
-
-    echo "$status|$percentage|$time"
+    
+    # If we couldn't get time from power calculation, try other methods
+    if [[ -z "$time_remaining" ]]; then
+        if [[ "$status" == "Full" ]]; then
+            time_remaining="Fully charged"
+        elif [[ "$status" == "Charging" ]]; then
+            time_remaining="Charging..."
+        elif [[ "$status" == "Discharging" ]]; then
+            time_remaining="Discharging"
+        else
+            time_remaining="$status"
+        fi
+    fi
+    
+    echo "$status|$capacity|$time_remaining|$color"
 }
 
 get_battery_icon() {
     local status="$1"
-    local percentage="$2"
+    local capacity="$2"
     
     # Charging icons
-    if [[ $status == *"Charging"* ]]; then
-        echo ""
-    elif [[ $status == *"Full"* ]]; then
-        echo ""
+    if [[ "$status" == "Charging" ]]; then
+        echo "󰂄"
+    elif [[ "$status" == "Full" ]]; then
+        echo "󰁹"
     else
         # Discharging icons based on percentage
-        if [[ $percentage -ge 80 ]]; then
-            echo ""
-        elif [[ $percentage -ge 60 ]]; then
-            echo ""
-        elif [[ $percentage -ge 40 ]]; then
-            echo ""
-        elif [[ $percentage -ge 20 ]]; then
-            echo ""
+        if [[ "$capacity" -ge 90 ]]; then
+            echo "󰁹"
+        elif [[ "$capacity" -ge 80 ]]; then
+            echo "󰂂"
+        elif [[ "$capacity" -ge 70 ]]; then
+            echo "󰂁"
+        elif [[ "$capacity" -ge 60 ]]; then
+            echo "󰂀"
+        elif [[ "$capacity" -ge 50 ]]; then
+            echo "󰁿"
+        elif [[ "$capacity" -ge 40 ]]; then
+            echo "󰁾"
+        elif [[ "$capacity" -ge 30 ]]; then
+            echo "󰁽"
+        elif [[ "$capacity" -ge 20 ]]; then
+            echo "󰁼"
+        elif [[ "$capacity" -ge 10 ]]; then
+            echo "󰁻"
         else
-            echo ""
+            echo "󰁺"
         fi
     fi
 }
 
 # Get battery information
 battery_info=$(get_battery_info)
-IFS='|' read -r battery_status battery_percentage battery_time <<< "$battery_info"
+IFS='|' read -r battery_status battery_percentage battery_time battery_color <<< "$battery_info"
 battery_icon=$(get_battery_icon "$battery_status" "$battery_percentage")
 
-# Format battery display
+# Format battery display with color coding
 if [[ "$battery_status" != "N/A" ]]; then
-    battery_display="$battery_icon $battery_percentage% • $battery_status"
-    if [[ "$battery_time" != "Fully Charged" && "$battery_time" != "Calculating..." ]]; then
-        battery_display="$battery_display • $battery_time"
-    elif [[ "$battery_time" == "Fully Charged" ]]; then
-        battery_display="$battery_icon $battery_percentage% • $battery_time"
-    fi
+    battery_display="$battery_icon $battery_percentage% • $battery_time"
 else
     battery_display="⚡ No battery info"
+    battery_color="unknown"
 fi
 
 # Define options with their icons (matching your current wlogout layout)
@@ -92,12 +195,14 @@ options=(
 )
 
 # Show powermenu with rofi and get selection
-# Add battery info to the message area
+# Add battery info to the message area with color theme
 selected=$(printf '%s\n' "${options[@]}" | rofi \
     -dmenu \
     -i \
     -p "Power Menu" \
     -mesg "$battery_display" \
+    -theme-str "@import \"$theme\"" \
+    -theme-str "message { background-color: @bg-$battery_color; }" \
     -theme "$theme")
 
 # Execute the selected action immediately
