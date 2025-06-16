@@ -247,8 +247,11 @@ swipe:5:right  align right; cycle_size h next
 swipe:5:left   align left; cycle_size h next
 swipe:5:up     align up; cycle_size v next
 swipe:5:down   align down; cycle_size v next
-
 }
+
+# Auto-start lisgd for each ELAN touchscreen
+#exec_always --no-startup-id ~/.config/sway/lisgd-start --device="ELAN9008:00 04F3:425A"
+#exec_always --no-startup-id ~/.config/sway/lisgd-start --device="ELAN9008:00 04F3:425B"
 
 # Animations
 animations {

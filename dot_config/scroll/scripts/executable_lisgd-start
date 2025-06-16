@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+#
+# lisgd_start — start lisgd for a specified ELAN touchscreen
+#
+# Usage: lisgd_start --device="<Device Name>"
+
+# Ensure device argument is provided
+if [[ $1 != --device=* ]]; then
+  echo "Usage: $0 --device=\"ELAN9008:00 04F3:425A\"" >&2
+  exit 1
+fi
+
+# Extract device name
+device="${1#--device=}"
+
+# Locate the event handler from /proc/bus/input/devices
+handler=$(awk -v name="$device" '
+  BEGIN { RS=""; FS="\n" }
+  $0 ~ name {
+    for (i = 1; i <= NF; i++) {
+      if ($i ~ /Handlers=/ && match($i, /event[0-9]+/)) {
+        print substr($i, RSTART, RLENGTH)
+        exit
+      }
+    }
+  }' /proc/bus/input/devices)
+
+# Validate handler
+if [[ -z $handler ]]; then
+  echo "Error: Device '$device' not found" >&2
+  exit 2
+fi
+
+devnode="/dev/input/$handler"
+
+# Launch lisgd with uniform edge-gesture bindings
+exec lisgd -d "$devnode" \
+    -g "1,LR,L,*,R,swaymsg workspace next" \
+    -g "1,RL,R,*,R,swaymsg workspace prev" \
+    -g "1,DU,T,*,R,exec bemenu-run" \
+    -g "1,UD,B,*,R,swaymsg kill" \
+    -t 80 -v
