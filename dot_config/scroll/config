@@ -58,6 +58,7 @@ set $mod Mod4
 set $scripts ~/.config/scroll/scripts
 set $host kitty
 set $chrome flatpak run com.google.Chrome
+exec --no-startup-id $scripts/pomodoro stop
 
 floating_modifier $mod normal
 
