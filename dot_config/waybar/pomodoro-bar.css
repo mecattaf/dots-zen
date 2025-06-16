@@ -4,6 +4,7 @@
 @import "mocha.css";
 
 window#waybar.pomodoro-bar {
+    background-color: transparent;
     border: none;
     border-radius: 0;
     margin: 0;
@@ -11,6 +12,7 @@ window#waybar.pomodoro-bar {
 }
 
 window#waybar.pomodoro-bar > box {
+    background-color: transparent;
     border: none;
     margin: 0;
     padding: 0;
