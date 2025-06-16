@@ -10,9 +10,8 @@
     "height": 10,
     "margin": 0,
     "spacing": 0,
-    "fixed-center": true,
     "modules-left": ["custom/pomodoro"],
-    "modules-center": [],
+    "modules-center": [], 
     "modules-right": [],
     
     "custom/pomodoro": {

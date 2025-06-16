@@ -16,6 +16,7 @@ window#waybar.pomodoro-bar > box {
     border: none;
     margin: 0;
     padding: 0;
+    min-width: 1440px;
 }
 
 /* Base module styling */
@@ -26,9 +27,8 @@ window#waybar.pomodoro-bar > box {
     margin: 0;
     padding: 0;
     min-height: 10px;
-    font-size: 1px;
-    min-width: 100%;
-    color: transparent;
+    font-size: 10px;
+    min-width: 1440px;
 }
 
 /* Work phase progress (white/text color) */
