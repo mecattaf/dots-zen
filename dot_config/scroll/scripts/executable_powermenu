@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# Simple Rofi Power Menu Script
-# Matches wlogout layout with modified Catppuccin theme (black base)
-# Executes actions immediately with no confirmations
+# Enhanced Rofi Power Menu Script with Battery Information
+# Maintains original aesthetic while adding battery status and details
+# Uses existing powermenu.rasi theme
 
 # Directory and theme path
 dir="$HOME/.config/rofi/powermenu"
@@ -11,16 +11,94 @@ theme="$dir/powermenu.rasi"
 # Create theme directory if it doesn't exist
 mkdir -p "$dir"
 
-# Define options with their icons (matching wlogout)
+# Battery Information Functions
+get_battery_info() {
+    # Check if acpi is installed
+    if ! command -v acpi &> /dev/null; then
+        echo "N/A|0|No battery info available"
+        return
+    fi
+
+    local battery_output=$(acpi -b 2>/dev/null)
+    if [[ -z "$battery_output" ]]; then
+        echo "N/A|0|No battery detected"
+        return
+    fi
+
+    local status=$(echo "$battery_output" | cut -d',' -f1 | cut -d':' -f2 | tr -d ' ')
+    local percentage=$(echo "$battery_output" | cut -d',' -f2 | tr -d ' ',\%)
+    local time=$(echo "$battery_output" | cut -d',' -f3 | tr -d ' ')
+
+    # Handle cases where time is not available
+    if [[ -z "$time" || "$time" == *"rate"* ]]; then
+        if [[ "$status" == *"Full"* ]]; then
+            time="Fully Charged"
+        else
+            time="Calculating..."
+        fi
+    fi
+
+    echo "$status|$percentage|$time"
+}
+
+get_battery_icon() {
+    local status="$1"
+    local percentage="$2"
+    
+    # Charging icons
+    if [[ $status == *"Charging"* ]]; then
+        echo ""
+    elif [[ $status == *"Full"* ]]; then
+        echo ""
+    else
+        # Discharging icons based on percentage
+        if [[ $percentage -ge 80 ]]; then
+            echo ""
+        elif [[ $percentage -ge 60 ]]; then
+            echo ""
+        elif [[ $percentage -ge 40 ]]; then
+            echo ""
+        elif [[ $percentage -ge 20 ]]; then
+            echo ""
+        else
+            echo ""
+        fi
+    fi
+}
+
+# Get battery information
+battery_info=$(get_battery_info)
+IFS='|' read -r battery_status battery_percentage battery_time <<< "$battery_info"
+battery_icon=$(get_battery_icon "$battery_status" "$battery_percentage")
+
+# Format battery display
+if [[ "$battery_status" != "N/A" ]]; then
+    battery_display="$battery_icon $battery_percentage% • $battery_status"
+    if [[ "$battery_time" != "Fully Charged" && "$battery_time" != "Calculating..." ]]; then
+        battery_display="$battery_display • $battery_time"
+    elif [[ "$battery_time" == "Fully Charged" ]]; then
+        battery_display="$battery_icon $battery_percentage% • $battery_time"
+    fi
+else
+    battery_display="⚡ No battery info"
+fi
+
+# Define options with their icons (matching your current wlogout layout)
 options=(
     "󰤄 Suspend"     # systemctl suspend
     "󰜉 Reboot"      # systemctl reboot
     "⏻ Shutdown"    # systemctl poweroff
-    "󰗽 Logout"      # hyprctl dispatch exit 0
+    "󰗽 Logout"      # swaymsg exit
 )
 
 # Show powermenu with rofi and get selection
-selected=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -theme "$theme")
+# Add battery info to the message area
+selected=$(printf '%s\n' "${options[@]}" | rofi \
+    -dmenu \
+    -i \
+    -p "Power Menu" \
+    -mesg "$battery_display" \
+    -theme "$theme")
 
 # Execute the selected action immediately
 case "$selected" in
@@ -34,6 +112,6 @@ case "$selected" in
         systemctl poweroff
         ;;
     "󰗽 Logout")
-        hyprctl dispatch exit 0
+        swaymsg exit
         ;;
 esac

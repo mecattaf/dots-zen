@@ -1,6 +1,7 @@
 /**
- * Powermenu Theme for Rofi
+ * Enhanced Powermenu Theme for Rofi with Battery Information
  * Custom Catppuccin-inspired black variant
+ * Now includes proper message area for battery info
  */
 
 * {
@@ -10,7 +11,7 @@
     bg-darker:      #020202;  /* Crust */
     fg:             #cdd6f4;  /* Text */
     accent:         #cba6f7;  /* Mauve */
-    fg-selected:    #f38ba8;  /* Red - for selected text (from catppuccin-mocha.rasi) */
+    fg-selected:    #f38ba8;  /* Red - for selected text */
     
     font:           "JetBrainsMono Nerd Font 14";
     background-color: transparent;
@@ -37,7 +38,48 @@ mainbox {
     margin:                  0px;
     padding:                 20px;
     background-color:        transparent;
-    children:                [ "listview" ];
+    children:                [ "inputbar", "message", "listview" ];
+}
+
+inputbar {
+    enabled:                 true;
+    spacing:                 10px;
+    padding:                 0px 0px 10px 0px;
+    border:                  0px;
+    border-radius:           0px;
+    border-color:            @accent;
+    background-color:        transparent;
+    text-color:              @fg;
+    children:                [ "prompt" ];
+}
+
+prompt {
+    enabled:                 true;
+    padding:                 10px;
+    border-radius:           0px;
+    background-color:        @accent;
+    text-color:              @bg;
+    horizontal-align:        0.5;
+}
+
+message {
+    enabled:                 true;
+    margin:                  0px 0px 15px 0px;
+    padding:                 10px;
+    border:                  1px solid;
+    border-radius:           0px;
+    border-color:            @bg-darker;
+    background-color:        @bg-alt;
+    text-color:              @fg;
+}
+
+textbox {
+    background-color:        inherit;
+    text-color:              inherit;
+    vertical-align:          0.5;
+    horizontal-align:        0.5;
+    padding:                 0px;
+    margin:                  0px;
 }
 
 listview {

@@ -21,7 +21,6 @@ hide_edge_borders smart
 seat seat0 xcursor_theme Bibata-Modern-Classic 24
 seat seat0 fallback true
 seat seat0 hide_cursor 1000
-set_mode h after focus
 focus_wrapping no
 
 set $gnome-schema org.gnome.desktop.interface
@@ -155,11 +154,11 @@ bindsym F2 exec $brightness-up
 bindsym F3 exec kitty --class "nmtui" -e nmtui # change to iwmenu in rofi?
 bindsym F4 exec blueman-manager
 bindsym F5 exec pavucontrol    
-bindsym F6 exec $power-menu 
-# pick one more bindsym F7 exec 
-bindsym F8 exec $volume-mute
-bindsym F9 exec $volume-down
-bindsym F10 exec $volume-up
+bindsym F6 exec $volume-mute
+bindsym F7 exec $volume-down
+bindsym F8 exec $volume-up
+bindsym F9 exec $pomodoro-timer
+bindsym F10 exec $power-menu 
 
 bindsym $mod+Shift+Tab focus mode_toggle
 bindsym $mod+Tab floating toggle
