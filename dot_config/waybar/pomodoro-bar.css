@@ -1,6 +1,6 @@
 /* Dedicated Pomodoro Progress Bar Styles
  * Location: ~/.config/waybar/pomodoro-bar.css
- * Import your mocha.css at the top
+ * Fixed version without vw units
  */
 
 @import "mocha.css";
@@ -30,39 +30,38 @@ window#waybar.pomodoro-bar > box {
     border-radius: 0;
     margin: 0;
     padding: 0;
-    min-width: 100vw;
+    min-height: 5px;
+    max-height: 5px;
     font-size: 0;
-    text-align: center;
+    line-height: 0;
 }
 
 /* When timer is stopped - completely invisible */
 #custom-pomodoro.stopped {
     background: transparent;
-    color: transparent;
+    min-height: 0;
+    max-height: 0;
 }
 
 /* Work phase - white progress bar */
 #custom-pomodoro.work {
-    background: transparent;
-    color: transparent;
-    height: 4px;
+    min-height: 5px;
+    max-height: 5px;
 }
 
 /* Break phase - green progress bar */
 #custom-pomodoro.break {
-    background: transparent;
-    color: transparent;
-    height: 4px;
+    min-height: 5px;
+    max-height: 5px;
 }
 
 /* Paused state - orange */
 #custom-pomodoro.paused {
-    background: transparent;
-    color: transparent;
-    height: 4px;
+    min-height: 5px;
+    max-height: 5px;
 }
 
-/* Progress bar gradients for work phase (white) */
+/* progress bar gradients for work phase (white) */
 #custom-pomodoro.work.perc0 { background: linear-gradient(to right, #cdd6f4 0%, transparent 0%); }
 #custom-pomodoro.work.perc1 { background: linear-gradient(to right, #cdd6f4 1%, transparent 1%); }
 #custom-pomodoro.work.perc2 { background: linear-gradient(to right, #cdd6f4 2%, transparent 2%); }
@@ -165,7 +164,7 @@ window#waybar.pomodoro-bar > box {
 #custom-pomodoro.work.perc99 { background: linear-gradient(to right, #cdd6f4 99%, transparent 99%); }
 #custom-pomodoro.work.perc100 { background: linear-gradient(to right, #cdd6f4 100%, transparent 100%); }
 
-/* Progress bar gradients for break phase (green) */
+/* progress bar gradients for break phase (green) */
 #custom-pomodoro.break.perc0 { background: linear-gradient(to right, #a6e3a1 0%, transparent 0%); }
 #custom-pomodoro.break.perc1 { background: linear-gradient(to right, #a6e3a1 1%, transparent 1%); }
 #custom-pomodoro.break.perc2 { background: linear-gradient(to right, #a6e3a1 2%, transparent 2%); }
@@ -268,7 +267,7 @@ window#waybar.pomodoro-bar > box {
 #custom-pomodoro.break.perc99 { background: linear-gradient(to right, #a6e3a1 99%, transparent 99%); }
 #custom-pomodoro.break.perc100 { background: linear-gradient(to right, #a6e3a1 100%, transparent 100%); }
 
-/* Progress bar gradients for paused state (orange) */
+/* progress bar gradients for paused state (orange) */
 #custom-pomodoro.paused.perc0 { background: linear-gradient(to right, #fab387 0%, transparent 0%); }
 #custom-pomodoro.paused.perc1 { background: linear-gradient(to right, #fab387 1%, transparent 1%); }
 #custom-pomodoro.paused.perc2 { background: linear-gradient(to right, #fab387 2%, transparent 2%); }

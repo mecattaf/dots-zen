@@ -38,15 +38,13 @@ function pomo_waybar_output {
             total_time=$((BREAK_TIME*60))
             elapsed=$((total_time - break_left))
             phase="break"
-            icon="🏖️"
-            prefix="Break"
+            remaining_seconds=$break_left
         else
             # Work phase
             total_time=$((WORK_TIME*60))
             elapsed=$((total_time - work_left))
             phase="work"
-            icon="🍅"
-            prefix="Focus"
+            remaining_seconds=$work_left
         fi
         
         # Calculate percentage (0-100)
@@ -56,13 +54,7 @@ function pomo_waybar_output {
             percentage=0
         fi
         
-        # Format remaining time
-        if [[ $phase == "work" ]]; then
-            remaining_seconds=$work_left
-        else
-            remaining_seconds=$break_left
-        fi
-        
+        # Format remaining time for tooltip
         min=$(( remaining_seconds / 60 ))
         sec=$(( remaining_seconds % 60 ))
         time_str=$(printf "%02d:%02d" $min $sec)
@@ -70,18 +62,23 @@ function pomo_waybar_output {
         # Determine CSS class based on state
         if pomo_ispaused; then
             css_class="paused"
-            icon="⏸️"
-            prefix="Paused"
+            tooltip_prefix="Paused"
+        elif [[ $phase == "work" ]]; then
+            css_class="work"
+            tooltip_prefix="Focus"
         else
-            css_class=$phase
+            css_class="break"
+            tooltip_prefix="Break"
         fi
         
         # Generate CSS class for percentage
         perc_class="perc$(printf "%.0f" $percentage)"
         
-        echo "{\"text\":\"$icon\",\"tooltip\":\"$prefix: $time_str remaining\",\"class\":\"$css_class $perc_class\",\"percentage\":$percentage}"
+        # Output minimal JSON - just tooltip and classes
+        echo "{\"text\":\" \",\"tooltip\":\"$tooltip_prefix: $time_str remaining\",\"class\":\"$css_class $perc_class\"}"
     else
-        echo "{\"text\":\"\",\"tooltip\":\"Pomodoro timer stopped\",\"class\":\"stopped\",\"percentage\":0}"
+        # Timer is stopped - output minimal JSON
+        echo "{\"text\":\" \",\"tooltip\":\"Timer stopped\",\"class\":\"stopped\"}"
     fi
 }
 
@@ -92,7 +89,7 @@ function pomo_start {
     :> "$POMO"
     touch "$POMO"
     pomo_waybar_signal
-    notify-send "🍅 Pomodoro Started" "Focus time: ${WORK_TIME} minutes" -t 2000
+    notify-send -t 1500 "🍅" "Focus: ${WORK_TIME}m"
 }
 
 function pomo_isstopped {
@@ -225,10 +222,11 @@ function pomo_notify_daemon {
 }
 
 function pomo_ensure_services {
-    # Ensure waybar progress bar is running
+    # Ensure waybar progress bar is running with correct config files
     if ! pgrep -f "waybar.*pomodoro-bar" > /dev/null; then
+        # Launch with explicit config and style files to avoid default style.css
         waybar -c ~/.config/waybar/pomodoro-bar.json -s ~/.config/waybar/pomodoro-bar.css &
-        sleep 0.5  # Give waybar time to start
+        sleep 0.2  # Reduced sleep time for faster startup
     fi
     
     # Ensure notification daemon is running
@@ -245,6 +243,7 @@ function pomo_stop_services {
     pkill -f "pomodoro notify"
 }
 
+
 function pomo_menu {
     rofi_dir="$HOME/.config/rofi/pomodoro"
     theme_file="$rofi_dir/pomodoro.rasi"
@@ -252,26 +251,13 @@ function pomo_menu {
     # Ensure services are running when menu is opened
     pomo_ensure_services
     
-    # Create options based on current state
-    if pomo_isstopped; then
-        options=("🍅 Start Pomodoro"
-                "⚙️ Settings"
-                "❌ Exit")
-    elif pomo_ispaused; then
-        options=("▶️ Resume"
-                "🔄 Restart"
-                "🛑 Stop"
-                "⚙️ Settings"
-                "❌ Exit")
-    else
-        options=("⏸️ Pause"
-                "🔄 Restart" 
-                "🛑 Stop"
-                "⚙️ Settings"
-                "❌ Exit")
-    fi
+    # Static menu options - no dynamic generation
+    options=("🍅 Start/Pause"
+            "🔄 Restart" 
+            "⏹️ Stop"
+            "⏱️ Custom Timer")
     
-    # Get current status for prompt
+    # Get current status for display only
     if ! pomo_isstopped; then
         status=$(pomo_status)
         prompt="$status"
@@ -279,38 +265,49 @@ function pomo_menu {
         prompt="Pomodoro Timer"
     fi
     
-    # Show menu
+    # Show menu with static options
     selected=$(printf '%s\n' "${options[@]}" | rofi \
         -dmenu \
         -i \
         -p "$prompt" \
         -theme "$theme_file")
     
-    # Execute selection
+    # Handle selection - check state only when action is taken
     case "$selected" in
-        "🍅 Start Pomodoro")
-            pomo_start
-            ;;
-        "▶️ Resume"|"⏸️ Pause")
-            pomo_pause
+        "🍅 Start/Pause")
+            if pomo_isstopped; then
+                pomo_start
+            else
+                pomo_pause
+            fi
             ;;
         "🔄 Restart")
             pomo_restart
             ;;
-        "🛑 Stop")
+        "⏹️ Stop")
             pomo_stop
-            # When stopped, also stop services to clean up
             pomo_stop_services
             ;;
-        "⚙️ Settings")
-            # Simple settings dialog
-            new_work=$(echo -e "15\n20\n25\n30\n45\n60" | rofi -dmenu -p "Work minutes (current: $WORK_TIME)")
-            if [[ -n "$new_work" && "$new_work" =~ ^[0-9]+$ ]]; then
-                export POMO_WORK_TIME=$new_work
-                notify-send "⚙️ Settings Updated" "Work time: ${new_work} minutes" -t 1500
+        "⏱️ Custom Timer")
+            # Simple number input for custom timer
+            custom_time=$(rofi -dmenu -p "Minutes (1-99):" -theme "$theme_file")
+            if [[ "$custom_time" =~ ^[1-9][0-9]?$ ]]; then
+                # Save current default
+                OLD_WORK_TIME=$WORK_TIME
+                # Set temporary work time
+                export POMO_WORK_TIME=$custom_time
+                WORK_TIME=$custom_time
+                # Start timer
+                pomo_restart
+                # Notify user
+                notify-send "⏱️ Custom Timer" "Started ${custom_time} minute timer" -t 2000
+                # Note: Timer will revert to 25 min default on next start
+            else
+                notify-send "❌ Invalid Input" "Please enter a number between 1 and 99" -t 2000
             fi
             ;;
-        "❌ Exit"|"")
+        "")
+            # User pressed escape
             exit 0
             ;;
     esac
