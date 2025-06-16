@@ -18,7 +18,7 @@
     "custom/pomodoro": {
         "exec": "~/.config/scroll/scripts/pomodoro waybar",
         "return-type": "json",
-        "format": " ",
+        "format": "█",
         "tooltip": true,
         "interval": 1,
         "signal": 8,
