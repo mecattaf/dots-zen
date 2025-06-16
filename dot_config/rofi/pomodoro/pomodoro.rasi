@@ -129,13 +129,12 @@ element alternate.normal {
     text-color:                 @fg;
 }
 
-/* Default selected state */
 element selected.normal {
-    background-color:           @accent;
-    text-color:                 @bg;
+    background-color:           @bg;     
+    text-color:                 @red;   
 }
 
 element selected {
-    background-color:           @accent;
-    text-color:                 @bg;
+    background-color:           @bg;   
+    text-color:                 @red;
 }
