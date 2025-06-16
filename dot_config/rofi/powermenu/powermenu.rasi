@@ -1,27 +1,20 @@
 /**
- * Enhanced Powermenu Theme for Rofi with Color-Coded Battery Information
- * Custom Catppuccin-inspired black variant with battery status colors
- * Includes proper message area for battery info with dynamic coloring
+ * Powermenu Theme for Rofi with Battery Information
+ * Custom Catppuccin-inspired black variant
+ * Simple static theme that matches your existing aesthetic
  */
 
 * {
     /* Black variant of Catppuccin Mocha */
-    bg:                     #000000;  /* Base */
-    bg-alt:                 #010101;  /* Mantle */
-    bg-darker:              #020202;  /* Crust */
-    fg:                     #cdd6f4;  /* Text */
-    accent:                 #cba6f7;  /* Mauve */
-    fg-selected:            #f38ba8;  /* Red - for selected text */
+    bg:             #000000;  /* Base */
+    bg-alt:         #010101;  /* Mantle */
+    bg-darker:      #020202;  /* Crust */
+    fg:             #cdd6f4;  /* Text */
+    accent:         #cba6f7;  /* Mauve */
+    fg-selected:    #f38ba8;  /* Red - for selected text */
     
-    /* Battery status colors (Catppuccin Mocha) */
-    bg-charging:            #89b4fa;  /* Blue - when charging/plugged */
-    bg-good:                #a6e3a1;  /* Green - battery above 40% */
-    bg-warning:             #f9e2af;  /* Yellow - battery 21-39% */
-    bg-critical:            #f38ba8;  /* Red - battery below 20% */
-    bg-unknown:             #6c7086;  /* Surface2 - unknown status */
-    
-    font:                   "JetBrainsMono Nerd Font 14";
-    background-color:       transparent;
+    font:           "JetBrainsMono Nerd Font 14";
+    background-color: transparent;
 }
 
 window {
@@ -77,7 +70,7 @@ message {
     border-radius:           0px;
     border-color:            @bg-darker;
     background-color:        @bg-alt;
-    text-color:              @bg;
+    text-color:              @fg;
 }
 
 textbox {
