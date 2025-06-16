@@ -11,13 +11,13 @@
     "margin": 0,
     "spacing": 0,
     "modules-left": ["custom/pomodoro"],
-    "modules-center": [], 
+    "modules-center":[], 
     "modules-right": [],
     
     "custom/pomodoro": {
         "exec": "~/.config/scroll/scripts/pomodoro waybar",
         "return-type": "json",
-        "format": "█",
+        "format": "{}",
         "tooltip": true,
         "interval": 1,
         "signal": 8,

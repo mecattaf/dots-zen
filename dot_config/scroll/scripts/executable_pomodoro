@@ -75,9 +75,8 @@ function pomo_waybar_output {
         perc_class="perc$(printf "%.0f" $percentage)"
         
         # Output minimal JSON - just tooltip and classes
-        echo "{\"text\":\" \",\"tooltip\":\"$tooltip_prefix: $time_str remaining\",\"class\":\"$css_class.$perc_class\"}"
+        echo "{\"text\":\" \",\"tooltip\":\"$tooltip_prefix: $time_str remaining\",\"class\":\"$css_class $perc_class\"}"
     fi
-    # No else block - waybar shouldn't be running when stopped
 }
 
 #--- Core Pomodoro Functions ---
@@ -87,7 +86,7 @@ function pomo_start {
     :> "$POMO"
     touch "$POMO"
     pomo_waybar_signal
-    pomo_ensure_services  # Start waybar and notify daemon here
+    pomo_ensure_services  
     notify-send -t 1500 "🍅" "Focus: ${WORK_TIME}m"
 }
 
