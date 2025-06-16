@@ -22,6 +22,7 @@
         "tooltip": true,
         "interval": 1,
         "signal": 8,
-        "on-click": "~/.config/scroll/scripts/pomodoro pause"
+        "on-click": "~/.config/scroll/scripts/pomodoro pause",
+        "expand": true
     }
 }
