@@ -78,10 +78,10 @@ set $volume-mute $scripts/volume mute
 set $brightness-up $scripts/brightness-control up
 set $brightness-down $scripts/brightness-control down
 
-set $battery $scripts/battery
-set $waybar pkill -SIGUSR1 -f 'waybar'
+#set $waybar pkill -SIGUSR1 -f 'waybar'
 
 set $power-menu $scripts/powermenu
+set $pomodoro-timer $scripts/pomodoro menu
 
 set $start-wshowkeys wshowkeys -F "JetBrainsMono Nerd Font 16" -a bottom
 set $stop-wshowkeys pkill wshowkeys
@@ -125,9 +125,8 @@ bindsym $mod+Shift+A exec $screenshot-area
 bindsym $mod+S exec $swappy-full
 bindsym $mod+Shift+S exec $swappy-area
 
-#change
-bindsym $mod+I exec $waybar
-bindsym $mod+Shift+I exec $battery
+#bindsym $mod+I exec $waybar
+#bindsym $mod+Shift+I exec $battery
 
 bindsym $mod+O exec makoctl dismiss 
 bindsym $mod+Shift+O exec makoctl dismiss -a
@@ -179,10 +178,6 @@ bindsym $mod+f fullscreen
 
 # swap with the pin functionality?
 bindsym $mod+BackSpace sticky toggle
-
-#bring back
-#bindsym $mod+p exec notify-send "Pomodoro" "$($scripts/pomo clock)" -t 250
-#bindsym $mod+Shift+p exec $scripts/pomo pause && notify-send "⏸️ Paused Pomodoro" -t 250
 
 #discard?
 bindsym $mod+Shift+f    resize set 1920 1080

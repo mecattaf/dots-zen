@@ -1,6 +1,7 @@
 /**
- * Battery Applet Theme for Rofi
- * Customized with Catppuccin Mocha colors and Mauve accent
+ * Pomodoro Timer Theme for Rofi
+ * Custom Catppuccin-inspired black variant matching your aesthetic
+ * Location: ~/.config/rofi/pomodoro/pomodoro.rasi
  */
 
 configuration {
@@ -8,17 +9,19 @@ configuration {
 }
 
 * {
-    /* Colors */
+    /* Colors - matching your catppuccin-mocha theme */
     bg:             #000000;  /* Black background */
     bg-alt:         #000000;  /* Light background */
     fg:             #cdd6f4;  /* Text color */
     accent:         #cba6f7;  /* Mauve accent color */
-    red:            #f38ba8;  /* Red for urgent notifications */
-    green:          #a6e3a1;  /* Green for active status */
+    red:            #f38ba8;  /* Red for urgent/stop actions */
+    green:          #a6e3a1;  /* Green for start/active status */
+    orange:         #fab387;  /* Orange for pause status */
+    blue:           #89b4fa;  /* Blue for settings */
     
     /* Dimensions */
-    window-width:               400px;
-    window-height:              360px;
+    window-width:               450px;
+    window-height:              300px;
     
     /* Fonts */
     font:                       "JetBrainsMono Nerd Font 14";
@@ -52,7 +55,7 @@ mainbox {
     margin:                     0px;
     padding:                    20px;
     background-color:           @bg;
-    children:                   [ "inputbar", "message", "listview" ];
+    children:                   [ "inputbar", "listview" ];
 }
 
 inputbar {
@@ -60,7 +63,7 @@ inputbar {
     spacing:                    10px;
     padding:                    0px;
     border:                     0px;
-    border-radius:              5px;
+    border-radius:              0px;
     border-color:               @accent;
     background-color:           @bg;
     text-color:                 @fg;
@@ -70,9 +73,9 @@ inputbar {
 textbox-prompt-colon {
     enabled:                    true;
     expand:                     false;
-    str:                        "";
+    str:                        "🍅";
     padding:                    10px 13px;
-    border-radius:              3px;
+    border-radius:              0px;
     background-color:           @accent;
     text-color:                 @bg;
 }
@@ -80,36 +83,16 @@ textbox-prompt-colon {
 prompt {
     enabled:                    true;
     padding:                    6px;
-    border-radius:              3px;
+    border-radius:              0px;
     background-color:           @accent;
     text-color:                 @bg;
-    margin:                     20px 0px 0px 20px;
-}
-
-message {
-    enabled:                    true;
-    margin:                     0px;
-    padding:                    10px;
-    border:                     0px solid;
-    border-radius:              5px;
-    border-color:               @accent;
-    background-color:           @bg-alt;
-    text-color:                 @fg;
-}
-
-textbox {
-    background-color:           inherit;
-    text-color:                 inherit;
-    vertical-align:             0.5;
-    horizontal-align:           0.0;
-    padding:                    6px;
     margin:                     20px 0px 0px 20px;
 }
 
 listview {
     enabled:                    true;
     columns:                    1;
-    lines:                      4;
+    lines:                      5;
     cycle:                      true;
     scrollbar:                  false;
     layout:                     vertical;
@@ -123,7 +106,7 @@ listview {
 
 element {
     enabled:                    true;
-    padding:                    5px;
+    padding:                    12px;
     border:                     0px solid;
     border-radius:              0px;
     border-color:               @accent;
@@ -146,21 +129,32 @@ element alternate.normal {
     text-color:                 @fg;
 }
 
-element normal.urgent,
-element alternate.urgent,
-element selected.active {
+/* Color coding for different actions */
+element selected.normal {
+    background-color:           @accent;
+    text-color:                 @bg;
+}
+
+/* Start/Resume - Green */
+element:selected {
+    background-color:           @accent;
+    text-color:                 @bg;
+}
+
+/* Pause actions get orange highlight when selected */
+element:selected:first-child {
+    background-color:           @orange;
+    text-color:                 @bg;
+}
+
+/* Stop actions get red highlight when selected */
+element:selected:nth-child(3) {
     background-color:           @red;
     text-color:                 @bg;
 }
 
-element normal.active,
-element alternate.active,
-element selected.urgent {
-    background-color:           @green;
-    text-color:                 @bg;
-}
-
-element selected.normal {
-    background-color:           @accent;
+/* Settings get blue highlight when selected */
+element:selected:nth-child(4) {
+    background-color:           @blue;
     text-color:                 @bg;
 }

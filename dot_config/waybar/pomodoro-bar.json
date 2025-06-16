@@ -1,0 +1,34 @@
+// Dedicated Pomodoro Progress Bar Config
+// Location: ~/.config/waybar/pomodoro-bar.json
+// vim: set filetype=json:
+
+{
+    "name": "pomodoro-bar",
+    "bar_id": "pomodoro",
+    "layer": "bottom",
+    "mode": "overlay",
+    "output": "eDP-2",
+    "exclusive": false,
+    "passthrough": false,
+    "position": "bottom",
+    "height": 4,
+    "width": null,
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "spacing": 0,
+    "modules-left": [],
+    "modules-center": ["custom/pomodoro"],
+    "modules-right": [],
+    
+    "custom/pomodoro": {
+        "exec": "~/.config/scroll/scripts/pomodoro waybar",
+        "return-type": "json",
+        "format": "{}",
+        "on-click": "~/.config/scroll/scripts/pomodoro pause",
+        "tooltip": true,
+        "interval": 1,
+        "signal": 8
+    }
+}
