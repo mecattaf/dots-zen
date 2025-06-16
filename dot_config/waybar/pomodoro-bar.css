@@ -32,915 +32,915 @@ window#waybar.pomodoro-bar > box {
 
 /* Work phase progress (white/text color) */
 #custom-pomodoro.work.perc0 {
-    background-image: linear-gradient(to right, @text 0%, transparent 0%);
+    background-image: linear-gradient(to right, @text 0%, base 0%);
 }
 #custom-pomodoro.work.perc1 {
-    background-image: linear-gradient(to right, @text 1%, transparent 1%);
+    background-image: linear-gradient(to right, @text 1%, base 1%);
 }
 #custom-pomodoro.work.perc2 {
-    background-image: linear-gradient(to right, @text 2%, transparent 2%);
+    background-image: linear-gradient(to right, @text 2%, base 2%);
 }
 #custom-pomodoro.work.perc3 {
-    background-image: linear-gradient(to right, @text 3%, transparent 3%);
+    background-image: linear-gradient(to right, @text 3%, base 3%);
 }
 #custom-pomodoro.work.perc4 {
-    background-image: linear-gradient(to right, @text 4%, transparent 4%);
+    background-image: linear-gradient(to right, @text 4%, base 4%);
 }
 #custom-pomodoro.work.perc5 {
-    background-image: linear-gradient(to right, @text 5%, transparent 5%);
+    background-image: linear-gradient(to right, @text 5%, base 5%);
 }
 #custom-pomodoro.work.perc6 {
-    background-image: linear-gradient(to right, @text 6%, transparent 6%);
+    background-image: linear-gradient(to right, @text 6%, base 6%);
 }
 #custom-pomodoro.work.perc7 {
-    background-image: linear-gradient(to right, @text 7%, transparent 7%);
+    background-image: linear-gradient(to right, @text 7%, base 7%);
 }
 #custom-pomodoro.work.perc8 {
-    background-image: linear-gradient(to right, @text 8%, transparent 8%);
+    background-image: linear-gradient(to right, @text 8%, base 8%);
 }
 #custom-pomodoro.work.perc9 {
-    background-image: linear-gradient(to right, @text 9%, transparent 9%);
+    background-image: linear-gradient(to right, @text 9%, base 9%);
 }
 #custom-pomodoro.work.perc10 {
-    background-image: linear-gradient(to right, @text 10%, transparent 10%);
+    background-image: linear-gradient(to right, @text 10%, base 10%);
 }
 #custom-pomodoro.work.perc11 {
-    background-image: linear-gradient(to right, @text 11%, transparent 11%);
+    background-image: linear-gradient(to right, @text 11%, base 11%);
 }
 #custom-pomodoro.work.perc12 {
-    background-image: linear-gradient(to right, @text 12%, transparent 12%);
+    background-image: linear-gradient(to right, @text 12%, base 12%);
 }
 #custom-pomodoro.work.perc13 {
-    background-image: linear-gradient(to right, @text 13%, transparent 13%);
+    background-image: linear-gradient(to right, @text 13%, base 13%);
 }
 #custom-pomodoro.work.perc14 {
-    background-image: linear-gradient(to right, @text 14%, transparent 14%);
+    background-image: linear-gradient(to right, @text 14%, base 14%);
 }
 #custom-pomodoro.work.perc15 {
-    background-image: linear-gradient(to right, @text 15%, transparent 15%);
+    background-image: linear-gradient(to right, @text 15%, base 15%);
 }
 #custom-pomodoro.work.perc16 {
-    background-image: linear-gradient(to right, @text 16%, transparent 16%);
+    background-image: linear-gradient(to right, @text 16%, base 16%);
 }
 #custom-pomodoro.work.perc17 {
-    background-image: linear-gradient(to right, @text 17%, transparent 17%);
+    background-image: linear-gradient(to right, @text 17%, base 17%);
 }
 #custom-pomodoro.work.perc18 {
-    background-image: linear-gradient(to right, @text 18%, transparent 18%);
+    background-image: linear-gradient(to right, @text 18%, base 18%);
 }
 #custom-pomodoro.work.perc19 {
-    background-image: linear-gradient(to right, @text 19%, transparent 19%);
+    background-image: linear-gradient(to right, @text 19%, base 19%);
 }
 #custom-pomodoro.work.perc20 {
-    background-image: linear-gradient(to right, @text 20%, transparent 20%);
+    background-image: linear-gradient(to right, @text 20%, base 20%);
 }
 #custom-pomodoro.work.perc21 {
-    background-image: linear-gradient(to right, @text 21%, transparent 21%);
+    background-image: linear-gradient(to right, @text 21%, base 21%);
 }
 #custom-pomodoro.work.perc22 {
-    background-image: linear-gradient(to right, @text 22%, transparent 22%);
+    background-image: linear-gradient(to right, @text 22%, base 22%);
 }
 #custom-pomodoro.work.perc23 {
-    background-image: linear-gradient(to right, @text 23%, transparent 23%);
+    background-image: linear-gradient(to right, @text 23%, base 23%);
 }
 #custom-pomodoro.work.perc24 {
-    background-image: linear-gradient(to right, @text 24%, transparent 24%);
+    background-image: linear-gradient(to right, @text 24%, base 24%);
 }
 #custom-pomodoro.work.perc25 {
-    background-image: linear-gradient(to right, @text 25%, transparent 25%);
+    background-image: linear-gradient(to right, @text 25%, base 25%);
 }
 #custom-pomodoro.work.perc26 {
-    background-image: linear-gradient(to right, @text 26%, transparent 26%);
+    background-image: linear-gradient(to right, @text 26%, base 26%);
 }
 #custom-pomodoro.work.perc27 {
-    background-image: linear-gradient(to right, @text 27%, transparent 27%);
+    background-image: linear-gradient(to right, @text 27%, base 27%);
 }
 #custom-pomodoro.work.perc28 {
-    background-image: linear-gradient(to right, @text 28%, transparent 28%);
+    background-image: linear-gradient(to right, @text 28%, base 28%);
 }
 #custom-pomodoro.work.perc29 {
-    background-image: linear-gradient(to right, @text 29%, transparent 29%);
+    background-image: linear-gradient(to right, @text 29%, base 29%);
 }
 #custom-pomodoro.work.perc30 {
-    background-image: linear-gradient(to right, @text 30%, transparent 30%);
+    background-image: linear-gradient(to right, @text 30%, base 30%);
 }
 #custom-pomodoro.work.perc31 {
-    background-image: linear-gradient(to right, @text 31%, transparent 31%);
+    background-image: linear-gradient(to right, @text 31%, base 31%);
 }
 #custom-pomodoro.work.perc32 {
-    background-image: linear-gradient(to right, @text 32%, transparent 32%);
+    background-image: linear-gradient(to right, @text 32%, base 32%);
 }
 #custom-pomodoro.work.perc33 {
-    background-image: linear-gradient(to right, @text 33%, transparent 33%);
+    background-image: linear-gradient(to right, @text 33%, base 33%);
 }
 #custom-pomodoro.work.perc34 {
-    background-image: linear-gradient(to right, @text 34%, transparent 34%);
+    background-image: linear-gradient(to right, @text 34%, base 34%);
 }
 #custom-pomodoro.work.perc35 {
-    background-image: linear-gradient(to right, @text 35%, transparent 35%);
+    background-image: linear-gradient(to right, @text 35%, base 35%);
 }
 #custom-pomodoro.work.perc36 {
-    background-image: linear-gradient(to right, @text 36%, transparent 36%);
+    background-image: linear-gradient(to right, @text 36%, base 36%);
 }
 #custom-pomodoro.work.perc37 {
-    background-image: linear-gradient(to right, @text 37%, transparent 37%);
+    background-image: linear-gradient(to right, @text 37%, base 37%);
 }
 #custom-pomodoro.work.perc38 {
-    background-image: linear-gradient(to right, @text 38%, transparent 38%);
+    background-image: linear-gradient(to right, @text 38%, base 38%);
 }
 #custom-pomodoro.work.perc39 {
-    background-image: linear-gradient(to right, @text 39%, transparent 39%);
+    background-image: linear-gradient(to right, @text 39%, base 39%);
 }
 #custom-pomodoro.work.perc40 {
-    background-image: linear-gradient(to right, @text 40%, transparent 40%);
+    background-image: linear-gradient(to right, @text 40%, base 40%);
 }
 #custom-pomodoro.work.perc41 {
-    background-image: linear-gradient(to right, @text 41%, transparent 41%);
+    background-image: linear-gradient(to right, @text 41%, base 41%);
 }
 #custom-pomodoro.work.perc42 {
-    background-image: linear-gradient(to right, @text 42%, transparent 42%);
+    background-image: linear-gradient(to right, @text 42%, base 42%);
 }
 #custom-pomodoro.work.perc43 {
-    background-image: linear-gradient(to right, @text 43%, transparent 43%);
+    background-image: linear-gradient(to right, @text 43%, base 43%);
 }
 #custom-pomodoro.work.perc44 {
-    background-image: linear-gradient(to right, @text 44%, transparent 44%);
+    background-image: linear-gradient(to right, @text 44%, base 44%);
 }
 #custom-pomodoro.work.perc45 {
-    background-image: linear-gradient(to right, @text 45%, transparent 45%);
+    background-image: linear-gradient(to right, @text 45%, base 45%);
 }
 #custom-pomodoro.work.perc46 {
-    background-image: linear-gradient(to right, @text 46%, transparent 46%);
+    background-image: linear-gradient(to right, @text 46%, base 46%);
 }
 #custom-pomodoro.work.perc47 {
-    background-image: linear-gradient(to right, @text 47%, transparent 47%);
+    background-image: linear-gradient(to right, @text 47%, base 47%);
 }
 #custom-pomodoro.work.perc48 {
-    background-image: linear-gradient(to right, @text 48%, transparent 48%);
+    background-image: linear-gradient(to right, @text 48%, base 48%);
 }
 #custom-pomodoro.work.perc49 {
-    background-image: linear-gradient(to right, @text 49%, transparent 49%);
+    background-image: linear-gradient(to right, @text 49%, base 49%);
 }
 #custom-pomodoro.work.perc50 {
-    background-image: linear-gradient(to right, @text 50%, transparent 50%);
+    background-image: linear-gradient(to right, @text 50%, base 50%);
 }
 #custom-pomodoro.work.perc51 {
-    background-image: linear-gradient(to right, @text 51%, transparent 51%);
+    background-image: linear-gradient(to right, @text 51%, base 51%);
 }
 #custom-pomodoro.work.perc52 {
-    background-image: linear-gradient(to right, @text 52%, transparent 52%);
+    background-image: linear-gradient(to right, @text 52%, base 52%);
 }
 #custom-pomodoro.work.perc53 {
-    background-image: linear-gradient(to right, @text 53%, transparent 53%);
+    background-image: linear-gradient(to right, @text 53%, base 53%);
 }
 #custom-pomodoro.work.perc54 {
-    background-image: linear-gradient(to right, @text 54%, transparent 54%);
+    background-image: linear-gradient(to right, @text 54%, base 54%);
 }
 #custom-pomodoro.work.perc55 {
-    background-image: linear-gradient(to right, @text 55%, transparent 55%);
+    background-image: linear-gradient(to right, @text 55%, base 55%);
 }
 #custom-pomodoro.work.perc56 {
-    background-image: linear-gradient(to right, @text 56%, transparent 56%);
+    background-image: linear-gradient(to right, @text 56%, base 56%);
 }
 #custom-pomodoro.work.perc57 {
-    background-image: linear-gradient(to right, @text 57%, transparent 57%);
+    background-image: linear-gradient(to right, @text 57%, base 57%);
 }
 #custom-pomodoro.work.perc58 {
-    background-image: linear-gradient(to right, @text 58%, transparent 58%);
+    background-image: linear-gradient(to right, @text 58%, base 58%);
 }
 #custom-pomodoro.work.perc59 {
-    background-image: linear-gradient(to right, @text 59%, transparent 59%);
+    background-image: linear-gradient(to right, @text 59%, base 59%);
 }
 #custom-pomodoro.work.perc60 {
-    background-image: linear-gradient(to right, @text 60%, transparent 60%);
+    background-image: linear-gradient(to right, @text 60%, base 60%);
 }
 #custom-pomodoro.work.perc61 {
-    background-image: linear-gradient(to right, @text 61%, transparent 61%);
+    background-image: linear-gradient(to right, @text 61%, base 61%);
 }
 #custom-pomodoro.work.perc62 {
-    background-image: linear-gradient(to right, @text 62%, transparent 62%);
+    background-image: linear-gradient(to right, @text 62%, base 62%);
 }
 #custom-pomodoro.work.perc63 {
-    background-image: linear-gradient(to right, @text 63%, transparent 63%);
+    background-image: linear-gradient(to right, @text 63%, base 63%);
 }
 #custom-pomodoro.work.perc64 {
-    background-image: linear-gradient(to right, @text 64%, transparent 64%);
+    background-image: linear-gradient(to right, @text 64%, base 64%);
 }
 #custom-pomodoro.work.perc65 {
-    background-image: linear-gradient(to right, @text 65%, transparent 65%);
+    background-image: linear-gradient(to right, @text 65%, base 65%);
 }
 #custom-pomodoro.work.perc66 {
-    background-image: linear-gradient(to right, @text 66%, transparent 66%);
+    background-image: linear-gradient(to right, @text 66%, base 66%);
 }
 #custom-pomodoro.work.perc67 {
-    background-image: linear-gradient(to right, @text 67%, transparent 67%);
+    background-image: linear-gradient(to right, @text 67%, base 67%);
 }
 #custom-pomodoro.work.perc68 {
-    background-image: linear-gradient(to right, @text 68%, transparent 68%);
+    background-image: linear-gradient(to right, @text 68%, base 68%);
 }
 #custom-pomodoro.work.perc69 {
-    background-image: linear-gradient(to right, @text 69%, transparent 69%);
+    background-image: linear-gradient(to right, @text 69%, base 69%);
 }
 #custom-pomodoro.work.perc70 {
-    background-image: linear-gradient(to right, @text 70%, transparent 70%);
+    background-image: linear-gradient(to right, @text 70%, base 70%);
 }
 #custom-pomodoro.work.perc71 {
-    background-image: linear-gradient(to right, @text 71%, transparent 71%);
+    background-image: linear-gradient(to right, @text 71%, base 71%);
 }
 #custom-pomodoro.work.perc72 {
-    background-image: linear-gradient(to right, @text 72%, transparent 72%);
+    background-image: linear-gradient(to right, @text 72%, base 72%);
 }
 #custom-pomodoro.work.perc73 {
-    background-image: linear-gradient(to right, @text 73%, transparent 73%);
+    background-image: linear-gradient(to right, @text 73%, base 73%);
 }
 #custom-pomodoro.work.perc74 {
-    background-image: linear-gradient(to right, @text 74%, transparent 74%);
+    background-image: linear-gradient(to right, @text 74%, base 74%);
 }
 #custom-pomodoro.work.perc75 {
-    background-image: linear-gradient(to right, @text 75%, transparent 75%);
+    background-image: linear-gradient(to right, @text 75%, base 75%);
 }
 #custom-pomodoro.work.perc76 {
-    background-image: linear-gradient(to right, @text 76%, transparent 76%);
+    background-image: linear-gradient(to right, @text 76%, base 76%);
 }
 #custom-pomodoro.work.perc77 {
-    background-image: linear-gradient(to right, @text 77%, transparent 77%);
+    background-image: linear-gradient(to right, @text 77%, base 77%);
 }
 #custom-pomodoro.work.perc78 {
-    background-image: linear-gradient(to right, @text 78%, transparent 78%);
+    background-image: linear-gradient(to right, @text 78%, base 78%);
 }
 #custom-pomodoro.work.perc79 {
-    background-image: linear-gradient(to right, @text 79%, transparent 79%);
+    background-image: linear-gradient(to right, @text 79%, base 79%);
 }
 #custom-pomodoro.work.perc80 {
-    background-image: linear-gradient(to right, @text 80%, transparent 80%);
+    background-image: linear-gradient(to right, @text 80%, base 80%);
 }
 #custom-pomodoro.work.perc81 {
-    background-image: linear-gradient(to right, @text 81%, transparent 81%);
+    background-image: linear-gradient(to right, @text 81%, base 81%);
 }
 #custom-pomodoro.work.perc82 {
-    background-image: linear-gradient(to right, @text 82%, transparent 82%);
+    background-image: linear-gradient(to right, @text 82%, base 82%);
 }
 #custom-pomodoro.work.perc83 {
-    background-image: linear-gradient(to right, @text 83%, transparent 83%);
+    background-image: linear-gradient(to right, @text 83%, base 83%);
 }
 #custom-pomodoro.work.perc84 {
-    background-image: linear-gradient(to right, @text 84%, transparent 84%);
+    background-image: linear-gradient(to right, @text 84%, base 84%);
 }
 #custom-pomodoro.work.perc85 {
-    background-image: linear-gradient(to right, @text 85%, transparent 85%);
+    background-image: linear-gradient(to right, @text 85%, base 85%);
 }
 #custom-pomodoro.work.perc86 {
-    background-image: linear-gradient(to right, @text 86%, transparent 86%);
+    background-image: linear-gradient(to right, @text 86%, base 86%);
 }
 #custom-pomodoro.work.perc87 {
-    background-image: linear-gradient(to right, @text 87%, transparent 87%);
+    background-image: linear-gradient(to right, @text 87%, base 87%);
 }
 #custom-pomodoro.work.perc88 {
-    background-image: linear-gradient(to right, @text 88%, transparent 88%);
+    background-image: linear-gradient(to right, @text 88%, base 88%);
 }
 #custom-pomodoro.work.perc89 {
-    background-image: linear-gradient(to right, @text 89%, transparent 89%);
+    background-image: linear-gradient(to right, @text 89%, base 89%);
 }
 #custom-pomodoro.work.perc90 {
-    background-image: linear-gradient(to right, @text 90%, transparent 90%);
+    background-image: linear-gradient(to right, @text 90%, base 90%);
 }
 #custom-pomodoro.work.perc91 {
-    background-image: linear-gradient(to right, @text 91%, transparent 91%);
+    background-image: linear-gradient(to right, @text 91%, base 91%);
 }
 #custom-pomodoro.work.perc92 {
-    background-image: linear-gradient(to right, @text 92%, transparent 92%);
+    background-image: linear-gradient(to right, @text 92%, base 92%);
 }
 #custom-pomodoro.work.perc93 {
-    background-image: linear-gradient(to right, @text 93%, transparent 93%);
+    background-image: linear-gradient(to right, @text 93%, base 93%);
 }
 #custom-pomodoro.work.perc94 {
-    background-image: linear-gradient(to right, @text 94%, transparent 94%);
+    background-image: linear-gradient(to right, @text 94%, base 94%);
 }
 #custom-pomodoro.work.perc95 {
-    background-image: linear-gradient(to right, @text 95%, transparent 95%);
+    background-image: linear-gradient(to right, @text 95%, base 95%);
 }
 #custom-pomodoro.work.perc96 {
-    background-image: linear-gradient(to right, @text 96%, transparent 96%);
+    background-image: linear-gradient(to right, @text 96%, base 96%);
 }
 #custom-pomodoro.work.perc97 {
-    background-image: linear-gradient(to right, @text 97%, transparent 97%);
+    background-image: linear-gradient(to right, @text 97%, base 97%);
 }
 #custom-pomodoro.work.perc98 {
-    background-image: linear-gradient(to right, @text 98%, transparent 98%);
+    background-image: linear-gradient(to right, @text 98%, base 98%);
 }
 #custom-pomodoro.work.perc99 {
-    background-image: linear-gradient(to right, @text 99%, transparent 99%);
+    background-image: linear-gradient(to right, @text 99%, base 99%);
 }
 #custom-pomodoro.work.perc100 {
-    background-image: linear-gradient(to right, @text 100%, transparent 100%);
+    background-image: linear-gradient(to right, @text 100%, base 100%);
 }
 
 /* Break phase progress (green) */
 #custom-pomodoro.break.perc0 {
-    background-image: linear-gradient(to right, @green 0%, transparent 0%);
+    background-image: linear-gradient(to right, @green 0%, base 0%);
 }
 #custom-pomodoro.break.perc1 {
-    background-image: linear-gradient(to right, @green 1%, transparent 1%);
+    background-image: linear-gradient(to right, @green 1%, base 1%);
 }
 #custom-pomodoro.break.perc2 {
-    background-image: linear-gradient(to right, @green 2%, transparent 2%);
+    background-image: linear-gradient(to right, @green 2%, base 2%);
 }
 #custom-pomodoro.break.perc3 {
-    background-image: linear-gradient(to right, @green 3%, transparent 3%);
+    background-image: linear-gradient(to right, @green 3%, base 3%);
 }
 #custom-pomodoro.break.perc4 {
-    background-image: linear-gradient(to right, @green 4%, transparent 4%);
+    background-image: linear-gradient(to right, @green 4%, base 4%);
 }
 #custom-pomodoro.break.perc5 {
-    background-image: linear-gradient(to right, @green 5%, transparent 5%);
+    background-image: linear-gradient(to right, @green 5%, base 5%);
 }
 #custom-pomodoro.break.perc6 {
-    background-image: linear-gradient(to right, @green 6%, transparent 6%);
+    background-image: linear-gradient(to right, @green 6%, base 6%);
 }
 #custom-pomodoro.break.perc7 {
-    background-image: linear-gradient(to right, @green 7%, transparent 7%);
+    background-image: linear-gradient(to right, @green 7%, base 7%);
 }
 #custom-pomodoro.break.perc8 {
-    background-image: linear-gradient(to right, @green 8%, transparent 8%);
+    background-image: linear-gradient(to right, @green 8%, base 8%);
 }
 #custom-pomodoro.break.perc9 {
-    background-image: linear-gradient(to right, @green 9%, transparent 9%);
+    background-image: linear-gradient(to right, @green 9%, base 9%);
 }
 #custom-pomodoro.break.perc10 {
-    background-image: linear-gradient(to right, @green 10%, transparent 10%);
+    background-image: linear-gradient(to right, @green 10%, base 10%);
 }
 #custom-pomodoro.break.perc11 {
-    background-image: linear-gradient(to right, @green 11%, transparent 11%);
+    background-image: linear-gradient(to right, @green 11%, base 11%);
 }
 #custom-pomodoro.break.perc12 {
-    background-image: linear-gradient(to right, @green 12%, transparent 12%);
+    background-image: linear-gradient(to right, @green 12%, base 12%);
 }
 #custom-pomodoro.break.perc13 {
-    background-image: linear-gradient(to right, @green 13%, transparent 13%);
+    background-image: linear-gradient(to right, @green 13%, base 13%);
 }
 #custom-pomodoro.break.perc14 {
-    background-image: linear-gradient(to right, @green 14%, transparent 14%);
+    background-image: linear-gradient(to right, @green 14%, base 14%);
 }
 #custom-pomodoro.break.perc15 {
-    background-image: linear-gradient(to right, @green 15%, transparent 15%);
+    background-image: linear-gradient(to right, @green 15%, base 15%);
 }
 #custom-pomodoro.break.perc16 {
-    background-image: linear-gradient(to right, @green 16%, transparent 16%);
+    background-image: linear-gradient(to right, @green 16%, base 16%);
 }
 #custom-pomodoro.break.perc17 {
-    background-image: linear-gradient(to right, @green 17%, transparent 17%);
+    background-image: linear-gradient(to right, @green 17%, base 17%);
 }
 #custom-pomodoro.break.perc18 {
-    background-image: linear-gradient(to right, @green 18%, transparent 18%);
+    background-image: linear-gradient(to right, @green 18%, base 18%);
 }
 #custom-pomodoro.break.perc19 {
-    background-image: linear-gradient(to right, @green 19%, transparent 19%);
+    background-image: linear-gradient(to right, @green 19%, base 19%);
 }
 #custom-pomodoro.break.perc20 {
-    background-image: linear-gradient(to right, @green 20%, transparent 20%);
+    background-image: linear-gradient(to right, @green 20%, base 20%);
 }
 #custom-pomodoro.break.perc21 {
-    background-image: linear-gradient(to right, @green 21%, transparent 21%);
+    background-image: linear-gradient(to right, @green 21%, base 21%);
 }
 #custom-pomodoro.break.perc22 {
-    background-image: linear-gradient(to right, @green 22%, transparent 22%);
+    background-image: linear-gradient(to right, @green 22%, base 22%);
 }
 #custom-pomodoro.break.perc23 {
-    background-image: linear-gradient(to right, @green 23%, transparent 23%);
+    background-image: linear-gradient(to right, @green 23%, base 23%);
 }
 #custom-pomodoro.break.perc24 {
-    background-image: linear-gradient(to right, @green 24%, transparent 24%);
+    background-image: linear-gradient(to right, @green 24%, base 24%);
 }
 #custom-pomodoro.break.perc25 {
-    background-image: linear-gradient(to right, @green 25%, transparent 25%);
+    background-image: linear-gradient(to right, @green 25%, base 25%);
 }
 #custom-pomodoro.break.perc26 {
-    background-image: linear-gradient(to right, @green 26%, transparent 26%);
+    background-image: linear-gradient(to right, @green 26%, base 26%);
 }
 #custom-pomodoro.break.perc27 {
-    background-image: linear-gradient(to right, @green 27%, transparent 27%);
+    background-image: linear-gradient(to right, @green 27%, base 27%);
 }
 #custom-pomodoro.break.perc28 {
-    background-image: linear-gradient(to right, @green 28%, transparent 28%);
+    background-image: linear-gradient(to right, @green 28%, base 28%);
 }
 #custom-pomodoro.break.perc29 {
-    background-image: linear-gradient(to right, @green 29%, transparent 29%);
+    background-image: linear-gradient(to right, @green 29%, base 29%);
 }
 #custom-pomodoro.break.perc30 {
-    background-image: linear-gradient(to right, @green 30%, transparent 30%);
+    background-image: linear-gradient(to right, @green 30%, base 30%);
 }
 #custom-pomodoro.break.perc31 {
-    background-image: linear-gradient(to right, @green 31%, transparent 31%);
+    background-image: linear-gradient(to right, @green 31%, base 31%);
 }
 #custom-pomodoro.break.perc32 {
-    background-image: linear-gradient(to right, @green 32%, transparent 32%);
+    background-image: linear-gradient(to right, @green 32%, base 32%);
 }
 #custom-pomodoro.break.perc33 {
-    background-image: linear-gradient(to right, @green 33%, transparent 33%);
+    background-image: linear-gradient(to right, @green 33%, base 33%);
 }
 #custom-pomodoro.break.perc34 {
-    background-image: linear-gradient(to right, @green 34%, transparent 34%);
+    background-image: linear-gradient(to right, @green 34%, base 34%);
 }
 #custom-pomodoro.break.perc35 {
-    background-image: linear-gradient(to right, @green 35%, transparent 35%);
+    background-image: linear-gradient(to right, @green 35%, base 35%);
 }
 #custom-pomodoro.break.perc36 {
-    background-image: linear-gradient(to right, @green 36%, transparent 36%);
+    background-image: linear-gradient(to right, @green 36%, base 36%);
 }
 #custom-pomodoro.break.perc37 {
-    background-image: linear-gradient(to right, @green 37%, transparent 37%);
+    background-image: linear-gradient(to right, @green 37%, base 37%);
 }
 #custom-pomodoro.break.perc38 {
-    background-image: linear-gradient(to right, @green 38%, transparent 38%);
+    background-image: linear-gradient(to right, @green 38%, base 38%);
 }
 #custom-pomodoro.break.perc39 {
-    background-image: linear-gradient(to right, @green 39%, transparent 39%);
+    background-image: linear-gradient(to right, @green 39%, base 39%);
 }
 #custom-pomodoro.break.perc40 {
-    background-image: linear-gradient(to right, @green 40%, transparent 40%);
+    background-image: linear-gradient(to right, @green 40%, base 40%);
 }
 #custom-pomodoro.break.perc41 {
-    background-image: linear-gradient(to right, @green 41%, transparent 41%);
+    background-image: linear-gradient(to right, @green 41%, base 41%);
 }
 #custom-pomodoro.break.perc42 {
-    background-image: linear-gradient(to right, @green 42%, transparent 42%);
+    background-image: linear-gradient(to right, @green 42%, base 42%);
 }
 #custom-pomodoro.break.perc43 {
-    background-image: linear-gradient(to right, @green 43%, transparent 43%);
+    background-image: linear-gradient(to right, @green 43%, base 43%);
 }
 #custom-pomodoro.break.perc44 {
-    background-image: linear-gradient(to right, @green 44%, transparent 44%);
+    background-image: linear-gradient(to right, @green 44%, base 44%);
 }
 #custom-pomodoro.break.perc45 {
-    background-image: linear-gradient(to right, @green 45%, transparent 45%);
+    background-image: linear-gradient(to right, @green 45%, base 45%);
 }
 #custom-pomodoro.break.perc46 {
-    background-image: linear-gradient(to right, @green 46%, transparent 46%);
+    background-image: linear-gradient(to right, @green 46%, base 46%);
 }
 #custom-pomodoro.break.perc47 {
-    background-image: linear-gradient(to right, @green 47%, transparent 47%);
+    background-image: linear-gradient(to right, @green 47%, base 47%);
 }
 #custom-pomodoro.break.perc48 {
-    background-image: linear-gradient(to right, @green 48%, transparent 48%);
+    background-image: linear-gradient(to right, @green 48%, base 48%);
 }
 #custom-pomodoro.break.perc49 {
-    background-image: linear-gradient(to right, @green 49%, transparent 49%);
+    background-image: linear-gradient(to right, @green 49%, base 49%);
 }
 #custom-pomodoro.break.perc50 {
-    background-image: linear-gradient(to right, @green 50%, transparent 50%);
+    background-image: linear-gradient(to right, @green 50%, base 50%);
 }
 #custom-pomodoro.break.perc51 {
-    background-image: linear-gradient(to right, @green 51%, transparent 51%);
+    background-image: linear-gradient(to right, @green 51%, base 51%);
 }
 #custom-pomodoro.break.perc52 {
-    background-image: linear-gradient(to right, @green 52%, transparent 52%);
+    background-image: linear-gradient(to right, @green 52%, base 52%);
 }
 #custom-pomodoro.break.perc53 {
-    background-image: linear-gradient(to right, @green 53%, transparent 53%);
+    background-image: linear-gradient(to right, @green 53%, base 53%);
 }
 #custom-pomodoro.break.perc54 {
-    background-image: linear-gradient(to right, @green 54%, transparent 54%);
+    background-image: linear-gradient(to right, @green 54%, base 54%);
 }
 #custom-pomodoro.break.perc55 {
-    background-image: linear-gradient(to right, @green 55%, transparent 55%);
+    background-image: linear-gradient(to right, @green 55%, base 55%);
 }
 #custom-pomodoro.break.perc56 {
-    background-image: linear-gradient(to right, @green 56%, transparent 56%);
+    background-image: linear-gradient(to right, @green 56%, base 56%);
 }
 #custom-pomodoro.break.perc57 {
-    background-image: linear-gradient(to right, @green 57%, transparent 57%);
+    background-image: linear-gradient(to right, @green 57%, base 57%);
 }
 #custom-pomodoro.break.perc58 {
-    background-image: linear-gradient(to right, @green 58%, transparent 58%);
+    background-image: linear-gradient(to right, @green 58%, base 58%);
 }
 #custom-pomodoro.break.perc59 {
-    background-image: linear-gradient(to right, @green 59%, transparent 59%);
+    background-image: linear-gradient(to right, @green 59%, base 59%);
 }
 #custom-pomodoro.break.perc60 {
-    background-image: linear-gradient(to right, @green 60%, transparent 60%);
+    background-image: linear-gradient(to right, @green 60%, base 60%);
 }
 #custom-pomodoro.break.perc61 {
-    background-image: linear-gradient(to right, @green 61%, transparent 61%);
+    background-image: linear-gradient(to right, @green 61%, base 61%);
 }
 #custom-pomodoro.break.perc62 {
-    background-image: linear-gradient(to right, @green 62%, transparent 62%);
+    background-image: linear-gradient(to right, @green 62%, base 62%);
 }
 #custom-pomodoro.break.perc63 {
-    background-image: linear-gradient(to right, @green 63%, transparent 63%);
+    background-image: linear-gradient(to right, @green 63%, base 63%);
 }
 #custom-pomodoro.break.perc64 {
-    background-image: linear-gradient(to right, @green 64%, transparent 64%);
+    background-image: linear-gradient(to right, @green 64%, base 64%);
 }
 #custom-pomodoro.break.perc65 {
-    background-image: linear-gradient(to right, @green 65%, transparent 65%);
+    background-image: linear-gradient(to right, @green 65%, base 65%);
 }
 #custom-pomodoro.break.perc66 {
-    background-image: linear-gradient(to right, @green 66%, transparent 66%);
+    background-image: linear-gradient(to right, @green 66%, base 66%);
 }
 #custom-pomodoro.break.perc67 {
-    background-image: linear-gradient(to right, @green 67%, transparent 67%);
+    background-image: linear-gradient(to right, @green 67%, base 67%);
 }
 #custom-pomodoro.break.perc68 {
-    background-image: linear-gradient(to right, @green 68%, transparent 68%);
+    background-image: linear-gradient(to right, @green 68%, base 68%);
 }
 #custom-pomodoro.break.perc69 {
-    background-image: linear-gradient(to right, @green 69%, transparent 69%);
+    background-image: linear-gradient(to right, @green 69%, base 69%);
 }
 #custom-pomodoro.break.perc70 {
-    background-image: linear-gradient(to right, @green 70%, transparent 70%);
+    background-image: linear-gradient(to right, @green 70%, base 70%);
 }
 #custom-pomodoro.break.perc71 {
-    background-image: linear-gradient(to right, @green 71%, transparent 71%);
+    background-image: linear-gradient(to right, @green 71%, base 71%);
 }
 #custom-pomodoro.break.perc72 {
-    background-image: linear-gradient(to right, @green 72%, transparent 72%);
+    background-image: linear-gradient(to right, @green 72%, base 72%);
 }
 #custom-pomodoro.break.perc73 {
-    background-image: linear-gradient(to right, @green 73%, transparent 73%);
+    background-image: linear-gradient(to right, @green 73%, base 73%);
 }
 #custom-pomodoro.break.perc74 {
-    background-image: linear-gradient(to right, @green 74%, transparent 74%);
+    background-image: linear-gradient(to right, @green 74%, base 74%);
 }
 #custom-pomodoro.break.perc75 {
-    background-image: linear-gradient(to right, @green 75%, transparent 75%);
+    background-image: linear-gradient(to right, @green 75%, base 75%);
 }
 #custom-pomodoro.break.perc76 {
-    background-image: linear-gradient(to right, @green 76%, transparent 76%);
+    background-image: linear-gradient(to right, @green 76%, base 76%);
 }
 #custom-pomodoro.break.perc77 {
-    background-image: linear-gradient(to right, @green 77%, transparent 77%);
+    background-image: linear-gradient(to right, @green 77%, base 77%);
 }
 #custom-pomodoro.break.perc78 {
-    background-image: linear-gradient(to right, @green 78%, transparent 78%);
+    background-image: linear-gradient(to right, @green 78%, base 78%);
 }
 #custom-pomodoro.break.perc79 {
-    background-image: linear-gradient(to right, @green 79%, transparent 79%);
+    background-image: linear-gradient(to right, @green 79%, base 79%);
 }
 #custom-pomodoro.break.perc80 {
-    background-image: linear-gradient(to right, @green 80%, transparent 80%);
+    background-image: linear-gradient(to right, @green 80%, base 80%);
 }
 #custom-pomodoro.break.perc81 {
-    background-image: linear-gradient(to right, @green 81%, transparent 81%);
+    background-image: linear-gradient(to right, @green 81%, base 81%);
 }
 #custom-pomodoro.break.perc82 {
-    background-image: linear-gradient(to right, @green 82%, transparent 82%);
+    background-image: linear-gradient(to right, @green 82%, base 82%);
 }
 #custom-pomodoro.break.perc83 {
-    background-image: linear-gradient(to right, @green 83%, transparent 83%);
+    background-image: linear-gradient(to right, @green 83%, base 83%);
 }
 #custom-pomodoro.break.perc84 {
-    background-image: linear-gradient(to right, @green 84%, transparent 84%);
+    background-image: linear-gradient(to right, @green 84%, base 84%);
 }
 #custom-pomodoro.break.perc85 {
-    background-image: linear-gradient(to right, @green 85%, transparent 85%);
+    background-image: linear-gradient(to right, @green 85%, base 85%);
 }
 #custom-pomodoro.break.perc86 {
-    background-image: linear-gradient(to right, @green 86%, transparent 86%);
+    background-image: linear-gradient(to right, @green 86%, base 86%);
 }
 #custom-pomodoro.break.perc87 {
-    background-image: linear-gradient(to right, @green 87%, transparent 87%);
+    background-image: linear-gradient(to right, @green 87%, base 87%);
 }
 #custom-pomodoro.break.perc88 {
-    background-image: linear-gradient(to right, @green 88%, transparent 88%);
+    background-image: linear-gradient(to right, @green 88%, base 88%);
 }
 #custom-pomodoro.break.perc89 {
-    background-image: linear-gradient(to right, @green 89%, transparent 89%);
+    background-image: linear-gradient(to right, @green 89%, base 89%);
 }
 #custom-pomodoro.break.perc90 {
-    background-image: linear-gradient(to right, @green 90%, transparent 90%);
+    background-image: linear-gradient(to right, @green 90%, base 90%);
 }
 #custom-pomodoro.break.perc91 {
-    background-image: linear-gradient(to right, @green 91%, transparent 91%);
+    background-image: linear-gradient(to right, @green 91%, base 91%);
 }
 #custom-pomodoro.break.perc92 {
-    background-image: linear-gradient(to right, @green 92%, transparent 92%);
+    background-image: linear-gradient(to right, @green 92%, base 92%);
 }
 #custom-pomodoro.break.perc93 {
-    background-image: linear-gradient(to right, @green 93%, transparent 93%);
+    background-image: linear-gradient(to right, @green 93%, base 93%);
 }
 #custom-pomodoro.break.perc94 {
-    background-image: linear-gradient(to right, @green 94%, transparent 94%);
+    background-image: linear-gradient(to right, @green 94%, base 94%);
 }
 #custom-pomodoro.break.perc95 {
-    background-image: linear-gradient(to right, @green 95%, transparent 95%);
+    background-image: linear-gradient(to right, @green 95%, base 95%);
 }
 #custom-pomodoro.break.perc96 {
-    background-image: linear-gradient(to right, @green 96%, transparent 96%);
+    background-image: linear-gradient(to right, @green 96%, base 96%);
 }
 #custom-pomodoro.break.perc97 {
-    background-image: linear-gradient(to right, @green 97%, transparent 97%);
+    background-image: linear-gradient(to right, @green 97%, base 97%);
 }
 #custom-pomodoro.break.perc98 {
-    background-image: linear-gradient(to right, @green 98%, transparent 98%);
+    background-image: linear-gradient(to right, @green 98%, base 98%);
 }
 #custom-pomodoro.break.perc99 {
-    background-image: linear-gradient(to right, @green 99%, transparent 99%);
+    background-image: linear-gradient(to right, @green 99%, base 99%);
 }
 #custom-pomodoro.break.perc100 {
-    background-image: linear-gradient(to right, @green 100%, transparent 100%);
+    background-image: linear-gradient(to right, @green 100%, base 100%);
 }
 
 /* Paused phase progress (orange/peach) */
 #custom-pomodoro.paused.perc0 {
-    background-image: linear-gradient(to right, @peach 0%, transparent 0%);
+    background-image: linear-gradient(to right, @peach 0%, base 0%);
 }
 #custom-pomodoro.paused.perc1 {
-    background-image: linear-gradient(to right, @peach 1%, transparent 1%);
+    background-image: linear-gradient(to right, @peach 1%, base 1%);
 }
 #custom-pomodoro.paused.perc2 {
-    background-image: linear-gradient(to right, @peach 2%, transparent 2%);
+    background-image: linear-gradient(to right, @peach 2%, base 2%);
 }
 #custom-pomodoro.paused.perc3 {
-    background-image: linear-gradient(to right, @peach 3%, transparent 3%);
+    background-image: linear-gradient(to right, @peach 3%, base 3%);
 }
 #custom-pomodoro.paused.perc4 {
-    background-image: linear-gradient(to right, @peach 4%, transparent 4%);
+    background-image: linear-gradient(to right, @peach 4%, base 4%);
 }
 #custom-pomodoro.paused.perc5 {
-    background-image: linear-gradient(to right, @peach 5%, transparent 5%);
+    background-image: linear-gradient(to right, @peach 5%, base 5%);
 }
 #custom-pomodoro.paused.perc6 {
-    background-image: linear-gradient(to right, @peach 6%, transparent 6%);
+    background-image: linear-gradient(to right, @peach 6%, base 6%);
 }
 #custom-pomodoro.paused.perc7 {
-    background-image: linear-gradient(to right, @peach 7%, transparent 7%);
+    background-image: linear-gradient(to right, @peach 7%, base 7%);
 }
 #custom-pomodoro.paused.perc8 {
-    background-image: linear-gradient(to right, @peach 8%, transparent 8%);
+    background-image: linear-gradient(to right, @peach 8%, base 8%);
 }
 #custom-pomodoro.paused.perc9 {
-    background-image: linear-gradient(to right, @peach 9%, transparent 9%);
+    background-image: linear-gradient(to right, @peach 9%, base 9%);
 }
 #custom-pomodoro.paused.perc10 {
-    background-image: linear-gradient(to right, @peach 10%, transparent 10%);
+    background-image: linear-gradient(to right, @peach 10%, base 10%);
 }
 #custom-pomodoro.paused.perc11 {
-    background-image: linear-gradient(to right, @peach 11%, transparent 11%);
+    background-image: linear-gradient(to right, @peach 11%, base 11%);
 }
 #custom-pomodoro.paused.perc12 {
-    background-image: linear-gradient(to right, @peach 12%, transparent 12%);
+    background-image: linear-gradient(to right, @peach 12%, base 12%);
 }
 #custom-pomodoro.paused.perc13 {
-    background-image: linear-gradient(to right, @peach 13%, transparent 13%);
+    background-image: linear-gradient(to right, @peach 13%, base 13%);
 }
 #custom-pomodoro.paused.perc14 {
-    background-image: linear-gradient(to right, @peach 14%, transparent 14%);
+    background-image: linear-gradient(to right, @peach 14%, base 14%);
 }
 #custom-pomodoro.paused.perc15 {
-    background-image: linear-gradient(to right, @peach 15%, transparent 15%);
+    background-image: linear-gradient(to right, @peach 15%, base 15%);
 }
 #custom-pomodoro.paused.perc16 {
-    background-image: linear-gradient(to right, @peach 16%, transparent 16%);
+    background-image: linear-gradient(to right, @peach 16%, base 16%);
 }
 #custom-pomodoro.paused.perc17 {
-    background-image: linear-gradient(to right, @peach 17%, transparent 17%);
+    background-image: linear-gradient(to right, @peach 17%, base 17%);
 }
 #custom-pomodoro.paused.perc18 {
-    background-image: linear-gradient(to right, @peach 18%, transparent 18%);
+    background-image: linear-gradient(to right, @peach 18%, base 18%);
 }
 #custom-pomodoro.paused.perc19 {
-    background-image: linear-gradient(to right, @peach 19%, transparent 19%);
+    background-image: linear-gradient(to right, @peach 19%, base 19%);
 }
 #custom-pomodoro.paused.perc20 {
-    background-image: linear-gradient(to right, @peach 20%, transparent 20%);
+    background-image: linear-gradient(to right, @peach 20%, base 20%);
 }
 #custom-pomodoro.paused.perc21 {
-    background-image: linear-gradient(to right, @peach 21%, transparent 21%);
+    background-image: linear-gradient(to right, @peach 21%, base 21%);
 }
 #custom-pomodoro.paused.perc22 {
-    background-image: linear-gradient(to right, @peach 22%, transparent 22%);
+    background-image: linear-gradient(to right, @peach 22%, base 22%);
 }
 #custom-pomodoro.paused.perc23 {
-    background-image: linear-gradient(to right, @peach 23%, transparent 23%);
+    background-image: linear-gradient(to right, @peach 23%, base 23%);
 }
 #custom-pomodoro.paused.perc24 {
-    background-image: linear-gradient(to right, @peach 24%, transparent 24%);
+    background-image: linear-gradient(to right, @peach 24%, base 24%);
 }
 #custom-pomodoro.paused.perc25 {
-    background-image: linear-gradient(to right, @peach 25%, transparent 25%);
+    background-image: linear-gradient(to right, @peach 25%, base 25%);
 }
 #custom-pomodoro.paused.perc26 {
-    background-image: linear-gradient(to right, @peach 26%, transparent 26%);
+    background-image: linear-gradient(to right, @peach 26%, base 26%);
 }
 #custom-pomodoro.paused.perc27 {
-    background-image: linear-gradient(to right, @peach 27%, transparent 27%);
+    background-image: linear-gradient(to right, @peach 27%, base 27%);
 }
 #custom-pomodoro.paused.perc28 {
-    background-image: linear-gradient(to right, @peach 28%, transparent 28%);
+    background-image: linear-gradient(to right, @peach 28%, base 28%);
 }
 #custom-pomodoro.paused.perc29 {
-    background-image: linear-gradient(to right, @peach 29%, transparent 29%);
+    background-image: linear-gradient(to right, @peach 29%, base 29%);
 }
 #custom-pomodoro.paused.perc30 {
-    background-image: linear-gradient(to right, @peach 30%, transparent 30%);
+    background-image: linear-gradient(to right, @peach 30%, base 30%);
 }
 #custom-pomodoro.paused.perc31 {
-    background-image: linear-gradient(to right, @peach 31%, transparent 31%);
+    background-image: linear-gradient(to right, @peach 31%, base 31%);
 }
 #custom-pomodoro.paused.perc32 {
-    background-image: linear-gradient(to right, @peach 32%, transparent 32%);
+    background-image: linear-gradient(to right, @peach 32%, base 32%);
 }
 #custom-pomodoro.paused.perc33 {
-    background-image: linear-gradient(to right, @peach 33%, transparent 33%);
+    background-image: linear-gradient(to right, @peach 33%, base 33%);
 }
 #custom-pomodoro.paused.perc34 {
-    background-image: linear-gradient(to right, @peach 34%, transparent 34%);
+    background-image: linear-gradient(to right, @peach 34%, base 34%);
 }
 #custom-pomodoro.paused.perc35 {
-    background-image: linear-gradient(to right, @peach 35%, transparent 35%);
+    background-image: linear-gradient(to right, @peach 35%, base 35%);
 }
 #custom-pomodoro.paused.perc36 {
-    background-image: linear-gradient(to right, @peach 36%, transparent 36%);
+    background-image: linear-gradient(to right, @peach 36%, base 36%);
 }
 #custom-pomodoro.paused.perc37 {
-    background-image: linear-gradient(to right, @peach 37%, transparent 37%);
+    background-image: linear-gradient(to right, @peach 37%, base 37%);
 }
 #custom-pomodoro.paused.perc38 {
-    background-image: linear-gradient(to right, @peach 38%, transparent 38%);
+    background-image: linear-gradient(to right, @peach 38%, base 38%);
 }
 #custom-pomodoro.paused.perc39 {
-    background-image: linear-gradient(to right, @peach 39%, transparent 39%);
+    background-image: linear-gradient(to right, @peach 39%, base 39%);
 }
 #custom-pomodoro.paused.perc40 {
-    background-image: linear-gradient(to right, @peach 40%, transparent 40%);
+    background-image: linear-gradient(to right, @peach 40%, base 40%);
 }
 #custom-pomodoro.paused.perc41 {
-    background-image: linear-gradient(to right, @peach 41%, transparent 41%);
+    background-image: linear-gradient(to right, @peach 41%, base 41%);
 }
 #custom-pomodoro.paused.perc42 {
-    background-image: linear-gradient(to right, @peach 42%, transparent 42%);
+    background-image: linear-gradient(to right, @peach 42%, base 42%);
 }
 #custom-pomodoro.paused.perc43 {
-    background-image: linear-gradient(to right, @peach 43%, transparent 43%);
+    background-image: linear-gradient(to right, @peach 43%, base 43%);
 }
 #custom-pomodoro.paused.perc44 {
-    background-image: linear-gradient(to right, @peach 44%, transparent 44%);
+    background-image: linear-gradient(to right, @peach 44%, base 44%);
 }
 #custom-pomodoro.paused.perc45 {
-    background-image: linear-gradient(to right, @peach 45%, transparent 45%);
+    background-image: linear-gradient(to right, @peach 45%, base 45%);
 }
 #custom-pomodoro.paused.perc46 {
-    background-image: linear-gradient(to right, @peach 46%, transparent 46%);
+    background-image: linear-gradient(to right, @peach 46%, base 46%);
 }
 #custom-pomodoro.paused.perc47 {
-    background-image: linear-gradient(to right, @peach 47%, transparent 47%);
+    background-image: linear-gradient(to right, @peach 47%, base 47%);
 }
 #custom-pomodoro.paused.perc48 {
-    background-image: linear-gradient(to right, @peach 48%, transparent 48%);
+    background-image: linear-gradient(to right, @peach 48%, base 48%);
 }
 #custom-pomodoro.paused.perc49 {
-    background-image: linear-gradient(to right, @peach 49%, transparent 49%);
+    background-image: linear-gradient(to right, @peach 49%, base 49%);
 }
 #custom-pomodoro.paused.perc50 {
-    background-image: linear-gradient(to right, @peach 50%, transparent 50%);
+    background-image: linear-gradient(to right, @peach 50%, base 50%);
 }
 #custom-pomodoro.paused.perc51 {
-    background-image: linear-gradient(to right, @peach 51%, transparent 51%);
+    background-image: linear-gradient(to right, @peach 51%, base 51%);
 }
 #custom-pomodoro.paused.perc52 {
-    background-image: linear-gradient(to right, @peach 52%, transparent 52%);
+    background-image: linear-gradient(to right, @peach 52%, base 52%);
 }
 #custom-pomodoro.paused.perc53 {
-    background-image: linear-gradient(to right, @peach 53%, transparent 53%);
+    background-image: linear-gradient(to right, @peach 53%, base 53%);
 }
 #custom-pomodoro.paused.perc54 {
-    background-image: linear-gradient(to right, @peach 54%, transparent 54%);
+    background-image: linear-gradient(to right, @peach 54%, base 54%);
 }
 #custom-pomodoro.paused.perc55 {
-    background-image: linear-gradient(to right, @peach 55%, transparent 55%);
+    background-image: linear-gradient(to right, @peach 55%, base 55%);
 }
 #custom-pomodoro.paused.perc56 {
-    background-image: linear-gradient(to right, @peach 56%, transparent 56%);
+    background-image: linear-gradient(to right, @peach 56%, base 56%);
 }
 #custom-pomodoro.paused.perc57 {
-    background-image: linear-gradient(to right, @peach 57%, transparent 57%);
+    background-image: linear-gradient(to right, @peach 57%, base 57%);
 }
 #custom-pomodoro.paused.perc58 {
-    background-image: linear-gradient(to right, @peach 58%, transparent 58%);
+    background-image: linear-gradient(to right, @peach 58%, base 58%);
 }
 #custom-pomodoro.paused.perc59 {
-    background-image: linear-gradient(to right, @peach 59%, transparent 59%);
+    background-image: linear-gradient(to right, @peach 59%, base 59%);
 }
 #custom-pomodoro.paused.perc60 {
-    background-image: linear-gradient(to right, @peach 60%, transparent 60%);
+    background-image: linear-gradient(to right, @peach 60%, base 60%);
 }
 #custom-pomodoro.paused.perc61 {
-    background-image: linear-gradient(to right, @peach 61%, transparent 61%);
+    background-image: linear-gradient(to right, @peach 61%, base 61%);
 }
 #custom-pomodoro.paused.perc62 {
-    background-image: linear-gradient(to right, @peach 62%, transparent 62%);
+    background-image: linear-gradient(to right, @peach 62%, base 62%);
 }
 #custom-pomodoro.paused.perc63 {
-    background-image: linear-gradient(to right, @peach 63%, transparent 63%);
+    background-image: linear-gradient(to right, @peach 63%, base 63%);
 }
 #custom-pomodoro.paused.perc64 {
-    background-image: linear-gradient(to right, @peach 64%, transparent 64%);
+    background-image: linear-gradient(to right, @peach 64%, base 64%);
 }
 #custom-pomodoro.paused.perc65 {
-    background-image: linear-gradient(to right, @peach 65%, transparent 65%);
+    background-image: linear-gradient(to right, @peach 65%, base 65%);
 }
 #custom-pomodoro.paused.perc66 {
-    background-image: linear-gradient(to right, @peach 66%, transparent 66%);
+    background-image: linear-gradient(to right, @peach 66%, base 66%);
 }
 #custom-pomodoro.paused.perc67 {
-    background-image: linear-gradient(to right, @peach 67%, transparent 67%);
+    background-image: linear-gradient(to right, @peach 67%, base 67%);
 }
 #custom-pomodoro.paused.perc68 {
-    background-image: linear-gradient(to right, @peach 68%, transparent 68%);
+    background-image: linear-gradient(to right, @peach 68%, base 68%);
 }
 #custom-pomodoro.paused.perc69 {
-    background-image: linear-gradient(to right, @peach 69%, transparent 69%);
+    background-image: linear-gradient(to right, @peach 69%, base 69%);
 }
 #custom-pomodoro.paused.perc70 {
-    background-image: linear-gradient(to right, @peach 70%, transparent 70%);
+    background-image: linear-gradient(to right, @peach 70%, base 70%);
 }
 #custom-pomodoro.paused.perc71 {
-    background-image: linear-gradient(to right, @peach 71%, transparent 71%);
+    background-image: linear-gradient(to right, @peach 71%, base 71%);
 }
 #custom-pomodoro.paused.perc72 {
-    background-image: linear-gradient(to right, @peach 72%, transparent 72%);
+    background-image: linear-gradient(to right, @peach 72%, base 72%);
 }
 #custom-pomodoro.paused.perc73 {
-    background-image: linear-gradient(to right, @peach 73%, transparent 73%);
+    background-image: linear-gradient(to right, @peach 73%, base 73%);
 }
 #custom-pomodoro.paused.perc74 {
-    background-image: linear-gradient(to right, @peach 74%, transparent 74%);
+    background-image: linear-gradient(to right, @peach 74%, base 74%);
 }
 #custom-pomodoro.paused.perc75 {
-    background-image: linear-gradient(to right, @peach 75%, transparent 75%);
+    background-image: linear-gradient(to right, @peach 75%, base 75%);
 }
 #custom-pomodoro.paused.perc76 {
-    background-image: linear-gradient(to right, @peach 76%, transparent 76%);
+    background-image: linear-gradient(to right, @peach 76%, base 76%);
 }
 #custom-pomodoro.paused.perc77 {
-    background-image: linear-gradient(to right, @peach 77%, transparent 77%);
+    background-image: linear-gradient(to right, @peach 77%, base 77%);
 }
 #custom-pomodoro.paused.perc78 {
-    background-image: linear-gradient(to right, @peach 78%, transparent 78%);
+    background-image: linear-gradient(to right, @peach 78%, base 78%);
 }
 #custom-pomodoro.paused.perc79 {
-    background-image: linear-gradient(to right, @peach 79%, transparent 79%);
+    background-image: linear-gradient(to right, @peach 79%, base 79%);
 }
 #custom-pomodoro.paused.perc80 {
-    background-image: linear-gradient(to right, @peach 80%, transparent 80%);
+    background-image: linear-gradient(to right, @peach 80%, base 80%);
 }
 #custom-pomodoro.paused.perc81 {
-    background-image: linear-gradient(to right, @peach 81%, transparent 81%);
+    background-image: linear-gradient(to right, @peach 81%, base 81%);
 }
 #custom-pomodoro.paused.perc82 {
-    background-image: linear-gradient(to right, @peach 82%, transparent 82%);
+    background-image: linear-gradient(to right, @peach 82%, base 82%);
 }
 #custom-pomodoro.paused.perc83 {
-    background-image: linear-gradient(to right, @peach 83%, transparent 83%);
+    background-image: linear-gradient(to right, @peach 83%, base 83%);
 }
 #custom-pomodoro.paused.perc84 {
-    background-image: linear-gradient(to right, @peach 84%, transparent 84%);
+    background-image: linear-gradient(to right, @peach 84%, base 84%);
 }
 #custom-pomodoro.paused.perc85 {
-    background-image: linear-gradient(to right, @peach 85%, transparent 85%);
+    background-image: linear-gradient(to right, @peach 85%, base 85%);
 }
 #custom-pomodoro.paused.perc86 {
-    background-image: linear-gradient(to right, @peach 86%, transparent 86%);
+    background-image: linear-gradient(to right, @peach 86%, base 86%);
 }
 #custom-pomodoro.paused.perc87 {
-    background-image: linear-gradient(to right, @peach 87%, transparent 87%);
+    background-image: linear-gradient(to right, @peach 87%, base 87%);
 }
 #custom-pomodoro.paused.perc88 {
-    background-image: linear-gradient(to right, @peach 88%, transparent 88%);
+    background-image: linear-gradient(to right, @peach 88%, base 88%);
 }
 #custom-pomodoro.paused.perc89 {
-    background-image: linear-gradient(to right, @peach 89%, transparent 89%);
+    background-image: linear-gradient(to right, @peach 89%, base 89%);
 }
 #custom-pomodoro.paused.perc90 {
-    background-image: linear-gradient(to right, @peach 90%, transparent 90%);
+    background-image: linear-gradient(to right, @peach 90%, base 90%);
 }
 #custom-pomodoro.paused.perc91 {
-    background-image: linear-gradient(to right, @peach 91%, transparent 91%);
+    background-image: linear-gradient(to right, @peach 91%, base 91%);
 }
 #custom-pomodoro.paused.perc92 {
-    background-image: linear-gradient(to right, @peach 92%, transparent 92%);
+    background-image: linear-gradient(to right, @peach 92%, base 92%);
 }
 #custom-pomodoro.paused.perc93 {
-    background-image: linear-gradient(to right, @peach 93%, transparent 93%);
+    background-image: linear-gradient(to right, @peach 93%, base 93%);
 }
 #custom-pomodoro.paused.perc94 {
-    background-image: linear-gradient(to right, @peach 94%, transparent 94%);
+    background-image: linear-gradient(to right, @peach 94%, base 94%);
 }
 #custom-pomodoro.paused.perc95 {
-    background-image: linear-gradient(to right, @peach 95%, transparent 95%);
+    background-image: linear-gradient(to right, @peach 95%, base 95%);
 }
 #custom-pomodoro.paused.perc96 {
-    background-image: linear-gradient(to right, @peach 96%, transparent 96%);
+    background-image: linear-gradient(to right, @peach 96%, base 96%);
 }
 #custom-pomodoro.paused.perc97 {
-    background-image: linear-gradient(to right, @peach 97%, transparent 97%);
+    background-image: linear-gradient(to right, @peach 97%, base 97%);
 }
 #custom-pomodoro.paused.perc98 {
-    background-image: linear-gradient(to right, @peach 98%, transparent 98%);
+    background-image: linear-gradient(to right, @peach 98%, base 98%);
 }
 #custom-pomodoro.paused.perc99 {
-    background-image: linear-gradient(to right, @peach 99%, transparent 99%);
+    background-image: linear-gradient(to right, @peach 99%, base 99%);
 }
 #custom-pomodoro.paused.perc100 {
-    background-image: linear-gradient(to right, @peach 100%, transparent 100%);
+    background-image: linear-gradient(to right, @peach 100%, base 100%);
 }
