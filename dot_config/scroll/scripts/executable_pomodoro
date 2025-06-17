@@ -98,6 +98,7 @@ function pomo_isstopped {
 function pomo_stop {
     rm -f "$POMO"
     pomo_waybar_signal
+    pomo_stop_services
     notify-send "🛑 Pomodoro Stopped" -t 1000
 }
 
@@ -207,8 +208,11 @@ function pomo_notify_daemon {
                     if [[ -e "$POMO" ]]; then
                         notify-send "🍅 Focus Time!" "$break_end_msg" -t 5000
                         pomo_waybar_signal
-                        # Timer cycle complete - stop services
+                        # Timer cycle complete - stop services then restart for new cycle
                         pomo_stop_services
+                        sleep 0.5
+                        # Restart services for the new work cycle
+                        pomo_ensure_services
                     fi
                     sleep 1
                 else
@@ -252,8 +256,7 @@ function pomo_menu {
     # Static menu options - no dynamic generation
     options=("🍅 Start/Pause"
             "🔄 Restart" 
-            "⏹️ Stop"
-            "⏱️ Custom Timer")
+            "⏹️ Stop")
     
     # Get current status for display only
     if ! pomo_isstopped; then
@@ -285,24 +288,6 @@ function pomo_menu {
         "⏹️ Stop")
             pomo_stop
             pomo_stop_services
-            ;;
-        "⏱️ Custom Timer")
-            # Simple number input for custom timer
-            custom_time=$(rofi -dmenu -p "Minutes (1-99):" -theme "$theme_file")
-            if [[ "$custom_time" =~ ^[1-9][0-9]?$ ]]; then
-                # Save current default
-                OLD_WORK_TIME=$WORK_TIME
-                # Set temporary work time
-                export POMO_WORK_TIME=$custom_time
-                WORK_TIME=$custom_time
-                # Start timer
-                pomo_restart
-                # Notify user
-                notify-send "⏱️ Custom Timer" "Started ${custom_time} minute timer" -t 2000
-                # Note: Timer will revert to 25 min default on next start
-            else
-                notify-send "❌ Invalid Input" "Please enter a number between 1 and 99" -t 2000
-            fi
             ;;
         "")
             # User pressed escape
