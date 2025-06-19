@@ -1,6 +1,5 @@
 -- lua/plugins/lualine.lua
--- Minimal Lualine configuration focused on statusline only
--- Complements existing bufferline and git workflow
+-- Fixed Lualine configuration - resolving extensions and cursor flickering
 
 local M = {}
 
@@ -138,9 +137,13 @@ function M.setup()
       always_divide_middle = true,
       globalstatus = true,
       refresh = {
-        statusline = 100,
-        tabline = 100,
-        winbar = 100,
+        statusline = 1000,    -- Only statusline since that's all we use
+        refresh_time = 100,   -- Reduced cursor flickering
+        events = {            -- Minimal events - only what's actually needed
+          'BufEnter',         -- When entering a buffer (file changes)
+          'BufWritePost',     -- After saving (git status might change)
+          'ModeChanged',      -- Mode changes (normal/insert/visual)
+        },
       }
     },
     sections = {
@@ -174,12 +177,11 @@ function M.setup()
     -- No winbar (you don't use it)
     winbar = {},
     inactive_winbar = {},
-    -- Extensions for your actual plugins
+    -- Only extensions that definitely exist - removed problematic ones
     extensions = {
       'nvim-tree',    -- You have this
-      'telescope',    -- You have this  
       'lazy',         -- You have this
-      'fugitive',     -- Covers neogit/diffview git integration
+      'quickfix',     -- Built-in vim feature
     }
   })
 end
