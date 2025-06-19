@@ -1,9 +1,8 @@
 -- lua/plugins/lualine.lua
--- Fixed Lualine configuration - resolving extensions and cursor flickering
 
 local M = {}
 
--- Git branch component (reads git status, doesn't modify)
+-- Git branch component 
 local function git_branch()
   local branch = vim.fn.system("git branch --show-current 2>/dev/null"):gsub('\n', '')
   if branch and branch ~= '' then
@@ -15,13 +14,13 @@ end
 -- Custom components
 local components = {}
 
--- Mode component (keeping stock icons as requested)
+-- Mode component 
 components.mode = {
   'mode',
   padding = { left = 1, right = 1 },
 }
 
--- Git branch (reads from git, safe with your workflow)
+-- Git branch 
 components.branch = {
   git_branch,
   color = { gui = 'bold' },
@@ -31,7 +30,7 @@ components.branch = {
   end,
 }
 
--- Git diff (reads from gitsigns data you already have)
+-- Git diff 
 components.diff = {
   'diff',
   symbols = { 
@@ -60,7 +59,7 @@ components.filename = {
   'filename',
   file_status = true,
   newfile_status = false,
-  path = 0, -- Just filename (minimal)
+  path = 0,
   symbols = {
     modified = ' ●',
     readonly = ' ',
@@ -68,7 +67,7 @@ components.filename = {
   },
 }
 
--- Search count (as requested)
+-- Search count
 components.searchcount = {
   'searchcount',
   maxcount = 999,
@@ -78,7 +77,7 @@ components.searchcount = {
   end,
 }
 
--- Recording status (as requested)  
+-- Recording status
 components.recording = {
   function()
     local reg = vim.fn.reg_recording()
@@ -93,7 +92,7 @@ components.recording = {
   end,
 }
 
--- LSP diagnostics (minimal)
+-- LSP diagnostics
 components.diagnostics = {
   'diagnostics',
   sources = { 'nvim_diagnostic' },
@@ -126,7 +125,6 @@ function M.setup()
   require('lualine').setup({
     options = {
       theme = 'catppuccin',
-      -- Minimal separators to match your clean aesthetic
       component_separators = { left = '', right = '' },
       section_separators = { left = '', right = '' },
       disabled_filetypes = {
@@ -137,12 +135,11 @@ function M.setup()
       always_divide_middle = true,
       globalstatus = true,
       refresh = {
-        statusline = 1000,    -- Only statusline since that's all we use
-        refresh_time = 100,   -- Reduced cursor flickering
-        events = {            -- Minimal events - only what's actually needed
-          'BufEnter',         -- When entering a buffer (file changes)
-          'BufWritePost',     -- After saving (git status might change)
-          'ModeChanged',      -- Mode changes (normal/insert/visual)
+        statusline = 5000,  
+        refresh_time = 500, 
+        events = {          
+          'ModeChanged',    
+          'BufWritePost',   
         },
       }
     },
@@ -172,16 +169,13 @@ function M.setup()
       lualine_y = {},
       lualine_z = {}
     },
-    -- No tabline (you use bufferline)
     tabline = {},
-    -- No winbar (you don't use it)
     winbar = {},
     inactive_winbar = {},
-    -- Only extensions that definitely exist - removed problematic ones
     extensions = {
-      'nvim-tree',    -- You have this
-      'lazy',         -- You have this
-      'quickfix',     -- Built-in vim feature
+      'nvim-tree', 
+      'lazy',
+      'quickfix', 
     }
   })
 end
