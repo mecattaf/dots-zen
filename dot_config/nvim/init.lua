@@ -7,7 +7,6 @@ g = vim.g
 local modules = {
   'options',
   'mappings',
-  'statusline',
   'plugins',
 }
 

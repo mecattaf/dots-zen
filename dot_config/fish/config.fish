@@ -39,6 +39,3 @@ alias cd='z'
 bind \ce "atuin search -i"
 # Restore default Fish up-arrow behavior
 bind --preset \e\[A history-search-backward
-
-# NPU simple visualizer
-alias nputop="~/.config/sway/scripts/nputop.py"

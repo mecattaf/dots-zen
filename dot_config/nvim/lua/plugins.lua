@@ -271,5 +271,13 @@ require("lazy").setup({
     event = "BufRead",
     config = true
   },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('plugins.lualine').setup()
+    end,
+    event = 'VeryLazy',
+  },
 
 })
