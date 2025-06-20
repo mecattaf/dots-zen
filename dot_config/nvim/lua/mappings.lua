@@ -1,11 +1,22 @@
-local function map(mode, keys, command)
-  api.nvim_set_keymap(mode, keys, command, { noremap = true, silent = true })
+-- ============================================================================
+-- UTILITY FUNCTIONS
+-- ============================================================================
+
+local function map(mode, keys, command, opts)
+  opts = opts or { noremap = true, silent = true }
+  api.nvim_set_keymap(mode, keys, command, opts)
 end
 
-local active = false
+local function lua_map(mode, keys, func, opts)
+  opts = opts or { noremap = true, silent = true }
+  vim.keymap.set(mode, keys, func, opts)
+end
+
+-- Minimal mode toggle
+local minimal_active = false
 function Minimal()
   local opt = vim.o
-  if active then
+  if minimal_active then
     opt.number = true
     opt.showmode = false
     opt.showtabline = 2
@@ -17,51 +28,80 @@ function Minimal()
     opt.showtabline = 0
     opt.laststatus = 0
   end
-  active = not active
+  minimal_active = not minimal_active
 end
 
--- Normal Map
+-- ============================================================================
+-- BASIC NAVIGATION & EDITING
+-- ============================================================================
+
+-- Buffer navigation
 map("n", "<TAB>", ":bnext<CR>")
 map("n", "<S-TAB>", ":bprev<CR>")
+
+-- Window splits
 map("n", "hs", ":split<CR>")
 map("n", "vs", ":vs<CR>")
 
--- Save
+-- Save operations
 map("i", "<C-S>", "<ESC>:w<CR><Insert>")
 map("n", "<C-S>", ":w<CR>")
 
--- Buffer
+-- Buffer management
 map("n", "<leader>x", ":bd<CR>")
 map("n", "<leader>s", ":w<CR>")
 map("n", "<leader>t", ":enew<CR>")
 map("n", "<ESC>", ":nohlsearch<CR>")
 
--- Minimal toggle
+-- Insert mode navigation
+map("i", "<C-E>", "<End>")
+map("i", "<C-A>", "<Home>")
+map("i", "<S-TAB>", "<ESC><<<Ins>")
+
+-- ============================================================================
+-- UI & DISPLAY TOGGLES
+-- ============================================================================
+
 map("n", "<leader>m", ":lua Minimal()<CR>")
 map("n", "<leader>n", ":set relativenumber!<CR>")
-
--- Zen mode and Twilight toggle
 map("n", "<leader>z", ":ZenMode<CR>")
-map("n", "<leader>u", ":Twilight<CR>")  
+map("n", "<leader>u", ":Twilight<CR>")
 
--- Telescope to search for a string
+-- ============================================================================
+-- PLUGIN MAPPINGS
+-- ============================================================================
+
+-- Telescope
 map("n", "<leader>f", ":Telescope grep_string<CR>")
 
 -- NvimTree
 map("n", "<C-S-B>", ":NvimTreeToggle<CR>")
 map("n", "<C-B>", ":NvimTreeFocus<CR>")
 
--- Insert Map
-map("i", "<C-E>", "<End>")
-map("i", "<C-A>", "<Home>")
-
--- Shift tab
-map("i", "<S-TAB>", "<ESC><<<Ins>")
-
 -- Image handling
 map("n", "<leader>p", "<cmd>PasteImage<cr>")
 
--- Git integration
+-- ============================================================================
+-- SMOOTH SCROLLING (NEOSCROLL)
+-- ============================================================================
+
+local function setup_neoscroll()
+  local ok, neoscroll = pcall(require, "neoscroll")
+  if not ok then return end
+
+  lua_map("n", "<C-u>", function() neoscroll.ctrl_u({ duration = 200, easing = 'sine' }) end)
+  lua_map("n", "<C-d>", function() neoscroll.ctrl_d({ duration = 200, easing = 'sine' }) end)
+  lua_map("n", "<C-y>", function() neoscroll.scroll(-0.1, { move_cursor=false, duration = 80 }) end)
+  lua_map("n", "<C-e>", function() neoscroll.scroll(0.1, { move_cursor=false, duration = 80 }) end)
+end
+
+setup_neoscroll()
+
+-- ============================================================================
+-- GIT INTEGRATION
+-- ============================================================================
+
+-- Git tools
 map("n", "<leader>dv", "<cmd>DiffviewOpen<cr>")
 map("n", "<leader>dc", "<cmd>DiffviewClose<cr>")
 map("n", "<leader>ng", "<cmd>Neogit<cr>")
@@ -70,32 +110,8 @@ map("n", "<leader>ng", "<cmd>Neogit<cr>")
 map("n", "<leader>oi", "<cmd>Octo issue list<cr>")
 map("n", "<leader>op", "<cmd>Octo pr list<cr>")
 
--- Neoscroll smooth scrolling (excluding <C-f> as requested)
-local function setup_neoscroll_mappings()
-  local present, neoscroll = pcall(require, "neoscroll")
-  if not present then
-    return
-  end
-
-  -- Half-page scrolling
-  map("n", "<C-u>", function() neoscroll.ctrl_u({ duration = 200, easing = 'sine' }) end)
-  map("n", "<C-d>", function() neoscroll.ctrl_d({ duration = 200, easing = 'sine' }) end)
-
-  -- Line-by-line scrolling (cursor stays in place)
-  map("n", "<C-y>", function() neoscroll.scroll(-0.1, { move_cursor=false, duration = 80 }) end)
-  map("n", "<C-e>", function() neoscroll.scroll(0.1, { move_cursor=false, duration = 80 }) end)
-  
-  -- Optional: Smooth repositioning commands
-  map("n", "zt", function() neoscroll.zt({ half_win_duration = 150 }) end)
-  map("n", "zz", function() neoscroll.zz({ half_win_duration = 150 }) end)
-  map("n", "zb", function() neoscroll.zb({ half_win_duration = 150 }) end)
-end
-
--- Call the function to set up mappings
-setup_neoscroll_mappings()
-
 -- Gitsigns hunk navigation
-map("n", "]c", function()
+lua_map("n", "]c", function()
   if vim.wo.diff then
     return "]c"
   end
@@ -103,9 +119,9 @@ map("n", "]c", function()
     require('gitsigns').next_hunk() 
   end)
   return "<Ignore>"
-end, {expr=true})
+end, { expr = true })
 
-map("n", "[c", function()
+lua_map("n", "[c", function()
   if vim.wo.diff then
     return "[c"
   end
@@ -113,25 +129,32 @@ map("n", "[c", function()
     require('gitsigns').prev_hunk() 
   end)
   return "<Ignore>"
-end, {expr=true})
+end, { expr = true })
 
--- Gitsigns hunk operations (buffer-scoped)
-map("n", "<leader>hs", ":Gitsigns stage_hunk<CR>")
-map("n", "<leader>hr", ":Gitsigns reset_hunk<CR>")
-map("v", "<leader>hs", ":Gitsigns stage_hunk<CR>")
-map("v", "<leader>hr", ":Gitsigns reset_hunk<CR>")
+-- Gitsigns hunk operations
+local gitsigns_maps = {
+  -- Hunk staging/reset
+  { "n", "<leader>hs", ":Gitsigns stage_hunk<CR>" },
+  { "n", "<leader>hr", ":Gitsigns reset_hunk<CR>" },
+  { "v", "<leader>hs", ":Gitsigns stage_hunk<CR>" },
+  { "v", "<leader>hr", ":Gitsigns reset_hunk<CR>" },
+  
+  -- Hunk preview
+  { "n", "<leader>hp", ":Gitsigns preview_hunk<CR>" },
+  { "n", "<leader>hi", ":Gitsigns preview_hunk_inline<CR>" },
+  
+  -- Blame operations
+  { "n", "<leader>hb", ":Gitsigns blame_line<CR>" },
+  { "n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>" },
+  
+  -- Word diff toggle
+  { "n", "<leader>tw", ":Gitsigns toggle_word_diff<CR>" },
+  
+  -- Text objects
+  { "o", "ih", ":<C-U>Gitsigns select_hunk<CR>" },
+  { "x", "ih", ":<C-U>Gitsigns select_hunk<CR>" },
+}
 
--- Gitsigns hunk preview
-map("n", "<leader>hp", ":Gitsigns preview_hunk<CR>")
-map("n", "<leader>hi", ":Gitsigns preview_hunk_inline<CR>")
-
--- Gitsigns blame operations
-map("n", "<leader>hb", ":Gitsigns blame_line<CR>")
-map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>")
-
--- Gitsigns word diff toggle
-map("n", "<leader>tw", ":Gitsigns toggle_word_diff<CR>")
-
--- Gitsigns text object
-map("o", "ih", ":<C-U>Gitsigns select_hunk<CR>")
-map("x", "ih", ":<C-U>Gitsigns select_hunk<CR>")
+for _, mapping in ipairs(gitsigns_maps) do
+  map(mapping[1], mapping[2], mapping[3])
+end
