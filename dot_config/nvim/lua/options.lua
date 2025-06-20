@@ -14,10 +14,10 @@ opt.showmode = false
 opt.cul = true
 
 -- timeout stuff
-opt.updatetime = 300
+opt.updatetime = 100
 opt.timeout = true
-opt.timeoutlen = 500  -- Reduced from 1000 to 500
-opt.ttimeoutlen = 0   -- Reduced from 10 to 0
+opt.timeoutlen = 300 
+opt.ttimeoutlen = 0
 
 -- status, tab, number, sign line
 opt.ruler = false

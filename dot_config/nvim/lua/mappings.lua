@@ -70,6 +70,30 @@ map("n", "<leader>ng", "<cmd>Neogit<cr>")
 map("n", "<leader>oi", "<cmd>Octo issue list<cr>")
 map("n", "<leader>op", "<cmd>Octo pr list<cr>")
 
+-- Neoscroll smooth scrolling (excluding <C-f> as requested)
+local function setup_neoscroll_mappings()
+  local present, neoscroll = pcall(require, "neoscroll")
+  if not present then
+    return
+  end
+
+  -- Half-page scrolling
+  map("n", "<C-u>", function() neoscroll.ctrl_u({ duration = 200, easing = 'sine' }) end)
+  map("n", "<C-d>", function() neoscroll.ctrl_d({ duration = 200, easing = 'sine' }) end)
+
+  -- Line-by-line scrolling (cursor stays in place)
+  map("n", "<C-y>", function() neoscroll.scroll(-0.1, { move_cursor=false, duration = 80 }) end)
+  map("n", "<C-e>", function() neoscroll.scroll(0.1, { move_cursor=false, duration = 80 }) end)
+  
+  -- Optional: Smooth repositioning commands
+  map("n", "zt", function() neoscroll.zt({ half_win_duration = 150 }) end)
+  map("n", "zz", function() neoscroll.zz({ half_win_duration = 150 }) end)
+  map("n", "zb", function() neoscroll.zb({ half_win_duration = 150 }) end)
+end
+
+-- Call the function to set up mappings
+setup_neoscroll_mappings()
+
 -- Gitsigns hunk navigation
 map("n", "]c", function()
   if vim.wo.diff then

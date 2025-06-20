@@ -269,7 +269,9 @@ require("lazy").setup({
   {
     "karb94/neoscroll.nvim",
     event = "BufRead",
-    config = true
+    config = function()
+      require('plugins.neoscroll')
+    end
   },
   {
     'nvim-lualine/lualine.nvim',
