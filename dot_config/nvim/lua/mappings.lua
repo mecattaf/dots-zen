@@ -69,3 +69,45 @@ map("n", "<leader>ng", "<cmd>Neogit<cr>")
 -- GitHub integration
 map("n", "<leader>oi", "<cmd>Octo issue list<cr>")
 map("n", "<leader>op", "<cmd>Octo pr list<cr>")
+
+-- Gitsigns hunk navigation
+map("n", "]c", function()
+  if vim.wo.diff then
+    return "]c"
+  end
+  vim.schedule(function() 
+    require('gitsigns').next_hunk() 
+  end)
+  return "<Ignore>"
+end, {expr=true})
+
+map("n", "[c", function()
+  if vim.wo.diff then
+    return "[c"
+  end
+  vim.schedule(function() 
+    require('gitsigns').prev_hunk() 
+  end)
+  return "<Ignore>"
+end, {expr=true})
+
+-- Gitsigns hunk operations (buffer-scoped)
+map("n", "<leader>hs", ":Gitsigns stage_hunk<CR>")
+map("n", "<leader>hr", ":Gitsigns reset_hunk<CR>")
+map("v", "<leader>hs", ":Gitsigns stage_hunk<CR>")
+map("v", "<leader>hr", ":Gitsigns reset_hunk<CR>")
+
+-- Gitsigns hunk preview
+map("n", "<leader>hp", ":Gitsigns preview_hunk<CR>")
+map("n", "<leader>hi", ":Gitsigns preview_hunk_inline<CR>")
+
+-- Gitsigns blame operations
+map("n", "<leader>hb", ":Gitsigns blame_line<CR>")
+map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>")
+
+-- Gitsigns word diff toggle
+map("n", "<leader>tw", ":Gitsigns toggle_word_diff<CR>")
+
+-- Gitsigns text object
+map("o", "ih", ":<C-U>Gitsigns select_hunk<CR>")
+map("x", "ih", ":<C-U>Gitsigns select_hunk<CR>")
