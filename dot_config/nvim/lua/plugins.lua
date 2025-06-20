@@ -282,4 +282,63 @@ require("lazy").setup({
     event = 'VeryLazy',
   },
 
+  -- ===== NEW PLUGINS ADDED BELOW =====
+  
+  -- NEW: mdx.nvim - MDX file support
+  {
+    "davidmh/mdx.nvim",
+    config = true,
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    ft = "mdx",  -- Lazy-loads on .mdx files
+  },
+
+  -- NEW: pipeline.nvim - CI/CD pipeline viewer
+  {
+    "topaxi/pipeline.nvim",
+    keys = {
+      { "<leader>ci", "<cmd>Pipeline<cr>", desc = "Open pipeline.nvim" },
+    },
+    build = "make",  -- Requires make, gh, and optionally yq, glab
+    opts = {},
+  },
+
+  -- NEW: diagram.nvim - Live diagram rendering (mermaid, plantuml, d2, gnuplot)
+  {
+    "3rd/diagram.nvim",
+    dependencies = { "3rd/image.nvim" },  -- Already have image.nvim above
+    opts = {
+      events = {
+        render_buffer = { "InsertLeave", "BufWinEnter", "TextChanged" },
+        clear_buffer = { "BufLeave" },
+      },
+      renderer_options = {
+        mermaid = { theme = "default", scale = 1 },
+        plantuml = { charset = "utf-8" },
+        d2 = {},
+        gnuplot = {},
+      },
+    },
+  },
+
+  -- NEW: Mason + marksman LSP
+  {
+    "williamboman/mason.nvim",
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+    },
+    ft = { "markdown", "md", "mdx" },
+    config = function()
+      require("mason").setup()
+      require("mason-lspconfig").setup({
+        ensure_installed = { "marksman" },
+        handlers = {
+          function(server_name)
+            require("lspconfig")[server_name].setup({})
+          end,
+        },
+      })
+    end,
+  },
+
 })
