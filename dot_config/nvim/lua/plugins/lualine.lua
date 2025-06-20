@@ -54,6 +54,17 @@ components.diff = {
   end,
 }
 
+-- Pipeline status component (NEW)
+components.pipeline = {
+  'pipeline',
+  icon = '', -- CI/CD icon
+  cond = function()
+    -- Only show if we're in a git repo and window is wide enough
+    return (vim.fn.isdirectory('.git') == 1 or vim.fn.finddir('.git', '.;') ~= '') 
+           and vim.fn.winwidth(0) > 100
+  end,
+}
+
 -- Filename component
 components.filename = {
   'filename',
@@ -148,6 +159,7 @@ function M.setup()
       lualine_b = { 
         components.branch,
         components.diff,
+        components.pipeline, 
       },
       lualine_c = {
         components.filename,

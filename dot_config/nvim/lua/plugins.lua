@@ -292,14 +292,19 @@ require("lazy").setup({
     ft = "mdx",  -- Lazy-loads on .mdx files
   },
 
-  -- NEW: pipeline.nvim - CI/CD pipeline viewer
+  -- IMPROVED: pipeline.nvim - CI/CD pipeline viewer (using yq instead of make)
   {
     "topaxi/pipeline.nvim",
     keys = {
       { "<leader>ci", "<cmd>Pipeline<cr>", desc = "Open pipeline.nvim" },
     },
-    build = "make",  -- Requires make, gh, and optionally yq, glab
-    opts = {},
+    -- Removed build step since yq is already installed
+    opts = {
+      -- You can customize pipeline.nvim options here if needed
+      -- For example:
+      -- refresh_interval = 30,
+      -- browser = "firefox",
+    },
   },
 
   -- NEW: diagram.nvim - Live diagram rendering (mermaid, plantuml, d2, gnuplot)
