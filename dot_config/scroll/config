@@ -104,19 +104,7 @@ bindsym Ctrl+N exec flatpak run com.google.Chrome
 bindsym Ctrl+Shift+N exec flatpak run com.google.Chrome --incognito
 
 bindsym $mod+Return exec $host -e fish
-# opening terminal in same dir as focused nvim
 
-# Check if focused window is nvim
-#scrollmsg -t get_tree | jq -e ".. | select(.focused? == true) | select(.app_id == \"nvim\" ...)"
-# bindsym $mod+t exec kitty --directory "$(readlink /proc/$(swaymsg -t get_tree | jq -r '.. | select(.focused? == true) | .pid')/cwd 2>/dev/null || pwd)" -e fish
-
-# If nvim detected:
-#set_mode v                    # Switch to vertical temporarily  
-#kitty --directory "$(pwd)"    # Open terminal in same directory
-#set_size v 0.666667          # Resize nvim to 2/3 height
-#focus down                   # Move to terminal
-#set_size v 0.333333          # Resize terminal to 1/3 height  
-#set_mode h after focus       # Switch back to horizontal mode
 
 bindsym $mod+V exec cliphist list | rofi -dmenu -theme-str '#listview { columns : 1 ; lines: 8 ; }' | cliphist decode | wl-copy
 bindsym $mod+Shift+V exec rofimoji -a clipboard
@@ -162,6 +150,7 @@ bindsym F10 exec $power-menu
 
 bindsym $mod+Shift+Tab focus mode_toggle
 bindsym $mod+Tab floating toggle
+bindsym $mod+grave layout_transpose
 
 # Moving around:
 bindsym $mod+h     focus left 
@@ -175,37 +164,19 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# Layout configuration
-layout_widths [0.33333333 0.5 0.66666667 1.0]
-layout_heights [0.33333333 0.5 0.66666667 1.0]
-bindsym $mod+f align left
-bindsym $mod+g cycle_size w next
-
-bindsym $mod+Shift+f fullscreen
-bindsym $mod+Shift+g cycle_size h next
-
-bindsym $mod+BackSpace pin beginning
-bindsym $mod+space     pin end
-
-# Chrome webapps rules
-for_window [app_id="^chrome-.*"] shortcuts_inhibitor disable
-
-# Utilities rules - discard?
-for_window [app_id="rofimoji"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [app_id="floating-term"] floating enable, resize 55% 35%, move 63% 60%
-for_window [app_id="shortcutwidget"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [app_id="io.bassi.Amberol"] border pixel 0, floating enable
-for_window [app_id="rofi"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [app_id="thunar"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [app_id="nmtui"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [app_id="blueman-manager"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-for_window [app_id="pavucontrol"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
-
 # Layout settings
 layout_default_width 1.0
 layout_default_height 1.0
-layout_widths [0.33333333 0.5 0.666666667 1.0]
-layout_heights [0.33333333 0.5 0.666666667 1.0]
+layout_widths [0.33333333 0.5 0.66666667 1.0]
+layout_heights [0.33333333 0.5 0.66666667 1.0]
+
+bindsym $mod+f        cycle_size h next
+bindsym $mod+Shift+f  cycle_size h prev 
+bindsym $mod+g        cycle_size v next
+bindsym $mod+Shift+g  cycle_size v prev
+
+bindsym $mod+BackSpace pin beginning
+bindsym $mod+space     pin end
 
 # Jump config
 jump_labels_color $cl_high 
@@ -217,6 +188,17 @@ jump_labels_keys asdfghjkl;
 #bindsym --no-repeat $mod+Shift+slash jump container
 #bindsym --no-repeat $mod+Ctrl+slash jump workspaces
 #bindsym --no-repeat $mod+Alt+slash jump floating
+
+# Chrome webapps rules
+for_window [app_id="^chrome-.*"] shortcuts_inhibitor disable
+
+# Utilities rules - discard?
+for_window [app_id="io.bassi.Amberol"] border pixel 0, floating enable
+#for_window [app_id="thunar"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="blueman-manager"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="pavucontrol"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="rofimoji"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
+for_window [app_id="rofi"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
 
 # Input Devices
 input type:touchpad {
@@ -242,13 +224,14 @@ swipe:3:down   move container to output down; focus output down
 
 pinch:4:outward   jump 
 pinch:4:inward    jump
+
+swipe:5:right  align right
+swipe:5:left   align left
+swipe:5:up     scale_content incr 0.05
+swipe:5:down   scale_content incr -0.05
+
 pinch:5:outward   scale_workspace incr 0.1
 pinch:5:inward    scale_workspace incr -0.1
-
-swipe:5:right  align right; cycle_size h next
-swipe:5:left   align left; cycle_size h next
-swipe:5:up     align up; cycle_size v next
-swipe:5:down   align down; cycle_size v next
 }
 
 # Auto-start lisgd for each ELAN touchscreen
@@ -277,29 +260,13 @@ window_size yes 100 var 3 [ 0 0 1 1 ]
 #    bindsym $mod+Alt+home move beginning nomode
 #    bindsym $mod+Alt+end move end nomode
 
-# Scaling
-    # Workspace
-#    bindsym $mod+Shift+comma scale_workspace incr -0.05
-#    bindsym --whole-window $mod+Shift+button4 scale_workspace incr -0.05
-#    bindsym $mod+Shift+period scale_workspace incr 0.05
-#    bindsym --whole-window $mod+Shift+button5 scale_workspace incr 0.05
-#    bindsym $mod+Shift+Ctrl+period scale_workspace reset
-
     # Overview
 #    bindsym --no-repeat $mod+tab scale_workspace overview
 #    bindsym --whole-window button8 scale_workspace overview
 
-    # Content
-#    bindsym $mod+comma scale_content incr -0.05
-#    bindsym --whole-window $mod+button4 scale_content incr -0.05
-#    bindsym $mod+period scale_content incr 0.05
-#    bindsym --whole-window $mod+button5 scale_content incr 0.05
-#    bindsym $mod+Ctrl+period scale_content reset
-
     # Toggle the current focus between tiling and floating mode
 #    bindsym $mod+y focus mode_toggle
     # Toggle layout type (h<->v)
-#    bindsym $mod+Shift+y layout_transpose
 
     # Float a window
 #    bindsym $mod+Shift+f floating toggle
@@ -343,52 +310,6 @@ window_size yes 100 var 3 [ 0 0 1 1 ]
 #    bindsym Escape mode "default"
 #}
 #bindsym $mod+backslash mode "modifiers"
-#
-##
-## Resizing containers:
-##
-#bindsym $mod+minus cycle_size h prev
-#bindsym $mod+equal cycle_size h next
-#bindsym $mod+Shift+minus cycle_size v prev
-#bindsym $mod+Shift+equal cycle_size v next
-#
-#mode "setsizeh" {
-#    bindsym 1 set_size h 0.125; mode default
-#    bindsym 2 set_size h 0.1666666667; mode default
-#    bindsym 3 set_size h 0.25; mode default
-#    bindsym 4 set_size h 0.333333333; mode default
-#    bindsym 5 set_size h 0.375; mode default
-#    bindsym 6 set_size h 0.5; mode default
-#    bindsym 7 set_size h 0.625; mode default
-#    bindsym 8 set_size h 0.6666666667; mode default
-#    bindsym 9 set_size h 0.75; mode default
-#    bindsym 0 set_size h 0.833333333; mode default
-#    bindsym minus set_size h 0.875; mode default
-#    bindsym equal set_size h 1.0; mode default
-#
-#    # Return to default mode
-#    bindsym Escape mode "default"
-#}
-#bindsym $mod+b mode "setsizeh"
-#
-#mode "setsizev" {
-#    bindsym 1 set_size v 0.125; mode default
-#    bindsym 2 set_size v 0.1666666667; mode default
-#    bindsym 3 set_size v 0.25; mode default
-#    bindsym 4 set_size v 0.333333333; mode default
-#    bindsym 5 set_size v 0.375; mode default
-#    bindsym 6 set_size v 0.5; mode default
-#    bindsym 7 set_size v 0.625; mode default
-#    bindsym 8 set_size v 0.6666666667; mode default
-#    bindsym 9 set_size v 0.75; mode default
-#    bindsym 0 set_size v 0.833333333; mode default
-#    bindsym minus set_size v 0.875; mode default
-#    bindsym equal set_size v 1.0; mode default
-#
-#    # Return to default mode
-#    bindsym Escape mode "default"
-#}
-#bindsym $mod+Shift+b mode "setsizev"
 #
 #mode "resize" {
 #    # left will shrink the containers width
@@ -465,4 +386,3 @@ window_size yes 100 var 3 [ 0 0 1 1 ]
 #bindsym $mod+Shift+semicolon mode "trail"
 #
 #
-
