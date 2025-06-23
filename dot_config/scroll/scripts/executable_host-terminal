@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Smart terminal launcher - opens below nvim or normally elsewhere
+# Usage: Replace default terminal binding with this script
+
+# Get focused window info
+focused=$(scrollmsg -t get_tree | jq -r '.. | select(.focused? == true) | {app_id, name, pid}')
+app_id=$(echo "$focused" | jq -r '.app_id // empty')
+name=$(echo "$focused" | jq -r '.name // empty') 
+pid=$(echo "$focused" | jq -r '.pid // empty')
+
+# Check if focused window is nvim
+if [[ "$app_id" == *"nvim"* || "$name" == *"nvim"* ]]; then
+    # Get working directory
+    if [[ -n "$pid" ]] && work_dir=$(readlink "/proc/$pid/cwd" 2>/dev/null); then
+        cd_arg="--directory $work_dir"
+    else
+        cd_arg=""
+    fi
+    
+    # Launch terminal below nvim
+    scrollmsg set_mode v
+    kitty $cd_arg -e fish &
+    scrollmsg set_size v 0.666667
+    scrollmsg focus down  
+    scrollmsg set_size v 0.333333
+    scrollmsg set_mode h
+else
+    # Normal terminal
+    exec kitty -e fish
+fi
