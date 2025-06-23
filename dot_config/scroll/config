@@ -175,15 +175,17 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-bindsym $mod+f fullscreen
+# Layout configuration
+layout_widths [0.33333333 0.5 0.66666667 1.0]
+layout_heights [0.33333333 0.5 0.66666667 1.0]
+bindsym $mod+f align left
+bindsym $mod+g cycle_size w next
 
-# swap with the pin functionality?
-bindsym $mod+BackSpace sticky toggle
+bindsym $mod+Shift+f fullscreen
+bindsym $mod+Shift+g cycle_size h next
 
-#discard?
-bindsym $mod+Shift+f    resize set 1920 1080
-bindsym $mod+g          resize set 900 500
-bindsym $mod+Shift+g    resize set 500 500
+bindsym $mod+BackSpace pin beginning
+bindsym $mod+space     pin end
 
 # Chrome webapps rules
 for_window [app_id="^chrome-.*"] shortcuts_inhibitor disable
