@@ -106,6 +106,10 @@ map("n", "<leader>dv", "<cmd>DiffviewOpen<cr>")
 map("n", "<leader>dc", "<cmd>DiffviewClose<cr>")
 map("n", "<leader>ng", "<cmd>Neogit<cr>")
 
+-- NEW! 
+map("n", "<leader>gf", ":!git fetch --all<CR>")  -- Quick fetch
+map("n", "<leader>gr", ":DiffviewOpen origin/main...HEAD<CR>")  -- Review against main
+
 -- GitHub integration
 map("n", "<leader>oi", "<cmd>Octo issue list<cr>")
 map("n", "<leader>op", "<cmd>Octo pr list<cr>")

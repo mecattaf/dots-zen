@@ -153,15 +153,16 @@ bindsym $mod+Tab floating toggle
 bindsym $mod+grave layout_transpose
 
 # Moving around:
-bindsym $mod+h     focus left 
-bindsym $mod+j     focus output down 
-bindsym $mod+k     focus output up 
-bindsym $mod+l     focus right
-bindsym $mod+home  focus beginning
-bindsym $mod+end   focus end
+bindsym $mod+h     focus  left 
+bindsym $mod+j     focus  down 
+bindsym $mod+k     focus  up 
+bindsym $mod+l     focus  right
+bindsym $mod+home  focus  beginning
+bindsym $mod+end   focus  end
+
 bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
+bindsym $mod+Shift+j move output down
+bindsym $mod+Shift+k move output up
 bindsym $mod+Shift+l move right
 
 # Layout settings
@@ -191,6 +192,11 @@ jump_labels_keys asdfghjkl;
 
 # Chrome webapps rules
 for_window [app_id="^chrome-.*"] shortcuts_inhibitor disable
+
+# nvim terminal in ide-style screen proportion
+# previous approach which is not a good idea
+# for_window [app_id="nvim-terminal"] set_mode v, set_size v 0.666667, focus down, set_size v 0.333333, set_mode h
+
 
 # Utilities rules - discard?
 for_window [app_id="io.bassi.Amberol"] border pixel 0, floating enable
