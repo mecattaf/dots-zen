@@ -97,6 +97,7 @@ workspace 2 output "eDP-2"
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+0 move container to workspace 2
 
+bindsym $mod+space jump
 bindsym $mod+Shift+Q kill
 bindsym $mod+D exec rofi -show drun 
 
@@ -109,10 +110,10 @@ bindsym $mod+Return exec $host -e fish
 bindsym $mod+V exec cliphist list | rofi -dmenu -theme-str '#listview { columns : 1 ; lines: 8 ; }' | cliphist decode | wl-copy
 bindsym $mod+Shift+V exec rofimoji -a clipboard
 
-bindsym $mod+A exec $screenshot-full
+bindsym $mod+A exec       $swappy-full
+bindsym $mod+S exec $swappy-area
+bindsym $mod+Shift+ exec       $screenshot-full
 bindsym $mod+Shift+A exec $screenshot-area
-bindsym $mod+S exec $swappy-full
-bindsym $mod+Shift+S exec $swappy-area
 
 #bindsym $mod+I exec $waybar
 #bindsym $mod+Shift+I exec $battery
@@ -177,7 +178,7 @@ bindsym $mod+g        cycle_size v next
 bindsym $mod+Shift+g  cycle_size v prev
 
 bindsym $mod+BackSpace pin beginning
-bindsym $mod+space     pin end
+#bindsym $mod+space     pin end
 
 # Jump config
 jump_labels_color $cl_high 
