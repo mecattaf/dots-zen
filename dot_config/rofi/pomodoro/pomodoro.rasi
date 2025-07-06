@@ -24,7 +24,7 @@ configuration {
     window-height:              300px;
     
     /* Fonts */
-    font:                       "JetBrainsMono Nerd Font 14";
+    font:                       "JetBrainsMono Nerd Font 28";
     
     /* Global settings */
     background-color:           transparent;

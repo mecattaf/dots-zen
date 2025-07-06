@@ -13,7 +13,7 @@
     accent:         #cba6f7;  /* Mauve */
     fg-selected:    #f38ba8;  /* Red - for selected text */
     
-    font:           "JetBrainsMono Nerd Font 14";
+    font:           "JetBrainsMono Nerd Font 28";
     background-color: transparent;
 }
 
