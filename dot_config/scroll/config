@@ -18,7 +18,7 @@ gaps outer 0
 default_border pixel 1
 default_floating_border normal
 hide_edge_borders smart
-seat seat0 xcursor_theme Bibata-Modern-Classic 24
+seat seat0 xcursor_theme Bibata-Modern-Classic 48 
 seat seat0 fallback true
 seat seat0 hide_cursor 1000
 focus_wrapping no
@@ -27,7 +27,7 @@ set $gnome-schema org.gnome.desktop.interface
 exec_always  {
         gsettings set $gnome-schema cursor-theme 'Bibata-Modern-Classic'
         gsettings set $gnome-schema color-scheme 'prefer-dark'
-        gsettings set $gnome-schema cursor-size '24'
+        gsettings set $gnome-schema cursor-size '48'
         gsettings set $gnome-schema gtk-theme 'Catppuccin-Mocha-Standard-Green-Dark'
         gsettings set org.gnome.desktop.interface.wm.preferences theme 'Catppuccin-Mocha-Standard-Green-Dark'
         gsettings set org.gnome.desktop.wm.preferences button-layout ""
