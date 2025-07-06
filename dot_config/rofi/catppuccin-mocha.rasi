@@ -7,8 +7,8 @@
     fg-col: #cdd6f4;
     fg-col2: #f38ba8;
     grey: #6c7086;
-    width: 600;
-    font: "JetBrainsMono Nerd Font 28";
+    width: 1200;  /* Doubled from 600 */
+    font: "JetBrainsMono Nerd Font 48";  /* Already updated to 48 */
 }
 
 element-text, element-icon , mode-switcher {
@@ -17,8 +17,8 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-    height: 360px;
-    border: 1px;
+    height: 720px;  /* Doubled from 360px */
+    border: 2px;    /* Doubled from 1px */
     border-color: @border-col;
     background-color: @bg-col;
 }
@@ -30,16 +30,16 @@ mainbox {
 inputbar {
     children: [prompt,entry];
     background-color: @bg-col;
-    border-radius: 5px;
-    padding: 2px;
+    border-radius: 10px;  /* Doubled from 5px */
+    padding: 4px;         /* Doubled from 2px */
 }
 
 prompt {
     background-color: @blue;
-    padding: 6px;
+    padding: 12px;        /* Doubled from 6px */
     text-color: @bg-col;
-    border-radius: 3px;
-    margin: 20px 0px 0px 20px;
+    border-radius: 6px;   /* Doubled from 3px */
+    margin: 40px 0px 0px 40px;  /* Doubled from 20px */
 }
 
 textbox-prompt-colon {
@@ -48,29 +48,29 @@ textbox-prompt-colon {
 }
 
 entry {
-    padding: 6px;
-    margin: 20px 0px 0px 10px;
+    padding: 12px;        /* Doubled from 6px */
+    margin: 40px 0px 0px 20px;  /* Doubled from 20px and 10px */
     text-color: @fg-col;
     background-color: @bg-col;
 }
 
 listview {
     border: 0px 0px 0px;
-    padding: 6px 0px 0px;
-    margin: 10px 0px 0px 20px;
+    padding: 12px 0px 0px;      /* Doubled from 6px */
+    margin: 20px 0px 0px 40px;  /* Doubled from 10px and 20px */
     columns: 2;
     lines: 5;
     background-color: @bg-col;
 }
 
 element {
-    padding: 5px;
+    padding: 10px;  /* Doubled from 5px */
     background-color: @bg-col;
-    text-color: @fg-col  ;
+    text-color: @fg-col;
 }
 
 element-icon {
-    size: 25px;
+    size: 50px;  /* Doubled from 25px */
 }
 
 element selected {
@@ -80,10 +80,10 @@ element selected {
 
 mode-switcher {
     spacing: 0;
-  }
+}
 
 button {
-    padding: 10px;
+    padding: 20px;  /* Doubled from 10px */
     background-color: @bg-col-light;
     text-color: @grey;
     vertical-align: 0.5; 
@@ -97,14 +97,14 @@ button selected {
 
 message {
     background-color: @bg-col-light;
-    margin: 2px;
-    padding: 2px;
-    border-radius: 5px;
+    margin: 4px;          /* Doubled from 2px */
+    padding: 4px;         /* Doubled from 2px */
+    border-radius: 10px;  /* Doubled from 5px */
 }
 
 textbox {
-    padding: 6px;
-    margin: 20px 0px 0px 20px;
+    padding: 12px;        /* Doubled from 6px */
+    margin: 40px 0px 0px 40px;  /* Doubled from 20px */
     text-color: @blue;
     background-color: @bg-col-light;
 }

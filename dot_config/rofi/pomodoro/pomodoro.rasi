@@ -20,11 +20,11 @@ configuration {
     blue:           #89b4fa;  /* Blue for settings */
     
     /* Dimensions */
-    window-width:               450px;
-    window-height:              300px;
+    window-width:               900px;   /* Doubled from 450px */
+    window-height:              600px;   /* Doubled from 300px */
     
     /* Fonts */
-    font:                       "JetBrainsMono Nerd Font 28";
+    font:                       "JetBrainsMono Nerd Font 48";  /* Updated to match your font size */
     
     /* Global settings */
     background-color:           transparent;
@@ -42,7 +42,7 @@ window {
     y-offset:                   0px;
     margin:                     0px;
     padding:                    0px;
-    border:                     1px solid;
+    border:                     2px solid;  /* Doubled from 1px */
     border-radius:              0px;
     border-color:               @accent;
     cursor:                     "default";
@@ -51,16 +51,16 @@ window {
 
 mainbox {
     enabled:                    true;
-    spacing:                    10px;
+    spacing:                    20px;  /* Doubled from 10px */
     margin:                     0px;
-    padding:                    20px;
+    padding:                    40px;  /* Doubled from 20px */
     background-color:           @bg;
     children:                   [ "inputbar", "listview" ];
 }
 
 inputbar {
     enabled:                    true;
-    spacing:                    10px;
+    spacing:                    20px;  /* Doubled from 10px */
     padding:                    0px;
     border:                     0px;
     border-radius:              0px;
@@ -74,7 +74,7 @@ textbox-prompt-colon {
     enabled:                    true;
     expand:                     false;
     str:                        "🍅";
-    padding:                    10px 13px;
+    padding:                    20px 26px;  /* Doubled from 10px 13px */
     border-radius:              0px;
     background-color:           @accent;
     text-color:                 @bg;
@@ -82,11 +82,11 @@ textbox-prompt-colon {
 
 prompt {
     enabled:                    true;
-    padding:                    6px;
+    padding:                    12px;  /* Doubled from 6px */
     border-radius:              0px;
     background-color:           @accent;
     text-color:                 @bg;
-    margin:                     20px 0px 0px 20px;
+    margin:                     40px 0px 0px 40px;  /* Doubled from 20px */
 }
 
 listview {
@@ -97,16 +97,16 @@ listview {
     scrollbar:                  false;
     layout:                     vertical;
     
-    spacing:                    5px;
+    spacing:                    10px;  /* Doubled from 5px */
     background-color:           @bg;
     cursor:                     "default";
-    padding:                    6px 0px 0px;
-    margin:                     10px 0px 0px 20px;
+    padding:                    12px 0px 0px;  /* Doubled from 6px */
+    margin:                     20px 0px 0px 40px;  /* Doubled from 10px and 20px */
 }
 
 element {
     enabled:                    true;
-    padding:                    12px;
+    padding:                    24px;  /* Doubled from 12px */
     border:                     0px solid;
     border-radius:              0px;
     border-color:               @accent;

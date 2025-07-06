@@ -13,7 +13,7 @@
     accent:         #cba6f7;  /* Mauve */
     fg-selected:    #f38ba8;  /* Red - for selected text */
     
-    font:           "JetBrainsMono Nerd Font 28";
+    font:           "JetBrainsMono Nerd Font 48";  /* Updated to match your font size */
     background-color: transparent;
 }
 
@@ -22,12 +22,12 @@ window {
     location:                center;
     anchor:                  center;
     fullscreen:              false;
-    width:                   400px;
+    width:                   800px;  /* Doubled from 400px */
     x-offset:                0px;
     y-offset:                0px;
     margin:                  0px;
     padding:                 0px;
-    border:                  1px solid;
+    border:                  2px solid;  /* Doubled from 1px */
     border-radius:           0px;
     border-color:            @accent;
     background-color:        @bg;
@@ -36,15 +36,15 @@ window {
 mainbox {
     spacing:                 0px;
     margin:                  0px;
-    padding:                 20px;
+    padding:                 40px;  /* Doubled from 20px */
     background-color:        transparent;
     children:                [ "inputbar", "message", "listview" ];
 }
 
 inputbar {
     enabled:                 true;
-    spacing:                 10px;
-    padding:                 0px 0px 10px 0px;
+    spacing:                 20px;  /* Doubled from 10px */
+    padding:                 0px 0px 20px 0px;  /* Doubled from 10px */
     border:                  0px;
     border-radius:           0px;
     border-color:            @accent;
@@ -55,7 +55,7 @@ inputbar {
 
 prompt {
     enabled:                 true;
-    padding:                 10px;
+    padding:                 20px;  /* Doubled from 10px */
     border-radius:           0px;
     background-color:        @accent;
     text-color:              @bg;
@@ -64,9 +64,9 @@ prompt {
 
 message {
     enabled:                 true;
-    margin:                  0px 0px 15px 0px;
-    padding:                 10px;
-    border:                  1px solid;
+    margin:                  0px 0px 30px 0px;  /* Doubled from 15px */
+    padding:                 20px;  /* Doubled from 10px */
+    border:                  2px solid;  /* Doubled from 1px */
     border-radius:           0px;
     border-color:            @bg-darker;
     background-color:        @bg-alt;
@@ -89,13 +89,13 @@ listview {
     dynamic:                 true;
     scrollbar:               false;
     layout:                  vertical;
-    spacing:                 10px;
+    spacing:                 20px;  /* Doubled from 10px */
     background-color:        transparent;
 }
 
 element {
-    padding:                 15px;
-    border:                  1px solid;
+    padding:                 30px;  /* Doubled from 15px */
+    border:                  2px solid;  /* Doubled from 1px */
     border-color:            @bg-darker;
     background-color:        @bg-darker;
     text-color:              @fg;
