@@ -208,6 +208,10 @@ for_window [app_id="pavucontrol"] border pixel 0, floating enable, resize 35% 35
 for_window [app_id="rofimoji"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
 for_window [app_id="rofi"] border pixel 0, floating enable, resize 35% 35%, move 63% 60%
 
+# Touch gestures
+exec_always --no-startup-id ~/.config/scroll/lisgd-start --device="ELAN9008:00 04F3:425A"
+exec_always --no-startup-id ~/.config/scroll/lisgd-start --device="ELAN9008:00 04F3:425B"
+
 # Input Devices
 input type:touchpad {
     dwt enabled
@@ -241,10 +245,6 @@ swipe:5:down   scale_content incr -0.05
 pinch:5:outward   scale_workspace incr 0.1
 pinch:5:inward    scale_workspace incr -0.1
 }
-
-# Auto-start lisgd for each ELAN touchscreen
-#exec_always --no-startup-id ~/.config/sway/lisgd-start --device="ELAN9008:00 04F3:425A"
-#exec_always --no-startup-id ~/.config/sway/lisgd-start --device="ELAN9008:00 04F3:425B"
 
 # Animations
 animations {

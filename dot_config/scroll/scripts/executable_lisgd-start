@@ -35,8 +35,9 @@ devnode="/dev/input/$handler"
 
 # Launch lisgd with uniform edge-gesture bindings
 exec lisgd -d "$devnode" \
-    -g "1,LR,L,*,R,swaymsg workspace next" \
-    -g "1,RL,R,*,R,swaymsg workspace prev" \
-    -g "1,DU,T,*,R,exec bemenu-run" \
-    -g "1,UD,B,*,R,swaymsg kill" \
+    -g "1,LR,L,*,*,scrollmsg jump" \
+    -g "1,RL,R,*,*,scrollmsg jump" \
+    -g "1,DU,T,*,*,scrollmsg scale_workspace incr -0.1" \
+    -g "1,UD,B,*,*,scrollmsg scale_workspace incr 0.1
+" \
     -t 80 -v
