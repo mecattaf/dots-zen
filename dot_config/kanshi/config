@@ -5,8 +5,8 @@ profile Thinkpad {
 }
 
 profile Duo {
-    output eDP-1 scale 1 position 0,0   adaptive_sync on
-    output eDP-2 scale 1 position 0,1800 adaptive_sync on
+    output eDP-1 scale 2 position 0,0   adaptive_sync on
+    output eDP-2 scale 2 position 0,900 adaptive_sync on
     exec busctl --user set-property rs.wl-gammarelay /outputs/eDP_1 rs.wl.gammarelay Temperature q 3850
     exec busctl --user set-property rs.wl-gammarelay /outputs/eDP_2 rs.wl.gammarelay Temperature q 3350
     exec scrollmsg input "1267:16986:ELAN9009:00_04F3:425A" map_to_output eDP-2
