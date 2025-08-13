@@ -28,7 +28,7 @@ exec_always  {
         gsettings set $gnome-schema cursor-theme 'Bibata-Modern-Classic'
         gsettings set $gnome-schema color-scheme 'prefer-dark'
         gsettings set $gnome-schema cursor-size '48'
-        gsettings set $gnome-schema text-scaling-factor '2.0'
+        gsettings set $gnome-schema text-scaling-factor '1.0'
         gsettings set $gnome-schema gtk-theme 'Catppuccin-Noir-Standard-Green-Dark'
         gsettings set org.gnome.desktop.interface.wm.preferences theme 'Catppuccin-Noir-Standard-Green-Dark'
         gsettings set org.gnome.desktop.wm.preferences button-layout ""
